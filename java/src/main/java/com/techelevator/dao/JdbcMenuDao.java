@@ -1,37 +1,43 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Food;
+import com.techelevator.model.Menu;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class JdbcFoodDao implements FoodDao{
+public class JdbcMenuDao implements MenuDao {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcFoodDao(JdbcTemplate jdbcTemplate) {
+    public JdbcMenuDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public Food showFoodItem(int id) {
+    public List<Food> getAllFood() {
         return null;
     }
 
     @Override
-    public Food addFoodItem(Food food) {
+    public List<Food> getByCategory(int categoryId) {
         return null;
     }
 
     @Override
-    public Food updateFoodItem(Food food) {
+    public List<Menu> getFavoritedMenus() {
         return null;
     }
 
     @Override
-    public List<Food> listAllFood() {
+    public Menu updateMenu(Menu menu) {
+        return null;
+    }
+
+    @Override
+    public Menu createMenu(Menu menu) {
         return null;
     }
 }

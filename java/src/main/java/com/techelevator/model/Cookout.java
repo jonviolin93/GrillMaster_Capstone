@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 public class Cookout {
     private int id;
@@ -10,18 +11,20 @@ public class Cookout {
     private LocalTime time;
     private String location;
     private String description;
+    private List<User> attendees;
     private int menuId;
 
     public Cookout() {
     }
 
-    public Cookout(int id, String name, LocalDate date, LocalTime time, String location, String description, int menuId) {
+    public Cookout(int id, String name, LocalDate date, LocalTime time, String location, String description, List<User> attendees, int menuId) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.time = time;
         this.location = location;
         this.description = description;
+        this.attendees = attendees;
         this.menuId = menuId;
     }
 
@@ -71,6 +74,14 @@ public class Cookout {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<User> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<User> attendees) {
+        this.attendees = attendees;
     }
 
     public int getMenuId() {

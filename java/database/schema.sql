@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -79,6 +79,7 @@ CREATE TABLE cookout_order(
 	order_id serial,
 	user_id int not null,
 	is_complete boolean DEFAULT false,
+	order_time time not null,
 	CONSTRAINT PK_order PRIMARY KEY (order_id),
 	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
