@@ -47,22 +47,22 @@ CREATE TABLE cookout(
 	CONSTRAINT FK_menu FOREIGN KEY(menu_id) REFERENCES menu(menu_id)
 );
 
-DROP TABLE IF EXISTS role CASCADE;
-CREATE TABLE role(
-	role_id serial,
+DROP TABLE IF EXISTS duty CASCADE;
+CREATE TABLE duty(
+	duty_id serial,
 	name varchar(15),
-	CONSTRAINT PK_role PRIMARY KEY (role_id)
+	CONSTRAINT PK_duty PRIMARY KEY (duty_id)
 );
 
 DROP TABLE IF EXISTS user_cookout CASCADE;
 CREATE TABLE user_cookout(
 	user_id int,
 	cookout_id int,
-	role_id int,
-	PRIMARY KEY(user_id, cookout_id, role_id),
+	duty_id int,
+	PRIMARY KEY(user_id, cookout_id, duty_id),
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_cookout FOREIGN KEY (cookout_id) REFERENCES cookout(cookout_id),
-	CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES role(role_id)
+	CONSTRAINT FK_duty FOREIGN KEY (duty_id) REFERENCES duty(duty_id)
 );
 	
 
@@ -102,8 +102,8 @@ INSERT INTO food_category(name) VALUES ('Alcohol');
 INSERT INTO food_category(name) VALUES ('Soft Drink');
 INSERT INTO food_category(name) VALUES ('Dessert');	
 
-INSERT INTO role(name) VALUES ('Host');	
-INSERT INTO role(name) VALUES ('Grill Master');	
-INSERT INTO role(name) VALUES ('Attendee');	
+INSERT INTO duty(name) VALUES ('Host');	
+INSERT INTO duty(name) VALUES ('Grill Master');	
+INSERT INTO duty(name) VALUES ('Attendee');	
 
 COMMIT TRANSACTION;
