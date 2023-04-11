@@ -6,16 +6,12 @@ import java.util.List;
 
 public interface OrderDao {
 
-    Order createOrder(Order order);
+    int createOrder(Order order, int cookoutId);
 
     Order getOrderById(int id);
 
     List<Order> ordersList(int cookoutId);
 
-    Order completeOrder(int id);
-
-    Order updateOrder(Order order);
-
-    Order deleteOrder(int id);
+    void completeOrder(int id);
 
 }

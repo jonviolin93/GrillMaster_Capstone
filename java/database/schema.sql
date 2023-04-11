@@ -92,6 +92,7 @@ DROP TABLE IF EXISTS order_food CASCADE;
 CREATE TABLE order_food(
 	order_id int not null,
 	food_id int not null,
+	quantity int not null DEFAULT 1,
 	CONSTRAINT FK_order FOREIGN KEY(order_id) REFERENCES cookout_order(order_id),
 	CONSTRAINT FK_food FOREIGN KEY(food_id) REFERENCES food(food_id)
 );

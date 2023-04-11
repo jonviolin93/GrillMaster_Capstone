@@ -6,15 +6,17 @@ public class Food {
     private String name;
     private String img;
     private String category;
+    private int quantity;
 
     public Food() {
     }
 
-    public Food(int id, String name, String img, String category) {
+    public Food(int id, String name, String img, String category, int quantity) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.category = category;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -47,5 +49,13 @@ public class Food {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
