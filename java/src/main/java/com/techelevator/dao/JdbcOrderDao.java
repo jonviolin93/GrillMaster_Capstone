@@ -1,9 +1,14 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Cookout;
+import com.techelevator.model.Food;
 import com.techelevator.model.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -15,32 +20,93 @@ public class JdbcOrderDao implements OrderDao {
     }
 
     @Override
-    public Order createOrder(Order order) {
-        return null;
+    public int createOrder(Order order, int cookoutId) {
+        String sql = "INSERT INTO cookout_order (cookout_id, user_id, order_time) " +
+                "VALUES(?, ?, ?) " +
+                "RETURNING order_id;";
+        int orderId = jdbcTemplate.update(sql, cookoutId, order.getUserId(), LocalTime.now());
+        for (int i = 0; i < order.getFoodList().size(); i++) {
+            insertFoodIntoOrder(orderId, order.getFoodList().get(i));
+        }
+        return orderId;
+    }
+
+    private void insertFoodIntoOrder(int orderId, Food food){
+        String sql = "INSERT INTO order_food (order_id, food_id, quantity) " +
+                "VALUES (?, (SELECT food_id FROM food WHERE name = ?), ?);";
+
+        jdbcTemplate.update(sql, orderId, food.getName(), food.getQuantity());
     }
 
     @Override
     public Order getOrderById(int id) {
-        return null;
+        String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
+                "FROM cookout_order " +
+                "WHERE order_id = ?;";
+
+        Order order = null;
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        if(results.next()){
+            order = mapRowToOrder(results);
+        }
+        return order;
     }
 
     @Override
     public List<Order> ordersList(int cookoutId) {
-        return null;
+        String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
+                "FROM cookout_order " +
+                "WHERE cookout_id = ?;";
+
+        List<Order> orderList = null;
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cookoutId);
+        while(results.next()){
+            orderList.add(mapRowToOrder(results));
+        }
+        return orderList;
     }
 
     @Override
-    public Order completeOrder(int id) {
-        return null;
+    public void completeOrder(int id) {
+        String sql = "UPDATE cookout_order SET is_complete = true " +
+                "WHERE order_id = ?";
+        jdbcTemplate.update(sql, id);
+    }
+    
+    private List<Food> listFoodByOrderId(int orderId){
+        String sql = "SELECT food.food_id, food.name, image, food_category.name, quantity " +
+                "FROM food " +
+                "JOIN order_food ON order_food.food_id = food.food_id " +
+                "JOIN food_category ON food_category.category_id = food.category_id " +
+                "WHERE order_id = ?;";
+        List<Food> foodList = new ArrayList<>();
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, orderId);
+        while(results.next()){
+            foodList.add(mapRowToFood(results));
+        }
+        return foodList;
     }
 
-    @Override
-    public Order updateOrder(Order order) {
-        return null;
+    private Food mapRowToFood(SqlRowSet rowSet){
+        Food food = new Food();
+        food.setId(rowSet.getInt("food_id"));
+        food.setName(rowSet.getString("name"));
+        food.setImg(rowSet.getString("image"));
+        food.setCategory(rowSet.getString("name"));
+        food.setQuantity(rowSet.getInt("quantity"));
+
+        return food;
     }
 
-    @Override
-    public Order deleteOrder(int id) {
-        return null;
+    private Order mapRowToOrder(SqlRowSet rowSet) {
+        Order order = new Order();
+        int orderId = rowSet.getInt("order_id");
+        order.setId(orderId);
+        order.setUserId(rowSet.getInt("user_id"));
+        order.setComplete(rowSet.getBoolean("is_complete"));
+        order.setTime(rowSet.getTime("order_time").toLocalTime());
+        order.setFoodList(listFoodByOrderId(orderId));
+
+        return order;
     }
 }
