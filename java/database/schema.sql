@@ -70,8 +70,10 @@ DROP TABLE IF EXISTS food_menu CASCADE;
 CREATE TABLE food_menu(
 	food_id int NOT NULL,
 	menu_id int NOT NULL,
+	user_id int NOT NULL,
 	CONSTRAINT FK_food FOREIGN KEY(food_id) REFERENCES food(food_id),
-	CONSTRAINT FK_menu FOREIGN KEY(menu_id) REFERENCES menu(menu_id)
+	CONSTRAINT FK_menu FOREIGN KEY(menu_id) REFERENCES menu(menu_id),
+	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
 
 DROP TABLE IF EXISTS cookout_order CASCADE;
