@@ -19,27 +19,67 @@ public class JdbcCookoutDao implements CookoutDao{
     }
 
     @Override
-    public Cookout createNewCookout(Cookout cookout) {
-        return null;
+    public int createNewCookout(Cookout cookout) {
+        String sql = "INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id) " +
+                "VALUES (?, ?, ?, ?, ?, ?)" +
+                "RETURNING cookout_id;";
+        int cookoutId = jdbcTemplate.update(sql, cookout.getName(), cookout.getDate(),
+                cookout.getTime(), cookout.getLocation(), cookout.getDescription(), cookout.getMenuId());
+        for (int i = 0; i < cookout.getAttendees().size(); i++) {
+            insertUsersToCookout(cookoutId, cookout.getAttendees().get(i));
+        }
+        return cookoutId;
+    }
+
+    private void insertUsersToCookout(int cookoutId, User user) {
+        String sql = "INSERT INTO user_cookout (user_id, cookout_id, duty_id) " +
+                "VALUES ((SELECT user_id FROM user WHERE username = ?), ?, " +
+                "(SELECT duty_id FROM duty WHERE name = ?));";
+        jdbcTemplate.update(sql, user.getUsername(), cookoutId, user.getDuty());
     }
 
     @Override
-    public Cookout updateCookout(Cookout cookout) {
-        return null;
+    public void updateCookout(Cookout cookout) {
+        String sql = "UPDATE cookout " +
+                "SET name = ?, cookout_date = ?, cookout_time = ?, location = ?, description = ?, menu_id = ? " +
+                "WHERE cookout_id = ?;";
+        jdbcTemplate.update(sql, cookout.getName(), cookout.getDate(),
+                cookout.getTime(), cookout.getLocation(), cookout.getDescription(), cookout.getMenuId(), cookout.getId());
+        deleteCookoutUsers(cookout.getId());
+        for (int i = 0; i < cookout.getAttendees().size(); i++) {
+            insertUsersToCookout(cookout.getId(), cookout.getAttendees().get(i));
+        }
+    }
+
+    private void deleteCookoutUsers(int cookoutId) {
+        String sql = "DELETE FROM user_cookout" +
+                "WHERE cookout_id = ?;";
+        jdbcTemplate.update(sql, cookoutId);
     }
 
     @Override
-    public Cookout deleteCookout(int id) {
-        return null;
+    public void deleteCookout(int id) {
+        String sql = "DELETE FROM cookout " +
+                "WHERE cookout_id = ?;";
     }
 
     @Override
     public Cookout showCookoutDetails(int id, int userId) {
-        return null;
+        String sql = "SELECT cookout_id, name, cookout_date, cookout_time, location, description, menu_id " +
+                "FROM cookout " +
+                "WHERE cookout_id = ? AND cookout_id IN " +
+                "(SELECT cookout_id FROM user_cookout WHERE user_id = ?);";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id, userId);
+        if (results.next()) {
+            return mapRowToCookout(results);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public List<Cookout> listCookouts(int userId) {
+        List<Cookout> cookouts = new ArrayList<>();
         String sql = "SELECT cookout_id, name, cookout_date, cookout_time, location, description, menu_id " +
                 "FROM cookout " +
                 "WHERE cookout_date >= CURRENT_DATE AND cookout_id IN " +
@@ -47,10 +87,9 @@ public class JdbcCookoutDao implements CookoutDao{
                 "ORDER BY cookout_date, cookout_time;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-
+            cookouts.add(mapRowToCookout(results));
         }
-
-        return null;
+        return cookouts;
     }
 
     private List<User> listUsersByCookoutId(int cookoutId){
@@ -62,10 +101,10 @@ public class JdbcCookoutDao implements CookoutDao{
                 "JOIN cookout ON cookout.cookout_id = user_cookout.cookout_id " +
                 "WHERE cookout.cookout_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cookoutId);
-//        while (results.next()) {
-//            users.add(results);
-//        }
-        return null;
+        while (results.next()) {
+            users.add(mapRowToUser(results));
+        }
+        return users;
     }
 
     @Override
@@ -83,7 +122,17 @@ public class JdbcCookoutDao implements CookoutDao{
         cookout.setLocation(rowSet.getString("location"));
         cookout.setDescription(rowSet.getString("description"));
         List<User> users = listUsersByCookoutId(cookoutId);
-        return null;
+        cookout.setAttendees(users);
+        cookout.setMenuId(rowSet.getInt("menu_id"));
+        return cookout;
+    }
+
+    private User mapRowToUser(SqlRowSet rowSet) {
+        User user = new User();
+        user.setId(rowSet.getInt("user_id"));
+        user.setUsername(rowSet.getString("username"));
+        user.setDuty(rowSet.getString("duty"));
+        return user;
     }
 
     //TODO: map row to users

@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface CookoutDao {
 
-    Cookout createNewCookout(Cookout cookout);
+    int createNewCookout(Cookout cookout);
 
-    Cookout updateCookout(Cookout cookout);
+    void updateCookout(Cookout cookout);
 
-    Cookout deleteCookout(int id);
+    void deleteCookout(int id);
 
     Cookout showCookoutDetails(int id, int userId);
 
