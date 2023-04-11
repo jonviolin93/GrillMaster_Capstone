@@ -79,11 +79,13 @@ CREATE TABLE food_menu(
 DROP TABLE IF EXISTS cookout_order CASCADE;
 CREATE TABLE cookout_order(
 	order_id serial,
-	user_id int not null,
+	cookout_id int NOT NULL,
+	user_id int NOT NULL,
 	is_complete boolean DEFAULT false,
 	order_time time not null,
 	CONSTRAINT PK_order PRIMARY KEY (order_id),
-	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
+	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_cookout FOREIGN KEY(cookout_id) REFERENCES cookout(cookout_id)
 );
 
 DROP TABLE IF EXISTS order_food CASCADE;
