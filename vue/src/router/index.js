@@ -5,7 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-
+import HostCookout from '../views/HostCookout.vue'
+import CookoutInfo from '../views/CookoutInfo.vue'
+import ChefShortOrder from '../views/ChefShortOrder.vue'
 Vue.use(Router)
 
 /**
@@ -52,7 +54,30 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+  {
+      path: "/host-cookout",
+      name: "host-cookout",
+      component: HostCookout,
+      meta: {
+      requiresAuth: true
+      }
+  },
+    {  path: "/cookout-info",
+       name: "cookout-info",
+      component: CookoutInfo,
+    meta: {
+      requiresAuth: true
     }
+  },
+  {
+    path: "/short-order",
+    name: "short-order",
+    component: ChefShortOrder,
+    meta: {
+      requiresAuth: true
+    }
+  }
   ]
 })
 
