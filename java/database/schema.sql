@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS food CASCADE;
 CREATE TABLE food (
 	food_id serial,
 	name varchar(50) NOT NULL,
-	image varchar(250),
+	image varchar(250) DEFAULT '',
 	category_id int NOT NULL,
 	CONSTRAINT PK_food PRIMARY KEY(food_id),
 	CONSTRAINT FK_category FOREIGN KEY(category_id) REFERENCES food_category(category_id)
@@ -30,6 +30,7 @@ CREATE TABLE food (
 DROP TABLE IF EXISTS menu CASCADE;
 CREATE TABLE menu(
 	menu_id serial,
+	name varchar(50) NOT NULL,
 	is_favorited boolean DEFAULT false,
 	CONSTRAINT PK_menu PRIMARY KEY (menu_id)
 );
@@ -70,10 +71,10 @@ DROP TABLE IF EXISTS food_menu CASCADE;
 CREATE TABLE food_menu(
 	food_id int NOT NULL,
 	menu_id int NOT NULL,
-	user_id int NOT NULL,
+	added_by_id int NOT NULL,
 	CONSTRAINT FK_food FOREIGN KEY(food_id) REFERENCES food(food_id),
 	CONSTRAINT FK_menu FOREIGN KEY(menu_id) REFERENCES menu(menu_id),
-	CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
+	CONSTRAINT FK_user FOREIGN KEY(added_by_id) REFERENCES users(user_id)
 );
 
 DROP TABLE IF EXISTS cookout_order CASCADE;
@@ -99,9 +100,8 @@ CREATE TABLE order_food(
 
 INSERT INTO food_category(name) VALUES ('Main');
 INSERT INTO food_category(name) VALUES ('Side');
-INSERT INTO food_category(name) VALUES ('Alcohol');
-INSERT INTO food_category(name) VALUES ('Soft Drink');
 INSERT INTO food_category(name) VALUES ('Dessert');	
+INSERT INTO food_category(name) VALUES ('Drink');
 
 INSERT INTO duty(name) VALUES ('Host');	
 INSERT INTO duty(name) VALUES ('Grill Master');	

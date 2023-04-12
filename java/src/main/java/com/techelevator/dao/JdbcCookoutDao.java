@@ -108,8 +108,18 @@ public class JdbcCookoutDao implements CookoutDao{
     }
 
     @Override
-    public List<Cookout> listCookoutsByRole(int userId, String role) {
-        return null;
+    public List<Cookout> listCookoutsByRole(int userId, int dutyId) {
+        List<Cookout> cookouts = new ArrayList<>();
+        String sql = "SELECT cookout_id, name, cookout_date, cookout_time, location, description, menu_id " +
+                "FROM cookout " +
+                "WHERE cookout_date >= CURRENT_DATE AND cookout_id IN " +
+                "(SELECT cookout_id FROM user_cookout WHERE user_id = ? AND duty_id = ?) " +
+                "ORDER BY cookout_date, cookout_time;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, dutyId);
+        while (results.next()) {
+            cookouts.add(mapRowToCookout(results));
+        }
+        return cookouts;
     }
 
     private Cookout mapRowToCookout(SqlRowSet rowSet) {
@@ -134,6 +144,4 @@ public class JdbcCookoutDao implements CookoutDao{
         user.setDuty(rowSet.getString("duty"));
         return user;
     }
-
-    //TODO: map row to users
 }

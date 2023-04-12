@@ -7,11 +7,9 @@ import java.util.List;
 
 public interface MenuDao {
 
-    List<Food> getAllFood();
+    List<Food> getFoodFromMenu(int menuId);
 
-    List<Food> getByCategory(int categoryId);
-
-    List<Menu> getFavoritedMenus();
+    List<Menu> getFavoritedMenus(int hostId);
 
     Menu updateMenu(Menu menu);
 

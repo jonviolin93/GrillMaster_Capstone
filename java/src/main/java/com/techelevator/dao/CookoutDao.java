@@ -16,5 +16,5 @@ public interface CookoutDao {
 
     List<Cookout> listCookouts(int userId);
 
-    List<Cookout> listCookoutsByRole(int userId, String role);
+    List<Cookout> listCookoutsByRole(int userId, int dutyId);
 }
