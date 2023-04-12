@@ -6,16 +6,16 @@ public class Menu {
 
     private int id;
     private String name;
-    private boolean isFavorited;
+    private boolean favorited;
     private List<Food> foodItems;
 
     public Menu() {
     }
 
-    public Menu(int id, String name, boolean isFavorited, List<Food> foodItems) {
+    public Menu(int id, String name, boolean favorited, List<Food> foodItems) {
         this.id = id;
         this.name = name;
-        this.isFavorited = isFavorited;
+        this.favorited = favorited;
         this.foodItems = foodItems;
     }
 
@@ -36,11 +36,11 @@ public class Menu {
     }
 
     public boolean isFavorited() {
-        return isFavorited;
+        return favorited;
     }
 
     public void setFavorited(boolean favorited) {
-        isFavorited = favorited;
+        this.favorited = favorited;
     }
 
     public List<Food> getFoodItems() {

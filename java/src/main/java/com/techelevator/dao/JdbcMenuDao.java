@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Food;
 import com.techelevator.model.Menu;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -50,13 +51,40 @@ public class JdbcMenuDao implements MenuDao {
     }
 
     @Override
-    public Menu updateMenu(Menu menu) {
-        return null;
+    public void updateMenu(Menu menu, User user) {
+        String sql = "UPDATE menu (name, is_favorited)" +
+                "SET name = ?, is_favorited = ? " +
+                "WHERE menu_id = ?";
+        jdbcTemplate.update(sql, menu.getName(), menu.isFavorited(), menu.getId());
+        deleteFoodFromMenu(menu.getId());
+        for (int i = 0; i < menu.getFoodItems().size(); i++) {
+            addFoodToMenu(menu.getFoodItems().get(i), menu.getId(), user.getId());
+        }
+    }
+
+    private void deleteFoodFromMenu(int menuId){
+        String sql = "DELETE FROM food_menu " +
+                "WHERE menu_id = ?";
+        jdbcTemplate.update(sql, menuId);
+    }
+
+    private void addFoodToMenu(Food food, int menuId, int userId){
+        String sql = "INSERT INTO food_menu (food_id, menu_id, added_by_id) " +
+                "VALUES (?, ?, ?);";
+
+        jdbcTemplate.update(sql, food.getId(), menuId, userId);
     }
 
     @Override
-    public Menu createMenu(Menu menu) {
-        return null;
+    public int createMenu(Menu menu, User user) {
+        String sql = "INSERT INTO menu(name, is_favorited) " +
+                "VALUES (?, ?) " +
+                "RETURNING menu_id";
+        Integer menuId = jdbcTemplate.queryForObject(sql, Integer.class, menu.getName(), menu.isFavorited());
+        for (int i = 0; i < menu.getFoodItems().size(); i++) {
+            addFoodToMenu(menu.getFoodItems().get(i), menu.getId(), user.getId());
+        }
+        return menuId;
     }
 
     private Food mapRowToFood(SqlRowSet rowSet) {

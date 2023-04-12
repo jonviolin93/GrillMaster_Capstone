@@ -17,6 +17,7 @@ public class JdbcFoodDao implements FoodDao{
 
     @Override
     public Food showFoodItem(int id) {
+        String sql = "";
         return null;
     }
 

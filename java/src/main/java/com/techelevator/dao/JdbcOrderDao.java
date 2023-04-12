@@ -72,7 +72,7 @@ public class JdbcOrderDao implements OrderDao {
                 "WHERE order_id = ?";
         jdbcTemplate.update(sql, id);
     }
-    
+
     private List<Food> listFoodByOrderId(int orderId){
         String sql = "SELECT food.food_id, food.name, image, food_category.name, quantity " +
                 "FROM food " +

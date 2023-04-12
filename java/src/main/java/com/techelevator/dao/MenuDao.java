@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Food;
 import com.techelevator.model.Menu;
+import com.techelevator.model.User;
 
 import java.util.List;
 
@@ -11,8 +12,8 @@ public interface MenuDao {
 
     List<Menu> getFavoritedMenus(int hostId);
 
-    Menu updateMenu(Menu menu);
+    void updateMenu(Menu menu, User user);
 
-    Menu createMenu(Menu menu);
+    int createMenu(Menu menu, User user);
 
 }
