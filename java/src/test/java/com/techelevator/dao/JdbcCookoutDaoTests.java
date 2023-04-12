@@ -10,16 +10,27 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JdbcCookoutDaoTests extends BaseDaoTests{
-    List<User> attendees = new ArrayList<>();
-    User User_1 = new User(1, "user1", "user1", "user");
-    User User_2 = new User(2, "user2", "user2", "user");
-    User User_3 = new User(3, "user3", "user3", "user");
 
-    protected final Cookout Cookout_1 = new Cookout(30, "Jonathan's B-Day!", LocalDate.of(2023, 04, 12),
-            LocalTime.of(12, 00), "Jonathan's Backyard", "It's a birthday in a backyard", attendees, 3);
+    private final User User_1 = new User(1, "user1", "user1", "user");
+    private final User User_2 = new User(2, "user2", "user2", "user");
+    private final User User_3 = new User(3, "user3", "user3", "user");
+
+    private List<User> attendees = Arrays.asList(User_1, User_2, User_3);
+
+    private final Cookout COOKOUT_1 = new Cookout(1, "Jonathan's B-Day!", LocalDate.of(2023, 04, 12),
+            LocalTime.of(12, 00), "Jonathan's Backyard", "It's a birthday in a backyard", attendees, 1);
+    private final Cookout COOKOUT_2 = new Cookout(2, "Meli's B-Day!", LocalDate.of(2023, 05, 13),
+            LocalTime.of(12, 00), "DisneyWorld", "It's a Small World After All", attendees, 1);
+    private final Cookout COOKOUT_3 = new Cookout(3, "Ellis's B-Day!", LocalDate.of(2023, 06, 17),
+            LocalTime.of(12, 00), "NASA Space Station", "To Infinity and Beyond", attendees, 1);
+    private final Cookout COOKOUT_4 = new Cookout(4, "Cameron's B-Day!", LocalDate.of(2023, 10, 5),
+            LocalTime.of(12, 00), "Pentagon", "Everyone bring five items", attendees, 1);
+    private final Cookout COOKOUT_5 = new Cookout(5, "Red's B-Day!", LocalDate.of(2023, 12, 31),
+            LocalTime.of(12, 00), "Barbershop", "Check out that Doo", attendees, 1);
 
     private JdbcCookoutDao sut;
     private Cookout testCookout;
@@ -31,28 +42,30 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         testCookout = new Cookout();
     }
 
-   /* @Test
-    public void createNewCookoutCreatesCookout() {
-        //Arrange
-        int createdCookout = sut.createNewCookout(testCookout);
-        //Assert
-        int newCookoutId = createdCookout.getCookoutId();
-        //Act
-    }*/
-
     @Test
+    public void createNewCookout_creates_cookout_with_id_and_expected_values() {
+
+        int createdCookoutId = sut.createNewCookout(COOKOUT_5);
+
+        Cookout retrievedCookout = sut.showCookoutDetails(createdCookoutId, 1);
+
+        assertCookoutsMatch(COOKOUT_5, retrievedCookout);
+    }
+
+   /* @Test
     public void showCookoutDetailsShowsDetails() {
         //Arrange
-        /*attendees.add(User_1);
+
+        Cookout cookout = sut.showCookoutDetails(1, 1);
         Cookout expected =
                 (30, "Jonathan's B-Day!", LocalDate.of(2023, 04, 12),
                 LocalTime.of(12, 00), "Jonathan's Backyard", "It's a birthday in a backyard", 3);
         //Act
         Cookout actual = sut.showCookoutDetails(30, 1);
         //Assert
-        Assert.assertEquals(expected, actual);*/
+        Assert.assertEquals(expected, actual);
     }
-
+*/
     @Test
     public void listCookoutsListsCookouts() {
         //Arrange
