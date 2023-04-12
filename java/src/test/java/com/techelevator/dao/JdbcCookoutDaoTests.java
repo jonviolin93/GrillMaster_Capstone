@@ -52,32 +52,37 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         assertCookoutsMatch(COOKOUT_5, retrievedCookout);
     }
 
-   /* @Test
-    public void showCookoutDetailsShowsDetails() {
+    @Test
+    public void showCookoutDetails_shows_details() {
         //Arrange
         Cookout cookout = sut.showCookoutDetails(1, 1);
-        Cookout expected =
-                (30, "Jonathan's B-Day!", LocalDate.of(2023, 04, 12),
-                LocalTime.of(12, 00), "Jonathan's Backyard", "It's a birthday in a backyard", 3);
-        //Act
-        Cookout actual = sut.showCookoutDetails(30, 1);
-        //Assert
-        Assert.assertEquals(expected, actual);
-    }*/
-    @Test
-    public void listCookoutsListsCookouts() {
-        //Arrange
 
         //Assert
+        assertCookoutsMatch(COOKOUT_1, cookout);
+    }
+    @Test
+    public void listCookouts_lists_cookouts() {
+        /*//Arrange
+        List<Cookout> cookouts = sut.listCookouts(1);
         //Act
+        //Assert
+        Assert.assertEquals(1, cookouts.size());*/
     }
 
     @Test
-    public void listUsersByCookoutListsUsers() {
+    public void listUsersByCookoutId_lists_users() {
         //Arrange
-
-        //Assert
         //Act
+        //Assert
+
+    }
+
+    @Test
+    public void listCookoutsByRole_lists_cookouts() {
+        //Arrange
+        //Act
+        //Assert
+
     }
 
     private void assertCookoutsMatch(Cookout expected, Cookout actual) {
@@ -87,6 +92,7 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         Assert.assertEquals(expected.getTime(), actual.getTime());
         Assert.assertEquals(expected.getLocation(), actual.getLocation());
         Assert.assertEquals(expected.getDescription(), actual.getDescription());
+        Assert.assertEquals(expected.getAttendees().size(), actual.getAttendees().size());
         Assert.assertEquals(expected.getMenuId(), actual.getMenuId());
     }
 }

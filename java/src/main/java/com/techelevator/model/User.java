@@ -99,8 +99,8 @@ public class User {
       return id == user.id &&
               activated == user.activated &&
               Objects.equals(username, user.username) &&
-              Objects.equals(password, user.password) &&
-              Objects.equals(authorities, user.authorities);
+              Objects.equals(password, user.password) /*&&
+              Objects.equals(authorities, user.authorities)*/;
    }
 
    @Override

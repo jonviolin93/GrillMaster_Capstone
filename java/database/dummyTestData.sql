@@ -5,7 +5,6 @@ INSERT INTO users (username,password_hash,role) VALUES ('user2','user2','ROLE_US
 INSERT INTO users (username,password_hash,role) VALUES ('user3','user3','ROLE_USER');
 
 INSERT INTO menu (name) VALUES ('test');
-SELECT * FROM menu;
 
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
     VALUES ('Jonathans B-Day!', '2023-04-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 1);
@@ -20,6 +19,17 @@ INSERT INTO user_cookout (duty_id, user_id, cookout_id)
 SELECT d.duty_id, 1, 1 FROM duty d
 WHERE d.name = 'Host';
 
+SELECT * FROM users;
+
+SELECT * FROM menu;
+
 SELECT * FROM user_cookout;
+
+SELECT * FROM cookout;
+
+SELECT cookout_id, name, cookout_date, cookout_time, location, description, menu_id 
+                FROM cookout
+                WHERE cookout_id = 1 AND cookout_id IN                 
+				(SELECT cookout_id FROM user_cookout WHERE user_id = 1);
 
 COMMIT TRANSACTION;

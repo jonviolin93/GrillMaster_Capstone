@@ -15,4 +15,13 @@ INSERT INTO cookout (name, cookout_date, cookout_time, location, description, me
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
     VALUES ('Camerons B-Day!', '2023-10-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 1);
 
+INSERT INTO user_cookout (user_id, cookout_id, duty_id)
+    VALUES (1, 1, 3);
+
+INSERT INTO user_cookout (user_id, cookout_id, duty_id)
+    VALUES (2, 1, 2);
+
+INSERT INTO user_cookout (user_id, cookout_id, duty_id)
+    VALUES (3, 1, 1);
+
 COMMIT TRANSACTION;
