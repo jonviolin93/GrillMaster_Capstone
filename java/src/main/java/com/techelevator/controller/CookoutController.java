@@ -16,4 +16,6 @@ public class CookoutController {
     public CookoutController(CookoutDao cookoutDao) {
         this.cookoutDao = cookoutDao;
     }
+
+
 }

@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/food")
 public class FoodController {
     private FoodDao foodDao;
-    private FoodService foodService;
+//    private FoodService foodService;
 
-    public FoodController(FoodDao foodDao, FoodService foodService) {
+    public FoodController(FoodDao foodDao) { //TODO Reinsert FoodService here
         this.foodDao = foodDao;
-        this.foodService = foodService;
+//        this.foodService = foodService;
     }
 }

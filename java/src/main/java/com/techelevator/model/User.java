@@ -17,6 +17,14 @@ public class User {
    private Set<Authority> authorities = new HashSet<>();
    private String duty;
 
+   public User(int id, String username, String password, String authorities, String duty) {
+      this.id = id;
+      this.username = username;
+      this.password = password;
+      if(authorities != null) this.setAuthorities(authorities);
+      this.duty = duty;
+   }
+
    public User() { }
 
    public User(int id, String username, String password, String authorities) {

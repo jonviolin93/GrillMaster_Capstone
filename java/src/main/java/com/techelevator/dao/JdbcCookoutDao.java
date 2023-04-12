@@ -21,9 +21,9 @@ public class JdbcCookoutDao implements CookoutDao{
     @Override
     public int createNewCookout(Cookout cookout) {
         String sql = "INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id) " +
-                "VALUES (?, ?, ?, ?, ?, ?)" +
+                "VALUES (?, ?, ?, ?, ?, ?) " +
                 "RETURNING cookout_id;";
-        int cookoutId = jdbcTemplate.update(sql, cookout.getName(), cookout.getDate(),
+        Integer cookoutId = jdbcTemplate.queryForObject(sql, Integer.class, cookout.getName(), cookout.getDate(),
                 cookout.getTime(), cookout.getLocation(), cookout.getDescription(), cookout.getMenuId());
         for (int i = 0; i < cookout.getAttendees().size(); i++) {
             insertUsersToCookout(cookoutId, cookout.getAttendees().get(i));
@@ -32,10 +32,10 @@ public class JdbcCookoutDao implements CookoutDao{
     }
 
     private void insertUsersToCookout(int cookoutId, User user) {
-        String sql = "INSERT INTO user_cookout (user_id, cookout_id, duty_id) " +
-                "VALUES ((SELECT user_id FROM user WHERE username = ?), ?, " +
-                "(SELECT duty_id FROM duty WHERE name = ?));";
-        jdbcTemplate.update(sql, user.getUsername(), cookoutId, user.getDuty());
+        String sql = "INSERT INTO user_cookout (duty_id, user_id, cookout_id) " +
+                "SELECT d.duty_id, ?, ? FROM duty d " +
+                "WHERE d.name = ?;";
+        jdbcTemplate.update(sql, user.getId(), cookoutId, user.getDuty());
     }
 
     @Override

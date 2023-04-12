@@ -60,7 +60,7 @@ CREATE TABLE user_cookout(
 	user_id int,
 	cookout_id int,
 	duty_id int,
-	PRIMARY KEY(user_id, cookout_id, duty_id),
+	CONSTRAINT PK_user_cookout_duty PRIMARY KEY (user_id, cookout_id, duty_id),
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_cookout FOREIGN KEY (cookout_id) REFERENCES cookout(cookout_id),
 	CONSTRAINT FK_duty FOREIGN KEY (duty_id) REFERENCES duty(duty_id)
