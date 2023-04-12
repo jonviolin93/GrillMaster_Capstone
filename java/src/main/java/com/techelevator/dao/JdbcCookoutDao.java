@@ -59,8 +59,11 @@ public class JdbcCookoutDao implements CookoutDao{
 
     @Override
     public void deleteCookout(int id) {
-        String sql = "DELETE FROM cookout " +
-                "WHERE cookout_id = ?;";
+        String sql = "DELETE FROM user_cookout " +
+                "WHERE cookout_id = ?;" +
+                "DELETE FROM cookout " +
+                "WHERE cookout_id = ?; ";
+        jdbcTemplate.update(sql, id, id);
     }
 
     @Override
