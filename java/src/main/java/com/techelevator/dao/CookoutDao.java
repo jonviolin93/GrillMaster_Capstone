@@ -8,7 +8,7 @@ public interface CookoutDao {
 
     int createNewCookout(Cookout cookout);
 
-    void updateCookout(Cookout cookout);
+    void updateCookout(Cookout cookout, int id);
 
     void deleteCookout(int id);
 

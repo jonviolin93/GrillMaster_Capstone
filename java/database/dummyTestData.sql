@@ -45,9 +45,9 @@ INSERT INTO user_cookout (user_id, cookout_id, duty_id)
 INSERT INTO user_cookout (user_id, cookout_id, duty_id)
     VALUES (3, 4, 1);
 	
-INSERT INTO user_cookout (duty_id, user_id, cookout_id)
-SELECT d.duty_id, 1, 1 FROM duty d
-WHERE d.name = 'Host';
+-- INSERT INTO user_cookout (duty_id, user_id, cookout_id)
+-- SELECT d.duty_id, 1, 1 FROM duty d
+-- WHERE d.name = 'Host';
 
 SELECT * FROM users;
 
@@ -67,4 +67,7 @@ SELECT users.user_id, username, duty.name
                 JOIN user_cookout ON users.user_id = user_cookout.user_id
                 JOIN duty ON duty.duty_id = user_cookout.duty_id
                 JOIN cookout ON cookout.cookout_id = user_cookout.cookout_id 
-                WHERE cookout.cookout_id = 1;
+                WHERE cookout.cookout_id = 1
+				ORDER BY duty.duty_id, username;
+				
+select * from users;

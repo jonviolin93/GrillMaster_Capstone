@@ -39,15 +39,15 @@ public class JdbcCookoutDao implements CookoutDao{
     }
 
     @Override
-    public void updateCookout(Cookout cookout) {
+    public void updateCookout(Cookout cookout, int id) {
         String sql = "UPDATE cookout " +
                 "SET name = ?, cookout_date = ?, cookout_time = ?, location = ?, description = ?, menu_id = ? " +
                 "WHERE cookout_id = ?;";
         jdbcTemplate.update(sql, cookout.getName(), cookout.getDate(),
-                cookout.getTime(), cookout.getLocation(), cookout.getDescription(), cookout.getMenuId(), cookout.getId());
-        deleteCookoutUsers(cookout.getId());
+                cookout.getTime(), cookout.getLocation(), cookout.getDescription(), cookout.getMenuId(), id);
+        deleteCookoutUsers(id);
         for (int i = 0; i < cookout.getAttendees().size(); i++) {
-            insertUsersToCookout(cookout.getId(), cookout.getAttendees().get(i));
+            insertUsersToCookout(id, cookout.getAttendees().get(i));
         }
     }
 

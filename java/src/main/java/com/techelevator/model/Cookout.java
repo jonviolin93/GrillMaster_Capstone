@@ -1,14 +1,18 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 public class Cookout {
     private int id;
+    @NotBlank(message = "Name must not be blank")
     private String name;
+    //TODO: add validators to date and time
     private LocalDate date;
     private LocalTime time;
+    @NotBlank(message = "Must include location")
     private String location;
     private String description;
     private List<User> attendees;

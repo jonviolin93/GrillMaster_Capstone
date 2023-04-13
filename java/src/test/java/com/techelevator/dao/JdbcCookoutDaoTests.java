@@ -115,7 +115,7 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         cookout.setDate(LocalDate.of(2027, 1, 1));
         cookout.setDescription("You won't want to miss this party!");
         cookout.setAttendees(Arrays.asList(User_1, User_2));
-        sut.updateCookout(cookout);
+        sut.updateCookout(cookout, 1);
         Cookout newCookout = sut.showCookoutDetails(1, 1);
         assertCookoutsMatch(cookout, newCookout);
     }
