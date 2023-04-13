@@ -7,8 +7,24 @@ public class Food {
     private String img;
     private String category;
     private int quantity;
+    private String addedBy;
 
     public Food() {
+    }
+
+    public Food(int id, String name, String img, String category, String addedBy) {
+        this.id = id;
+        this.name = name;
+        this.img = img;
+        this.category = category;
+        this.addedBy = addedBy;
+    }
+
+    public Food(int id, String name, String img, String category) {
+        this.id = id;
+        this.name = name;
+        this.img = img;
+        this.category = category;
     }
 
     public Food(int id, String name, String img, String category, int quantity) {
@@ -57,5 +73,13 @@ public class Food {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getAddedBy() {
+        return addedBy;
+    }
+
+    public void setAddedBy(String addedBy) {
+        this.addedBy = addedBy;
     }
 }

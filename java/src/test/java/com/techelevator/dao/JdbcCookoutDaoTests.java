@@ -26,9 +26,9 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
     private final Cookout COOKOUT_2 = new Cookout(2, "Melis B-Day!", LocalDate.of(2028, 05, 13),
             LocalTime.of(12, 00), "DisneyWorld", "Its a Small World After All", attendees, 1);
     private final Cookout COOKOUT_3 = new Cookout(3, "Elliss B-Day!", LocalDate.of(2028, 06, 17),
-            LocalTime.of(12, 00), "NASA Space Station", "To Infinity and Beyond", attendees, 1);
+            LocalTime.of(12, 00), "NASA Space Station", "To Infinity and Beyond", attendees, 2);
     private final Cookout COOKOUT_4 = new Cookout(4, "Camerons B-Day!", LocalDate.of(2028, 10, 5),
-            LocalTime.of(12, 00), "Pentagon", "Everyone bring five items", attendees, 1);
+            LocalTime.of(12, 00), "Pentagon", "Everyone bring five items", attendees, 3);
     private final Cookout COOKOUT_5 = new Cookout(5, "Reds B-Day!", LocalDate.of(2028, 12, 31),
             LocalTime.of(12, 00), "Barbershop", "Check out that Doo", attendees, 1);
 

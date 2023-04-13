@@ -12,8 +12,9 @@ public interface MenuDao {
 
     List<Menu> getFavoritedMenus(int hostId);
 
-    void updateMenu(Menu menu, User user);
+    void updateMenu(Menu menu, String username, int userId, int id);
 
-    int createMenu(Menu menu, User user);
+    int createMenu(Menu menu, int userId);
 
+    Menu getMenuById(int id);
 }
