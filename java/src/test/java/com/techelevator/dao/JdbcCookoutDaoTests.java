@@ -72,10 +72,9 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         assertCookoutsMatch(COOKOUT_2, cookouts.get(1));
         assertCookoutsMatch(COOKOUT_3, cookouts.get(2));
         assertCookoutsMatch(COOKOUT_4, cookouts.get(3));
-        //TODO: fix assertions below:
-//        Assert.assertEquals("Attendee", cookouts.get(0).getAttendees().get(0).getDuty());
-//        Assert.assertEquals("Grill Master", cookouts.get(0).getAttendees().get(1).getDuty());
-//        Assert.assertEquals("Host", cookouts.get(0).getAttendees().get(2).getDuty());
+        Assert.assertEquals("Host", cookouts.get(0).getAttendees().get(0).getDuty());
+        Assert.assertEquals("Grill Master", cookouts.get(0).getAttendees().get(1).getDuty());
+        Assert.assertEquals("Attendee", cookouts.get(0).getAttendees().get(2).getDuty());
     }
 
     @Test
@@ -109,7 +108,17 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         Assert.assertEquals(3, newCookouts.size());
     }
 
-    //TODO: create update Test
+    @Test
+    public void updateCookout_updates_cookout_and_users() {
+        Cookout cookout = sut.showCookoutDetails(1, 1);
+        cookout.setName("Birthday Bash");
+        cookout.setDate(LocalDate.of(2027, 1, 1));
+        cookout.setDescription("You won't want to miss this party!");
+        cookout.setAttendees(Arrays.asList(User_1, User_2));
+        sut.updateCookout(cookout);
+        Cookout newCookout = sut.showCookoutDetails(1, 1);
+        assertCookoutsMatch(cookout, newCookout);
+    }
 
     private void assertCookoutsMatch(Cookout expected, Cookout actual) {
         Assert.assertEquals(expected.getId(), actual.getId());

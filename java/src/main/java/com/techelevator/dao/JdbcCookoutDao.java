@@ -52,7 +52,7 @@ public class JdbcCookoutDao implements CookoutDao{
     }
 
     private void deleteCookoutUsers(int cookoutId) {
-        String sql = "DELETE FROM user_cookout" +
+        String sql = "DELETE FROM user_cookout " +
                 "WHERE cookout_id = ?;";
         jdbcTemplate.update(sql, cookoutId);
     }
@@ -97,12 +97,13 @@ public class JdbcCookoutDao implements CookoutDao{
 
     private List<User> listUsersByCookoutId(int cookoutId){
         List<User> users = new ArrayList<>();
-        String sql = "SELECT users.user_id, username, duty " +
+        String sql = "SELECT users.user_id, username, duty.name " +
                 "FROM users " +
                 "JOIN user_cookout ON users.user_id = user_cookout.user_id " +
                 "JOIN duty ON duty.duty_id = user_cookout.duty_id " +
                 "JOIN cookout ON cookout.cookout_id = user_cookout.cookout_id " +
-                "WHERE cookout.cookout_id = ?;";
+                "WHERE cookout.cookout_id = ? " +
+                "ORDER BY duty.duty_id, username;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cookoutId);
         while (results.next()) {
             users.add(mapRowToUser(results));
@@ -144,7 +145,7 @@ public class JdbcCookoutDao implements CookoutDao{
         User user = new User();
         user.setId(rowSet.getInt("user_id"));
         user.setUsername(rowSet.getString("username"));
-        user.setDuty(rowSet.getString("duty"));
+        user.setDuty(rowSet.getString("name"));
         return user;
     }
 }
