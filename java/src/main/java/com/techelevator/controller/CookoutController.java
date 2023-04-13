@@ -54,4 +54,10 @@ public class CookoutController {
         cookoutDao.updateCookout(cookout, id);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path="{id}", method = RequestMethod.DELETE)
+    public void deleteCookout(@PathVariable int id) {
+        cookoutDao.deleteCookout(id);
+    }
+
 }
