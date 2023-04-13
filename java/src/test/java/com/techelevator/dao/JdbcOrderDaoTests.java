@@ -68,11 +68,16 @@ public class JdbcOrderDaoTests extends BaseDaoTests{
     @Test
     public void getOrderById_gets_correct_order(){
 
+
     }
 
     @Test
     public void ordersList_gets_correct_order_details_given_cookoutId(){
-
+        //Arrange
+        List<Order> orders = sut.ordersList(1);
+        //Act
+        //Assert
+        Assert.assertEquals(2 , orders.size());
     }
 
     @Test
