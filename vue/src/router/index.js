@@ -9,7 +9,7 @@ import CreateCookout from '../views/CreateCookout.vue'
 import CookoutInfo from '../views/CookoutInfo.vue'
 import ChefShortOrder from '../views/ChefShortOrder.vue'
 import Host from '../views/Host.vue'
-import AttendeeView from '../views/AttendeeView.vue'
+import Attendee from '../views/Attendee.vue'
 Vue.use(Router)
 
 /**
@@ -87,7 +87,7 @@ const router = new Router({
     },
     {path: "/attendee-view",
     name: "attendee-view",
-    component: AttendeeView,
+    component: Attendee,
     meta: {
       requiresAuth: true}
     },
