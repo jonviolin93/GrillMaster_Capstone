@@ -24,7 +24,7 @@ public class JdbcOrderDao implements OrderDao {
         String sql = "INSERT INTO cookout_order (cookout_id, user_id, order_time) " +
                 "VALUES(?, ?, ?) " +
                 "RETURNING order_id;";
-        int orderId = jdbcTemplate.update(sql, cookoutId, order.getUserId(), LocalTime.now());
+        Integer orderId = jdbcTemplate.queryForObject(sql, Integer.class, cookoutId, order.getUserId(), LocalTime.now());
         for (int i = 0; i < order.getFoodList().size(); i++) {
             insertFoodIntoOrder(orderId, order.getFoodList().get(i));
         }
@@ -56,9 +56,10 @@ public class JdbcOrderDao implements OrderDao {
     public List<Order> ordersList(int cookoutId) {
         String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
                 "FROM cookout_order " +
-                "WHERE cookout_id = ?;";
+                "WHERE cookout_id = ? " +
+                "ORDER BY order_time;";
 
-        List<Order> orderList = null;
+        List<Order> orderList = new ArrayList<>();
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cookoutId);
         while(results.next()){
             orderList.add(mapRowToOrder(results));

@@ -44,6 +44,7 @@ public class JdbcOrderDaoTests extends BaseDaoTests{
     private final Order ORDER_1 = new Order(1, 1, false, (List.of(FOOD_1)), LocalTime.of(12, 00));
     private final Order ORDER_2 = new Order(2, 2, false, (List.of(FOOD_2)), LocalTime.of(12, 05));
     private final Order ORDER_3 = new Order(3, 1, false, (List.of(FOOD_3)), LocalTime.of(12, 06));
+    private final Order ORDER_4 = new Order(4, 1, false, (List.of(FOOD_3)), LocalTime.of(12, 00));
 
 
     private JdbcOrderDao sut;
@@ -58,29 +59,38 @@ public class JdbcOrderDaoTests extends BaseDaoTests{
 
     @Test
     public void createOrder_creates_new_order_with_expected_data(){
-        int createdOrderId = sut.createOrder(ORDER_3,1);
-        Order retrievedOrder = sut.getOrderById(createdOrderId);
-        assertOrdersMatch(ORDER_3, retrievedOrder);
+        int createdOrderId = sut.createOrder(ORDER_4,1);
+        Order actual = sut.getOrderById(createdOrderId);
+        Assert.assertEquals(ORDER_4.getId(), actual.getId());
+        Assert.assertEquals(ORDER_4.getUserId(), actual.getUserId());
+        Assert.assertEquals(ORDER_4.isComplete(), actual.isComplete());
+        List<Food> foods = ORDER_4.getFoodList();
+        for (int i = 0; i < foods.size(); i++) {
+            assertFoodsMatch(foods.get(i), actual.getFoodList().get(i));
+        }
     }
 
     @Test
     public void getOrderById_gets_correct_order(){
         Order expected = ORDER_1;
-
         Order actual = sut.getOrderById(1);
-
         assertOrdersMatch(expected, actual);
     }
 
     @Test
     public void ordersList_gets_correct_order_details_given_cookoutId(){
-/*        List<Order> orders = sut.ordersList(1);
-        Assert.assertEquals(2 , orders.size());*/
+        List<Order> orders = sut.ordersList(1);
+        Assert.assertEquals(3 , orders.size());
+        assertOrdersMatch(ORDER_1, orders.get(0));
+        assertOrdersMatch(ORDER_2, orders.get(1));
+        assertOrdersMatch(ORDER_3, orders.get(2));
     }
 
     @Test
     public void completeOrder_marks_order_complete(){
-
+        sut.completeOrder(1);
+        Order order = sut.getOrderById(1);
+        Assert.assertEquals(true, order.isComplete());
     }
 
     private void assertFoodsMatch(Food expected, Food actual){
