@@ -5,9 +5,11 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import HostCookout from '../views/HostCookout.vue'
+import CreateCookout from '../views/CreateCookout.vue'
 import CookoutInfo from '../views/CookoutInfo.vue'
 import ChefShortOrder from '../views/ChefShortOrder.vue'
+import Host from '../views/Host.vue'
+import AttendeeView from '../views/AttendeeView.vue'
 Vue.use(Router)
 
 /**
@@ -56,11 +58,10 @@ const router = new Router({
       }
     },
   {
-      path: "/host-cookout",
-      name: "host-cookout",
-      component: HostCookout,
-      meta: {
-      requiresAuth: true
+      path: "/create-cookout",
+      name: "create-cookout",
+      component: CreateCookout,
+     meta:{ requiresAuth: true
       }
   },
     {  path: "/cookout-info",
@@ -77,7 +78,19 @@ const router = new Router({
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {path: "/host",
+    name: "host",
+    component: Host,
+    meta: {
+      requiresAuth: true}
+    },
+    {path: "/attendee-view",
+    name: "attendee-view",
+    component: AttendeeView,
+    meta: {
+      requiresAuth: true}
+    },
   ]
 })
 

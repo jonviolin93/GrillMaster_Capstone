@@ -24,7 +24,7 @@ public class JdbcOrderDao implements OrderDao {
         String sql = "INSERT INTO cookout_order (cookout_id, user_id, order_time) " +
                 "VALUES(?, ?, ?) " +
                 "RETURNING order_id;";
-        int orderId = jdbcTemplate.update(sql, cookoutId, order.getUserId(), LocalTime.now());
+        Integer orderId = jdbcTemplate.queryForObject(sql, Integer.class, cookoutId, order.getUserId(), LocalTime.now());
         for (int i = 0; i < order.getFoodList().size(); i++) {
             insertFoodIntoOrder(orderId, order.getFoodList().get(i));
         }
@@ -56,9 +56,10 @@ public class JdbcOrderDao implements OrderDao {
     public List<Order> ordersList(int cookoutId) {
         String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
                 "FROM cookout_order " +
-                "WHERE cookout_id = ?;";
+                "WHERE cookout_id = ? " +
+                "ORDER BY order_time;";
 
-        List<Order> orderList = null;
+        List<Order> orderList = new ArrayList<>();
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cookoutId);
         while(results.next()){
             orderList.add(mapRowToOrder(results));
@@ -74,7 +75,7 @@ public class JdbcOrderDao implements OrderDao {
     }
 
     private List<Food> listFoodByOrderId(int orderId){
-        String sql = "SELECT food.food_id, food.name, image, food_category.name, quantity " +
+        String sql = "SELECT food.food_id, food.name, image, food_category.name AS category, quantity " +
                 "FROM food " +
                 "JOIN order_food ON order_food.food_id = food.food_id " +
                 "JOIN food_category ON food_category.category_id = food.category_id " +
@@ -92,7 +93,7 @@ public class JdbcOrderDao implements OrderDao {
         food.setId(rowSet.getInt("food_id"));
         food.setName(rowSet.getString("name"));
         food.setImg(rowSet.getString("image"));
-        food.setCategory(rowSet.getString("name"));
+        food.setCategory(rowSet.getString("category"));
         food.setQuantity(rowSet.getInt("quantity"));
 
         return food;
