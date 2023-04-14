@@ -1,49 +1,46 @@
 <template>
-  <div class="background"  id="login" >
-    <form class="transbox"  @submit.prevent="login">
-      <h1>Please Sign In</h1>
-      <div role="alert" v-if="invalidCredentials">
-        Invalid username and password!
+  <div class="background" id="login">
+    <form @submit.prevent="login">
+      <div class="transbox">
+        <h1>Please Sign In</h1>
+        <div role="alert" v-if="invalidCredentials">
+          Invalid username and password!
+        </div>
+        <div role="alert" v-if="this.$route.query.registration">
+          Thank you for registering, please sign in.
+        </div>
+        <div class="form-input-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </div>
+        <div class="form-input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            v-model="user.password"
+            required
+          />
+        </div>
+        <button type="submit" style="align-self: center">Sign in</button>
+        <p>
+          <router-link :to="{ name: 'register' }"
+            >Need an account? Sign up.</router-link
+          >
+        </p>
       </div>
-      <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
-      </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-      </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
-      </div>
-      <button type="submit">Sign in</button>
-      <p>
-        <router-link :to="{ name: 'register' }"
-          >Need an account? Sign up.</router-link
-        >
-
-      </p>
-      
- 
-      
-    
     </form>
-   <footer>
-
-   </footer>
-
+    <footer></footer>
   </div>
 </template>
 
 <script>
-
-
 import authService from "../services/AuthService";
 
 export default {
@@ -55,7 +52,7 @@ export default {
         username: "",
         password: "",
       },
-    
+
       invalidCredentials: false,
     };
   },
@@ -83,59 +80,63 @@ export default {
 </script>
 
 <style scoped>
-.form-input-group {
-  margin-bottom: 1rem;
-}
-label {
-  margin-right: 0.5rem;
-}
-
 form {
   display: flex;
-  flex-direction: column;
+  background-image: url("../assets/Coals.png");
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+}
 
+h1 {
+  font-weight: 300;
+}
+
+.transbox {
+  display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   flex-wrap: wrap;
 
-  align-items: center;
-  font-family: "Indie Flower", Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0px;
-}
-form.transbox{
-  margin: 60px 240px 160px 240px;
-  opacity: 0.7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  width: 60%;
+
+  opacity: 0.65;
   background-color: orangered;
-  font-weight: bold;
-  color: black;
- 
   border: 5px solid black;
-
 }
-
 
 input#username {
   background-color: orange;
 }
+
 input#password {
   background-color: orange;
 }
+
 h2 {
   display: flex;
   flex-direction: row;
 }
+
 footer {
   display: flex;
   flex-direction: column;
 }
-div#login{
-  background-image: url("../assets/Coals.png");
-  background-size: cover;
- 
+
+.form-input-group {
+  margin-bottom: 10px;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  margin-right: 0.5rem;
+}
+
+
 </style>
