@@ -27,13 +27,13 @@ public class RestFoodService implements FoodService{
         String ingr = "";
         String health = "";
         String cat = "";
-        if(ingredient != "") {
+        if(!ingredient.isEmpty()) {
             ingr = "&ingr=" + ingredient;
         }
-        if(restriction != ""){
+        if(!restriction.isEmpty()){
             health = "&health=" + restriction;
         }
-        if(category != ""){
+        if(!category.isEmpty()){
             cat = "&category=" + category;
         }
 
