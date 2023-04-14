@@ -127,13 +127,10 @@ h1 {
   border: 5px solid black;
 }
 
-input#username {
+input#username, #password, #confirmPassword {
   background-color: orange;
 }
 
-input#password {
-  background-color: orange;
-}
 
 h2 {
   display: flex;
@@ -154,6 +151,21 @@ label {
   width: 150px;
   text-align: right;
   margin-right: 0.5rem;
+}
+@media (max-width: 425px){
+.transbox {
+ flex-basis: 100%;
+ width:80%;
+}
+form{
+  padding: 20px;
+}
+label {
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+  margin-right: 0.5rem;
+}
 }
 
 </style>
