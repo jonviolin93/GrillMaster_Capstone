@@ -21,6 +21,9 @@
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
     <cookout-list/>
+    <footer>
+      <h4>Footer Text</h4>
+    </footer>
   </div>
 </template>
 
@@ -36,4 +39,14 @@ export default {
 </script>
 <style scoped>
 
+footer {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../assets/Coals.png");
+  max-height: 20vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20vw;
+  
+}
 </style>
