@@ -3,11 +3,13 @@
   <div id="app">
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'host' }" v-if="$store.state.token != ''">Host</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'attendee' }" v-if="$store.state.token != ''">Attendee</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'chef-short-order' }" v-if="$store.state.token != ''">Grill Master</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'create-cookout' }" v-if="$store.state.token != ''">Create Cookout</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
-
-
-    
+   
     <router-view />
      
   </div>
