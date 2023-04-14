@@ -74,7 +74,7 @@ public class JdbcOrderDao implements OrderDao {
     }
 
     private List<Food> listFoodByOrderId(int orderId){
-        String sql = "SELECT food.food_id, food.name, image, food_category.name, quantity " +
+        String sql = "SELECT food.food_id, food.name, image, food_category.name AS category, quantity " +
                 "FROM food " +
                 "JOIN order_food ON order_food.food_id = food.food_id " +
                 "JOIN food_category ON food_category.category_id = food.category_id " +
@@ -92,7 +92,7 @@ public class JdbcOrderDao implements OrderDao {
         food.setId(rowSet.getInt("food_id"));
         food.setName(rowSet.getString("name"));
         food.setImg(rowSet.getString("image"));
-        food.setCategory(rowSet.getString("name"));
+        food.setCategory(rowSet.getString("category"));
         food.setQuantity(rowSet.getInt("quantity"));
 
         return food;
