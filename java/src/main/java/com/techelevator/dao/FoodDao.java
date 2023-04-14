@@ -6,11 +6,10 @@ import java.util.List;
 
 public interface FoodDao {
 
+    List<Food> listAllFood();
+
     Food showFoodItem(int id);
 
-    Food addFoodItem(Food food);
+    int addFoodItem(Food food);
 
-    Food updateFoodItem(Food food);
-
-    List<Food> listAllFood();
 }

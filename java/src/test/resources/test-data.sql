@@ -83,4 +83,22 @@ INSERT INTO user_cookout (user_id, cookout_id, duty_id)
 INSERT INTO user_cookout (user_id, cookout_id, duty_id)
     VALUES (3, 4, 1);
 
+INSERT INTO cookout_order (cookout_id, user_id, order_time)
+    VALUES (1, 1, '12:00:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time)
+    VALUES (1, 2, '12:05:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time)
+    VALUES (1, 1, '12:06:00');
+
+INSERT INTO order_food (order_id, food_id, quantity)
+    VALUES(1, 1, 1);
+
+INSERT INTO order_food (order_id, food_id, quantity)
+    VALUES(2, 2, 2);
+
+INSERT INTO order_food (order_id, food_id, quantity)
+    VALUES(3, 3, 1);
+
 COMMIT TRANSACTION;
