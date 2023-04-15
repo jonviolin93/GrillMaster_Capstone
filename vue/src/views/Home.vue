@@ -45,7 +45,6 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  flex-wrap: wrap;
   height: 20vh;
 
   padding-top: 20px;
@@ -61,7 +60,9 @@ export default {
 }
 
 #host-id, #attendee-id, #grill-master-id {
-  flex-basis: 100%;
+  display: block;
+  width: 100%;  
+
 }
 
 .cookout-list {
