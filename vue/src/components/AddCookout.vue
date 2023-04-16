@@ -1,5 +1,5 @@
-<template>
-  <div>This is where we will add cookouts</div>
+<template><div></div>
+        
 </template>
 
 <script>
@@ -11,5 +11,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

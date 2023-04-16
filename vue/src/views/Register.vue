@@ -13,7 +13,7 @@
             id="username"
             v-model="user.username"
             required
-            autofocus
+           
             style="align-self: flexbox-start"
           />
         </div>
@@ -97,14 +97,13 @@ export default {
 </script>
 
 <style scoped>
-
 form {
   display: flex;
   background-image: url("../assets/Coals.png");
   background-size: cover;
   align-items: center;
   justify-content: center;
-  padding: 100px;
+  padding: 20vw;
 }
 
 h1 {
@@ -116,7 +115,7 @@ h1 {
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: wrap;
-
+align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -129,6 +128,7 @@ h1 {
 
 input#username, #password, #confirmPassword {
   background-color: orange;
+  
 }
 
 

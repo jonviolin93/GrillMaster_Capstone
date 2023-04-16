@@ -2,13 +2,14 @@
   <div class="home">
     <header></header>
     <body>
-      <section id="host">
-        <h2 id="host-h2">HOST</h2>
-        <div>
+          <div>
           <router-link to="/create-cookout">
             <button id="create-cookout-btn">Create Cookout</button>
           </router-link>
         </div>
+      <section id="host">
+        <h2 id="host-h2">HOST</h2>
+    
         <cookout-list class="cookout-list"/>
       </section>
       <section id="attendee">
@@ -16,11 +17,11 @@
       </section>
       <section id="grill-master">
         <h2 id="grill-master-h2">GRILL MASTER</h2>
-        <p>You must be authenticated to see this</p>
+       
       </section>
     </body>
     <footer>
-      <h4>Footer Text</h4>
+      <h4>Cookout App created by The GrillMasterz: Meli, Red, Cameron, Ellis, and Jonathan</h4>
     </footer>
   </div>
 </template>
@@ -43,8 +44,9 @@ export default {
 
 #host, #attendee, #grill-master {
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
+  justify-content: flex-start;
+  
+  flex-direction: column;                  
   height: 20vh;
 
   padding-top: 20px;
@@ -57,7 +59,16 @@ export default {
 #create-cookout-btn {
   flex-basis: 10%;
   margin-left: 5px;
-}
+  display: inline-block;
+ background-color: rgb(231, 163, 15);
+  padding: 20px;
+  width: 70%;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Kanit", Arial, Helvetica, sans-serif ;
+  font-weight: bold;
+      }
+
 
 #host-id, #attendee-id, #grill-master-id {
   display: block;

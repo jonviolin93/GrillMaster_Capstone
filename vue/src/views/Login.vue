@@ -16,7 +16,7 @@
             id="username"
             v-model="user.username"
             required
-            autofocus
+           
           />
         </div>
         <div class="form-input-group">
