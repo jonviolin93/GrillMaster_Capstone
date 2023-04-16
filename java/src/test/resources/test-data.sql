@@ -17,7 +17,9 @@ VALUES ('Brownie', 'brownieUrl', 3);
 INSERT INTO food (name, image, category_id)
 VALUES ('Soda', 'sodaUrl', 4);
 INSERT INTO food (name, image, category_id)
-VALUES ('Burgers', 'burgerUrl', 1);
+VALUES ('Burger', 'burgerUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Water', 'waterUrl', 4);
 
 INSERT INTO food_menu (food_id, menu_id, added_by_id)
 VALUES (1, 1, 1);

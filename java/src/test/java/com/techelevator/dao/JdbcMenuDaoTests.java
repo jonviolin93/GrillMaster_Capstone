@@ -73,7 +73,7 @@ public class JdbcMenuDaoTests extends BaseDaoTests {
         Menu menu = sut.getMenuById(1);
         List<Food> foods = menu.getFoodItems();
         foods.remove(0);
-        foods.add(0, new Food(5, "Burgers", "burgerUrl", "Main", "user1" ));
+        foods.add(0, new Food(5, "Burger", "burgerUrl", "Main", "user1" ));
         menu.setFoodItems(foods);
         menu.setName("BBQ");
         menu.setFavorited(true);

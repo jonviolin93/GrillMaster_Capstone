@@ -20,9 +20,10 @@ public class JdbcFoodDao implements FoodDao{
     @Override
     public List<Food> listAllFood() {
         List<Food> foods = new ArrayList<>();
-        String sql = "SELECT food_id, name, image, food_category.name " +
+        String sql = "SELECT food_id, food.name, image, food_category.name AS category " +
                 "FROM food " +
-                "JOIN food_category ON food_category.category_id = food.category_id;";
+                "JOIN food_category ON food_category.category_id = food.category_id " +
+                "ORDER BY food_category.category_id, food.name;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             foods.add(mapRowToFood(results));
@@ -32,7 +33,7 @@ public class JdbcFoodDao implements FoodDao{
 
     @Override
     public Food showFoodItem(int id) {
-        String sql = "SELECT food_id, name, image, food_category.name " +
+        String sql = "SELECT food_id, food.name, image, food_category.name AS category " +
                 "FROM food " +
                 "JOIN food_category ON food_category.category_id = food.category_id " +
                 "WHERE food_id = ?;";
