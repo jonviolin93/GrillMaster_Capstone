@@ -31,6 +31,11 @@ public class FoodController {
         return foodList;
     }
 
+    @RequestMapping(path = "", method = RequestMethod.POST)
+    public int addFoodToDatabase (@RequestBody Food food){
+        return foodDao.addFoodItem(food);
+    }
+
 
 
 

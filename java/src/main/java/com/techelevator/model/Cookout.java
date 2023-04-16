@@ -17,6 +17,7 @@ public class Cookout {
     private String description;
     private List<User> attendees;
     private int menuId;
+    private boolean read;
 
     public Cookout() {
     }
@@ -30,6 +31,18 @@ public class Cookout {
         this.description = description;
         this.attendees = attendees;
         this.menuId = menuId;
+    }
+
+    public Cookout(int id, String name, LocalDate date, LocalTime time, String location, String description, List<User> attendees, int menuId, boolean read) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.time = time;
+        this.location = location;
+        this.description = description;
+        this.attendees = attendees;
+        this.menuId = menuId;
+        this.read = read;
     }
 
     public int getId() {
@@ -94,5 +107,13 @@ public class Cookout {
 
     public void setMenuId(int menuId) {
         this.menuId = menuId;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 }

@@ -50,11 +50,20 @@ public class CookoutController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="", method = RequestMethod.POST)
-    public int createCookout(@Valid @RequestBody Cookout cookout) {
-        return cookoutDao.createNewCookout(cookout);
+    public int createCookout(@Valid @RequestBody Cookout cookout, Principal principal) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        int cookoutId = cookoutDao.createNewCookout(cookout);
+        cookoutDao.markRead(cookoutId, userId);
+        return cookoutId;
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path="unread", method = RequestMethod.PUT)
+    public void markAllCookoutsRead(Principal principal) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        cookoutDao.markRead(userId);
+    }
+
     @RequestMapping(path="{id}", method = RequestMethod.PUT)
     public void updateCookout(@Valid @RequestBody Cookout cookout, @PathVariable int id) {
         cookoutDao.updateCookout(cookout, id);

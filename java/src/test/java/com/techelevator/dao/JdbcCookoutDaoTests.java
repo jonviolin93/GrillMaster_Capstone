@@ -91,6 +91,15 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
     }
 
     @Test
+    public void markRead_marks_cookouts_read() {
+        sut.markRead(1);
+        List<Cookout> cookouts = sut.listCookouts(1);
+        for (Cookout cookout : cookouts) {
+            Assert.assertTrue(cookout.isRead());
+        }
+    }
+
+    @Test
     public void listCookoutsByRole_returns_zero_for_wrong_role() {
         //Arrange
         List<Cookout> cookouts = sut.listCookoutsByRole(1, 2);

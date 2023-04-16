@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Cookout;
 import com.techelevator.model.User;
+import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -51,6 +52,22 @@ public class JdbcCookoutDao implements CookoutDao{
         }
     }
 
+    @Override
+    public void markRead(int userId) {
+        String sql = "UPDATE user_cookout " +
+                "SET read = true " +
+                "WHERE user_id = ?;";
+        jdbcTemplate.update(sql, userId);
+
+    }
+
+    public void markRead(int cookoutId, int userId) {
+        String sql = "UPDATE user_cookout " +
+                "SET read = true " +
+                "WHERE cookout_id = ? AND user_id = ?;";
+        jdbcTemplate.update(sql, cookoutId, userId);
+    }
+
     private void deleteCookoutUsers(int cookoutId) {
         String sql = "DELETE FROM user_cookout " +
                 "WHERE cookout_id = ?;";
@@ -83,12 +100,13 @@ public class JdbcCookoutDao implements CookoutDao{
     @Override
     public List<Cookout> listCookouts(int userId) {
         List<Cookout> cookouts = new ArrayList<>();
-        String sql = "SELECT cookout_id, name, cookout_date, cookout_time, location, description, menu_id " +
+        String sql = "SELECT cookout.cookout_id, name, cookout_date, cookout_time, location, description, menu_id, read " +
                 "FROM cookout " +
-                "WHERE cookout_date >= CURRENT_DATE AND cookout_id IN " +
+                "FULL OUTER JOIN user_cookout ON user_cookout.cookout_id = cookout.cookout_id " +
+                "WHERE user_id = ? AND cookout_date >= CURRENT_DATE AND cookout.cookout_id IN " +
                 "(SELECT cookout_id FROM user_cookout WHERE user_id = ?) " +
                 "ORDER BY cookout_date, cookout_time;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, userId);
         while (results.next()) {
             cookouts.add(mapRowToCookout(results));
         }
@@ -138,6 +156,10 @@ public class JdbcCookoutDao implements CookoutDao{
         List<User> users = listUsersByCookoutId(cookoutId);
         cookout.setAttendees(users);
         cookout.setMenuId(rowSet.getInt("menu_id"));
+        try {
+            cookout.setRead(rowSet.getBoolean("read"));
+        } catch (InvalidResultSetAccessException ignored){
+        }
         return cookout;
     }
 

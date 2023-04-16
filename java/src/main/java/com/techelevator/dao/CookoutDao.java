@@ -10,6 +10,10 @@ public interface CookoutDao {
 
     void updateCookout(Cookout cookout, int id);
 
+    void markRead(int userId);
+
+    void markRead(int cookoutId, int userId);
+
     void deleteCookout(int id);
 
     Cookout showCookoutDetails(int id, int userId);
