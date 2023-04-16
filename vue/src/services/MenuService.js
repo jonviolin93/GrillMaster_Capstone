@@ -5,5 +5,15 @@ const http = axios.create({
 });
 
 export default {
-    getIndividualMenu()
+    getIndividualMenu(id){
+        return http.get(`/menu/${id}`)
+    },
+
+    getFavoritedMenu(){
+        return http.get('/menu/favorited')
+    },
+
+    addNewMenu(menu){
+        return http.post(`/menu`, menu)
+    }
 }

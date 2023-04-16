@@ -1,18 +1,18 @@
 <template>
-  <div><add-cookout/>
-      <h1> Cookout</h1>
-      </div>
+  <div>
+    <h1>Cookout</h1>
+    <add-cookout />
+  </div>
 </template>
 
 <script>
 import AddCookout from "../components/AddCookout.vue";
 export default {
-components:{
-    AddCookout
-}
-}
+  components: {
+    AddCookout,
+  },
+};
 </script>
 
 <style>
-
 </style>

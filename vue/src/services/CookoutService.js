@@ -13,12 +13,12 @@ export default {
         return http.get(`/cookouts/${id}`)
     },
 
-    createCookout(){
-        return http.post('/cookouts')
+    createCookout(cookout){
+        return http.post(`/cookouts`, cookout)
     },
 
-    updateCookout(id){
-        return http.put(`/cookouts/${id}`)
+    updateCookout(id, cookout){
+        return http.put(`/cookouts/${id}`, cookout)
     },
 
     deleteCookout(id){
