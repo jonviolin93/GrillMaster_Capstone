@@ -16,7 +16,7 @@
           />
         </div>
         <div class="form-input-cookout">
-          <label for="cookout-chef">Chef</label>
+          <label for="cookout-chef">Grill Master</label>
           <input
             type="text"
             id="cookout-chef"
@@ -35,12 +35,12 @@
           </div>
           <div class="form-input-cookout">
           <label for="cookout-description">Description</label>
-          <input
-            type="text"
+          <textarea 
             id="cookout-description"
-           
+           rows="4"
+           columns="60"
             required
-          />
+          ></textarea>
           </div>
             <div class="form-input-cookout">
           <label for="cookout-date">Date</label>
@@ -101,6 +101,7 @@ h1 {
 align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-right: 20px;
 
   width: 60%;
 
@@ -113,11 +114,15 @@ input#cookout-name, #cookout-chef, #cookout-location, #cookout-description, #coo
 
  
 }
+textarea{
+margin-top: 5px;
+}
 button{
 background-color: black ;
 color: white;
 font-family: "Kanit", Arial, Helvetica, sans-serif;
 font-weight: bold;
+margin-top: 5px;
 }
 div#headline{
   display: flex;
@@ -135,5 +140,11 @@ label {
   width: 150px;
   text-align: right;
   margin-right: 0.5rem;
+  
+
+}
+
+input#cookout-time, #cookout-date{
+  margin-top: 5px;
 }
 </style>

@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateCookout from '../views/CreateCookout.vue'
-import CookoutInfo from '../views/CookoutInfo.vue'
+
 import ChefShortOrder from '../views/ChefShortOrder.vue'
 import Host from '../views/Host.vue'
 import Attendee from '../views/Attendee.vue'
@@ -64,13 +64,7 @@ const router = new Router({
      meta:{ requiresAuth: true
       }
   },
-    {  path: "/cookout-info",
-       name: "cookout-info",
-      component: CookoutInfo,
-    meta: {
-      requiresAuth: true
-    }
-  },
+   
   {
     path: "/short-order",
     name: "short-order",
@@ -85,8 +79,8 @@ const router = new Router({
     meta: {
       requiresAuth: true}
     },
-    {path: "/attendee-view",
-    name: "attendee-view",
+    {path: "/attendee",
+    name: "attendee",
     component: Attendee,
     meta: {
       requiresAuth: true}
