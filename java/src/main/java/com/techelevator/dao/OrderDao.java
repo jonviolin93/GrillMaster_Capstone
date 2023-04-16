@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface OrderDao {
 
-    int createOrder(Order order, int cookoutId);
+    int createOrder(Order order, int cookoutId, int userId);
 
     Order getOrderById(int id);
 

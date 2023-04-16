@@ -43,10 +43,17 @@ public class MenuController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path="", method = RequestMethod.POST)
+    @RequestMapping(path="/", method = RequestMethod.POST)
     public int addNewMenu(@Valid @RequestBody Menu menu, Principal principal) {
         int userId = userDao.findIdByUsername(principal.getName());
         return menuDao.createMenu(menu, userId);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/{id}", method = RequestMethod.PUT)
+    public void updateMenu(@Valid @RequestBody Menu menu, Principal principal, @PathVariable(name="id") int menuId) {
+        String username = principal.getName();
+        int userId = userDao.findIdByUsername(username);
+        menuDao.updateMenu(menu, username, userId, menuId);
+    }
 }

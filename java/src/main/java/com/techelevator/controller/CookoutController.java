@@ -31,6 +31,12 @@ public class CookoutController {
         return cookoutDao.listCookouts(userId);
     }
 
+    @RequestMapping(path= "duty/{id}", method = RequestMethod.GET)
+    public List<Cookout> listCookoutsByDuty(Principal principal, @PathVariable(name = "id") int dutyId) {
+        int userId = userDao.findIdByUsername(principal.getName());
+        return cookoutDao.listCookoutsByRole(userId, dutyId);
+    }
+
     @RequestMapping(path="{id}", method = RequestMethod.GET)
     public Cookout showCookoutDetails(@PathVariable int id, Principal principal) {
         int userId = userDao.findIdByUsername(principal.getName());

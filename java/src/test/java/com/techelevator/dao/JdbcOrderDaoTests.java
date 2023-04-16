@@ -59,7 +59,7 @@ public class JdbcOrderDaoTests extends BaseDaoTests{
 
     @Test
     public void createOrder_creates_new_order_with_expected_data(){
-        int createdOrderId = sut.createOrder(ORDER_4,1);
+        int createdOrderId = sut.createOrder(ORDER_4,1, 1);
         Order actual = sut.getOrderById(createdOrderId);
         Assert.assertEquals(ORDER_4.getId(), actual.getId());
         Assert.assertEquals(ORDER_4.getUserId(), actual.getUserId());

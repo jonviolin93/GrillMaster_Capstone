@@ -20,11 +20,11 @@ public class JdbcOrderDao implements OrderDao {
     }
 
     @Override
-    public int createOrder(Order order, int cookoutId) {
+    public int createOrder(Order order, int cookoutId, int userId) {
         String sql = "INSERT INTO cookout_order (cookout_id, user_id, order_time) " +
                 "VALUES(?, ?, ?) " +
                 "RETURNING order_id;";
-        Integer orderId = jdbcTemplate.queryForObject(sql, Integer.class, cookoutId, order.getUserId(), LocalTime.now());
+        Integer orderId = jdbcTemplate.queryForObject(sql, Integer.class, cookoutId, userId, LocalTime.now());
         for (int i = 0; i < order.getFoodList().size(); i++) {
             insertFoodIntoOrder(orderId, order.getFoodList().get(i));
         }
