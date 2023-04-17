@@ -19,8 +19,8 @@ export default {
 .card {
     border: 2px solid black;
     border-radius: 10px;
-    width: 250px;
-    height: 550px;
+    width: fit-content;
+    height: fit-content;
     margin: 20px;
     position: relative;
 }
@@ -32,10 +32,6 @@ export default {
 
 .card .host {
     font-size: 1rem;
-}
-
-.cookout-image {
-    width: 20%;
 }
 
 

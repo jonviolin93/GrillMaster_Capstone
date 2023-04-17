@@ -19,5 +19,10 @@ props:[
 </script>
 
 <style>
+.cookout-list{
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 </style>

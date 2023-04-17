@@ -2,24 +2,25 @@
   <div class="home">
     <header></header>
     <body>
-          <div>
-          <router-link to="/create-cookout">
-            <button id="create-cookout-btn">Create Cookout</button>
-          </router-link>
-        </div>
-      <section id="host">
-        <h2 id="host-h2">HOST</h2>
-    
-        <cookout-list class="cookout-list" id="host-list" v-bind:cookout-type-list="$store.state.hostedCookouts"/>
-      </section>
-      <section id="attendee">
-        <h2 id="attendee-h2">ATTENDEE</h2>
-        <cookout-list class="cookout-list" id="attendee-list" v-bind:cookout-type-list="$store.state.attendCookouts"/>
-      </section>
-      <section id="grill-master">
-        <h2 id="grill-master-h2">GRILL MASTER</h2>
-       <cookout-list class="cookout-list" id="grillmaster-list" v-bind:cookout-type-list="$store.state.grillmasterCookouts"/>
-      </section>
+      <div>
+        <router-link to="/create-cookout">
+          <button id="create-cookout-btn">Create Cookout</button>
+        </router-link>
+      </div>
+      <div class="lists">
+        <section id="host">
+          <h2 id="host-h2">HOSTING</h2>
+          <cookout-list class="cookout-list" id="host-list" v-bind:cookout-type-list="$store.state.hostedCookouts"/>
+        </section>
+        <section id="attendee">
+          <h2 id="attendee-h2">ATTENDING</h2>
+          <cookout-list class="cookout-list" id="attendee-list" v-bind:cookout-type-list="$store.state.attendCookouts"/>
+        </section>
+        <section id="grill-master">
+          <h2 id="grill-master-h2">GRILL<br>MASTER</h2>
+        <cookout-list class="cookout-list" id="grillmaster-list" v-bind:cookout-type-list="$store.state.grillmasterCookouts"/>
+        </section>
+      </div>
     </body>
     <footer>
       <h4>Cookout App created by The GrillMasterz: Meli, Red, Cameron, Ellis, and Jonathan</h4>
@@ -47,16 +48,19 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.lists {
+  display: flex;
+  flex-direction: column;
+}
 
 #host, #attendee, #grill-master {
   display: flex;
   justify-content: flex-start;
   
-  flex-direction: column;                  
-  height: 20vh;
+  flex-direction: row;                  
+  min-height: 35vh;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 5px;
 
   opacity: 0.65;
   background-color: orangered;
@@ -76,15 +80,14 @@ export default {
       }
 
 
-#host-id, #attendee-id, #grill-master-id {
+#host-h2, #attendee-h2, #grill-master-h2 {
   display: block;
-  width: 100%;  
-
+  width: 100%; 
+  align-self: center;
+  flex: 0 0 50px;
 }
 
-.cookout-list {
-  flex-basis: 85%;
-}
+
 
 footer {
   background-image: url("../assets/Coals.png");
