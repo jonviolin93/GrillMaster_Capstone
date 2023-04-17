@@ -1,8 +1,8 @@
 <template>
   <div class="card" >
-      <h2 class="cookout-name">{{ Cookout.name }}</h2>
+      <h2 class="cookout-name">{{ cookout.name }}</h2>
       <!-- <h3 class="host"> {{ Cookout.host }} </h3> -->
-      <h4 class="cookout-date"> {{Cookout.date}}</h4>
+      <h4 class="cookout-date"> {{cookout.date}}</h4>
       <img class="cookout-image"  v-bind:src="'../assets/logo.png'" >
    
   </div>
@@ -12,8 +12,6 @@
 export default {
     name: 'cookout-card',
     props: ["cookout"],
-  
-
     }
 
 </script>

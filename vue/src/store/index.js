@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import CookoutService from '../services/CookoutService'
 
 
 Vue.use(Vuex)
@@ -83,9 +84,22 @@ export default new Vuex.Store({
     },
     LIST_ATTENDEE_COOKOUTS(state, payload){
     state.attendCookouts = payload;
-    },
-      
     }
+  },
+  actions: {
+    async listHost({ commit }) {
+      let data = await CookoutService.listCookoutsByHosting();
+      commit('LIST_HOST_COOKOUTS', data.data)
+    },
+    async listAttending({ commit }) {
+      let data = await CookoutService.listCookoutsByAttending();
+      commit('LIST_ATTENDEE_COOKOUTS', data)
+    },
+    async listGrillMaster({ commit }) {
+      let data = await CookoutService.listCookoutsByGrillMaster();
+      commit('LIST_GRILLMASTER_COOKOUTS', data)
+    }
+  }
 
   }
 )

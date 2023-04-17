@@ -29,22 +29,22 @@
 
 <script>
 import CookoutList from "../components/CookoutList.vue";
-import CookoutService from "../services/CookoutService";
 
 export default {
   name: "home",
   components: {
     CookoutList,
   },
+  data() {
+    return {
+    'cookout-type-list': ''
+    }
+  },
   created() {
   //  this.$store.commit('LIST_COOKOUTS_BY_ROLE');
-
-     CookoutService.listCookoutsByHosting().then(response=>this.$store.commit("LIST_HOST_COOKOUTS", response.data));
-  
-
-    CookoutService.listCookoutsByGrillMaster().then(response=> this.$store.commit("LIST_GRILLMASTER_COOKOUTS", response.data));
-    
-      CookoutService.listCookoutsByAttending().then(response=> this.$store.commit("LIST_ATTENDEE_COOKOUTS", response.data));
+    this.$store.dispatch('listHost');
+    this.$store.dispatch('listAttending');
+    this.$store.dispatch('listGrillMaster');
     },
   };
 </script>
