@@ -17,22 +17,27 @@ export default {
 
 <style>
 .card {
-    border: 2px solid black;
+    border: 2px solid rgb(231, 163, 15);
     border-radius: 10px;
-    width: fit-content;
+    background: rgb(231, 163, 15);
+    min-width: 200px;
+    width: 500px;
     height: fit-content;
-    margin: 20px;
-    position: relative;
+    margin: 10px;
+    font-weight: 100;
 }
 
 
 .card .cookout-name {
     font-size: 1.5rem;
+    font-weight: 400;
 }
 
-.card .host {
+.cookout-date, .cookout-time, .cookout-location{
     font-size: 1rem;
+    font-weight: 300;
 }
+
 
 
 </style>

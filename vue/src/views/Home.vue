@@ -4,7 +4,7 @@
     <body>
       <div>
         <router-link to="/create-cookout">
-          <button id="create-cookout-btn">Create Cookout</button>
+          <button id="create-cookout-btn"><p>Create Cookout</p></button>
         </router-link>
       </div>
       <div class="lists">
@@ -53,6 +53,14 @@ export default {
   flex-direction: column;
 }
 
+#host {
+  border-radius: 15px 15px 0 0;
+}
+
+#grill-master {
+  border-radius: 0 0 15px 15px;
+}
+
 #host, #attendee, #grill-master {
   display: flex;
   justify-content: flex-start;
@@ -61,30 +69,35 @@ export default {
   min-height: 35vh;
 
   padding: 5px;
-
-  opacity: 0.65;
-  background-color: orangered;
+  
+  background-color: #BB2B1B;
   border: 5px solid black;
 }
 #create-cookout-btn {
   flex-basis: 10%;
   margin-left: 5px;
   display: inline-block;
- background-color: rgb(231, 163, 15);
+  background-image: url("../assets/Coals.png");
   padding: 20px;
   width: 70%;
+  font-size: calc(1rem + 1vh);
   color: #ffffff;
   text-align: center;
   font-family: "Kanit", Arial, Helvetica, sans-serif ;
-  font-weight: bold;
-      }
+  border-radius: 10px;
+  }
+
+#create-cookout-btn p {
+  background: rgba(0,0,0, 0.1);
+  color: #ffffff;
+}
 
 
 #host-h2, #attendee-h2, #grill-master-h2 {
   display: block;
   width: 100%; 
   align-self: center;
-  flex: 0 0 50px;
+  flex: 0 0 150px;
 }
 
 
@@ -101,5 +114,15 @@ footer {
   padding-bottom: 20px;
   border-left: 5px solid black;
   border-right: 5px solid black;
+}
+
+@media(max-width: 425px) {
+  #host, #attendee, #grill-master {
+    flex-direction: column;
+  }
+  #host-h2, #attendee-h2, #grill-master-h2 {
+  align-self: center;
+  flex: 0 0 0;
+}
 }
 </style>
