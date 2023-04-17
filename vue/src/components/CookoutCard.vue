@@ -1,10 +1,9 @@
 <template>
   <div class="card" >
       <h2 class="cookout-name">{{ cookout.name }}</h2>
-      <!-- <h3 class="host"> {{ Cookout.host }} </h3> -->
       <h4 class="cookout-date"> {{cookout.date}}</h4>
-      <img class="cookout-image"  v-bind:src="'../assets/logo.png'" >
-   
+      <h4 class="cookout-time"> {{cookout.time}}</h4>
+      <h4 class="cookout-location"> {{cookout.location}}</h4>
   </div>
 </template>
 

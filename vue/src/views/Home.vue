@@ -35,13 +35,7 @@ export default {
   components: {
     CookoutList,
   },
-  data() {
-    return {
-    'cookout-type-list': ''
-    }
-  },
   created() {
-  //  this.$store.commit('LIST_COOKOUTS_BY_ROLE');
     this.$store.dispatch('listHost');
     this.$store.dispatch('listAttending');
     this.$store.dispatch('listGrillMaster');
