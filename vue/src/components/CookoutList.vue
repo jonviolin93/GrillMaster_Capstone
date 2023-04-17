@@ -1,7 +1,7 @@
 <template>
   <div>
     
-      <cookout-card v-for="cookout in cookout-type-list" v-bind:key="cookout.id"  v-bind:cookout="cookout"/>
+      <cookout-card v-for="cookout in cookoutTypeList" v-bind:key="cookout.id"  v-bind:cookout="cookout"/>
   
   </div>
 </template>

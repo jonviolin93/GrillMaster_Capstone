@@ -93,11 +93,11 @@ export default new Vuex.Store({
     },
     async listAttending({ commit }) {
       let data = await CookoutService.listCookoutsByAttending();
-      commit('LIST_ATTENDEE_COOKOUTS', data)
+      commit('LIST_ATTENDEE_COOKOUTS', data.data)
     },
     async listGrillMaster({ commit }) {
       let data = await CookoutService.listCookoutsByGrillMaster();
-      commit('LIST_GRILLMASTER_COOKOUTS', data)
+      commit('LIST_GRILLMASTER_COOKOUTS', data.data)
     }
   }
 
