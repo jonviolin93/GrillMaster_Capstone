@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+
 Vue.use(Vuex)
 
 /*
@@ -19,7 +20,43 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    hostedCookouts:[
+      {
+        id: "",
+        name: "",
+        date: "",
+        time: "",
+        location: "",
+        description: "",
+        attendeesList: [],
+        menuId: ""
+      }
+    ],
+    grillmasterCookouts:[
+      {
+        id: "",
+        name: "",
+        date: "",
+        time: "",
+        location: "",
+        description: "",
+        attendeesList: [],
+        menuId: ""
+      }
+    ],
+    attendCookouts:[
+      {
+        id: "",
+        name: "",
+        date: "",
+        time: "",
+        location: "",
+        description: "",
+        attendeesList: [],
+        menuId: ""
+      }
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +74,18 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    LIST_HOST_COOKOUTS(state, payload){
+    state.hostedCookouts = payload;
+    },
+    LIST_GRILLMASTER_COOKOUTS(state, payload){
+    state.grillmasterCookouts = payload;
+    },
+    LIST_ATTENDEE_COOKOUTS(state, payload){
+    state.attendCookouts = payload;
+    },
+      
     }
+
   }
-})
+)

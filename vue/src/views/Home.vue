@@ -10,14 +10,15 @@
       <section id="host">
         <h2 id="host-h2">HOST</h2>
     
-        <cookout-list class="cookout-list"/>
+        <cookout-list class="cookout-list" id="host-list" v-bind:cookout-type-list="$store.state.hostedCookouts"/>
       </section>
       <section id="attendee">
         <h2 id="attendee-h2">ATTENDEE</h2>
+        <cookout-list class="cookout-list" id="attendee-list" v-bind:cookout-type-list="$store.state.attendCookouts"/>
       </section>
       <section id="grill-master">
         <h2 id="grill-master-h2">GRILL MASTER</h2>
-       
+       <cookout-list class="cookout-list" id="grillmaster-list" v-bind:cookout-type-list="$store.state.grillmasterCookouts"/>
       </section>
     </body>
     <footer>
@@ -28,13 +29,24 @@
 
 <script>
 import CookoutList from "../components/CookoutList.vue";
+import CookoutService from "../services/CookoutService";
 
 export default {
   name: "home",
   components: {
     CookoutList,
   },
-};
+  created() {
+  //  this.$store.commit('LIST_COOKOUTS_BY_ROLE');
+
+     CookoutService.listCookoutsByHosting().then(response=>this.$store.commit("LIST_HOST_COOKOUTS", response.data));
+  
+
+    CookoutService.listCookoutsByGrillMaster().then(response=> this.$store.commit("LIST_GRILLMASTER_COOKOUTS", response.data));
+    
+      CookoutService.listCookoutsByAttending().then(response=> this.$store.commit("LIST_ATTENDEE_COOKOUTS", response.data));
+    },
+  };
 </script>
 <style scoped>
 .home {
