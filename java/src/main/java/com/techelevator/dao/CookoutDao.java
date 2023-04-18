@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CookoutDao {
 
-    int createNewCookout(Cookout cookout);
+    int createNewCookout(Cookout cookout, int userId);
 
     void updateCookout(Cookout cookout, int id);
 

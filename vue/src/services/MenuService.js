@@ -11,7 +11,7 @@ export default {
         return axios.get('/menu/favorited')
     },
 
-    addNewMenu(menu){
-        return axios.post(`/menu`, menu)
+    addNewMenu(){
+        return axios.post('/menu/', {name: ''})
     }
 }

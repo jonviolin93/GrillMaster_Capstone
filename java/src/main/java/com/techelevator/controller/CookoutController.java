@@ -52,7 +52,7 @@ public class CookoutController {
     @RequestMapping(path="", method = RequestMethod.POST)
     public int createCookout(@Valid @RequestBody Cookout cookout, Principal principal) {
         int userId = userDao.findIdByUsername(principal.getName());
-        int cookoutId = cookoutDao.createNewCookout(cookout);
+        int cookoutId = cookoutDao.createNewCookout(cookout, userId);
         cookoutDao.markRead(cookoutId, userId);
         return cookoutId;
     }

@@ -12,7 +12,7 @@ export default {
     },
 
     createCookout(cookout){
-        return axios.post(`/cookouts`, cookout)
+        return axios.post('/cookouts/', cookout)
     },
 
     updateCookout(id, cookout){

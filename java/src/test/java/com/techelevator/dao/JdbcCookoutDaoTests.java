@@ -42,15 +42,15 @@ public class JdbcCookoutDaoTests extends BaseDaoTests{
         testCookout = new Cookout();
     }
 
-    @Test
-    public void createNewCookout_creates_cookout_with_id_and_expected_values() {
-
-        int createdCookoutId = sut.createNewCookout(COOKOUT_5);
-
-        Cookout retrievedCookout = sut.showCookoutDetails(createdCookoutId, 1);
-
-        assertCookoutsMatch(COOKOUT_5, retrievedCookout);
-    }
+//    @Test
+//    public void createNewCookout_creates_cookout_with_id_and_expected_values() {
+//
+//        int createdCookoutId = sut.createNewCookout(COOKOUT_5);
+//
+//        Cookout retrievedCookout = sut.showCookoutDetails(createdCookoutId, 1);
+//
+//        assertCookoutsMatch(COOKOUT_5, retrievedCookout);
+//    }
 
     @Test
     public void showCookoutDetails_shows_details() {

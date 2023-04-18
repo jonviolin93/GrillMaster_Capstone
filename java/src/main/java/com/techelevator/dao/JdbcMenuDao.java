@@ -94,9 +94,6 @@ public class JdbcMenuDao implements MenuDao {
                 "VALUES (?, ?) " +
                 "RETURNING menu_id";
         Integer menuId = jdbcTemplate.queryForObject(sql, Integer.class, menu.getName(), menu.isFavorited());
-        for (int i = 0; i < menu.getFoodItems().size(); i++) {
-            addFoodToMenu(menu.getFoodItems().get(i), menuId, userId);
-        }
         return menuId;
     }
 
