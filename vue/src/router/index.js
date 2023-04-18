@@ -66,21 +66,23 @@ const router = new Router({
   },
    
   {
-    path: "/short-order",
-    name: "short-order",
+    path: "/cookouts/:id/short-order",
+    name: "Grill Master",
     component: ChefShortOrder,
     meta: {
       requiresAuth: true
     }
   },
-  {path: "/host",
-    name: "host",
+
+  {path: "/cookouts/:id/host",
+    name: "Host",
     component: Host,
     meta: {
       requiresAuth: true}
     },
-    {path: "/attendee",
-    name: "attendee",
+
+    {path: "/cookouts/:id/attendee",
+    name: "Attendee",
     component: Attendee,
     meta: {
       requiresAuth: true}

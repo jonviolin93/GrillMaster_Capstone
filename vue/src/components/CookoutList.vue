@@ -1,8 +1,6 @@
 <template>
   <div>
-      <router-link v-for="cookout in cookoutTypeList" v-bind:key="cookout.id" to="{name: host}">
-        <cookout-card v-bind:cookout="cookout"/>
-      </router-link>
+        <cookout-card v-for="cookout in cookoutTypeList" v-bind:key="cookout.id" v-bind:cookout="cookout"/>
   </div>
 </template>
 
