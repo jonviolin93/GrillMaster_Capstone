@@ -67,6 +67,7 @@ export default new Vuex.Store({
       foodList: [],
     }
     ],
+    orders:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -97,6 +98,9 @@ export default new Vuex.Store({
     LIST_MENU_ITEMS(state, payload){
     state.menuItems = payload;  
     },
+    LIST_ORDERS(state, payload){
+      state.orders = payload;
+    }
   },
   actions: {
     async listHost({ commit }) {
@@ -116,8 +120,14 @@ export default new Vuex.Store({
       let data = await axios.get(`/menu/${id}`);
       console.log(data.data);
       commit('LIST_MENU_ITEMS', data.data)
-    }
-  }
+    },
+    async listOrders({ commit },  cookoutId ) {
+    
+      let data = await axios.get(`/cookouts/${cookoutId}/order/`);
+  
+      commit('LIST_ORDERS', data.data)
+  },
+}
 
   }
 )

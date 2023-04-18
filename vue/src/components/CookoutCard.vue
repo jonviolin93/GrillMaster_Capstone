@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <router-link :to="{ name: 'Attendee', params: { id: cookout.id } }">
+    <router-link :to="{ name: cookoutType, params: { id: cookout.id } }">
       <h2 class="cookout-name">{{ cookout.name }}</h2>
       <h4 class="cookout-date">{{ cookout.date }}</h4>
       <h4 class="cookout-time">{{ cookout.time }}</h4>
