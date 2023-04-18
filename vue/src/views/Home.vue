@@ -3,8 +3,8 @@
     <header></header>
     <body>
       <div>
-        <router-link to="/create-cookout">
-          <button id="create-cookout-btn"><p>Create Cookout</p></button>
+        <router-link id="create-cookout-link" to="/create-cookout">
+          <p id="create-cookout-text">Create Cookout</p>
         </router-link>
       </div>
       <div class="lists">
@@ -66,30 +66,43 @@ export default {
   justify-content: flex-start;
   
   flex-direction: row;                  
-  min-height: 35vh;
-
-  padding: 5px;
   
   background-color: #BB2B1B;
   border: 5px solid black;
 }
-#create-cookout-btn {
-  flex-basis: 10%;
-  margin-left: 5px;
+
+#create-cookout-link {
+  position: relative; 
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 15%;
+  right: 15%;
+}
+
+#create-cookout-link:hover{
+  background-color: transparent;
+}
+
+#create-cookout-link:before {
+  content: "";
+  background-size:cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width:100%;
+  opacity: 0.66;
+  border-radius: 10px;
   display: inline-block;
   background-image: url("../assets/Coals.png");
-  padding: 20px;
-  width: 70%;
-  font-size: calc(1rem + 1vh);
-  color: #ffffff;
-  text-align: center;
-  font-family: "Kanit", Arial, Helvetica, sans-serif ;
-  border-radius: 10px;
-  }
+  padding: 0 20px;
+}
 
-#create-cookout-btn p {
-  background: rgba(0,0,0, 0.1);
-  color: #ffffff;
+#create-cookout-text {
+  position: relative;  
+  font-size: calc(1rem + 1.8vh);
+  line-height: 0.9;
 }
 
 
@@ -120,9 +133,14 @@ footer {
   #host, #attendee, #grill-master {
     flex-direction: column;
   }
+
   #host-h2, #attendee-h2, #grill-master-h2 {
   align-self: center;
   flex: 0 0 0;
-}
+  }
+
+  #create-cookout-link:before{
+    opacity: 0.5;
+  }
 }
 </style>
