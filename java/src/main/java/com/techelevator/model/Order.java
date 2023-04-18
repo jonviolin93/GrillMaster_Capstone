@@ -9,8 +9,18 @@ public class Order {
     private boolean isComplete;
     private List<Food> foodList;
     private LocalTime time;
+    private String username;
 
     public Order() {
+    }
+
+    public Order(int id, int userId, boolean isComplete, List<Food> foodList, LocalTime time, String username) {
+        this.id = id;
+        this.userId = userId;
+        this.isComplete = isComplete;
+        this.foodList = foodList;
+        this.time = time;
+        this.username = username;
     }
 
     public Order(int id, int userId, boolean isComplete, List<Food> foodList, LocalTime time) {
@@ -19,6 +29,15 @@ public class Order {
         this.isComplete = isComplete;
         this.foodList = foodList;
         this.time = time;
+
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public LocalTime getTime() {

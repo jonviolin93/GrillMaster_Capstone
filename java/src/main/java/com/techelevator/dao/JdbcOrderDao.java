@@ -40,8 +40,9 @@ public class JdbcOrderDao implements OrderDao {
 
     @Override
     public Order getOrderById(int id) {
-        String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
+        String sql = "SELECT order_id, cookout_id, username, users.user_id, is_complete, order_time " +
                 "FROM cookout_order " +
+                "JOIN users ON cookout_order.user_id = users.user_id " +
                 "WHERE order_id = ?;";
 
         Order order = null;
@@ -54,8 +55,9 @@ public class JdbcOrderDao implements OrderDao {
 
     @Override
     public List<Order> ordersList(int cookoutId) {
-        String sql = "SELECT order_id, cookout_id, user_id, is_complete, order_time " +
+        String sql = "SELECT order_id, cookout_id, username, users.user_id, is_complete, order_time " +
                 "FROM cookout_order " +
+                "JOIN users ON cookout_order.user_id = users.user_id " +
                 "WHERE cookout_id = ? " +
                 "ORDER BY order_time;";
 
@@ -107,6 +109,7 @@ public class JdbcOrderDao implements OrderDao {
         order.setComplete(rowSet.getBoolean("is_complete"));
         order.setTime(rowSet.getTime("order_time").toLocalTime());
         order.setFoodList(listFoodByOrderId(orderId));
+        order.setUsername(rowSet.getString("username"));
 
         return order;
     }
