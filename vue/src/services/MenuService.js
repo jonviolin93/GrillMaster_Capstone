@@ -1,19 +1,17 @@
 import axios from "axios";
 
-const http = axios.create({
-    baseURL: "http://localhost:9000"
-});
+
 
 export default {
     getIndividualMenu(id){
-        return http.get(`/menu/${id}`)
+        return axios.get(`/menu/${id}`)
     },
 
     getFavoritedMenu(){
-        return http.get('/menu/favorited')
+        return axios.get('/menu/favorited')
     },
 
     addNewMenu(menu){
-        return http.post(`/menu`, menu)
+        return axios.post(`/menu`, menu)
     }
 }

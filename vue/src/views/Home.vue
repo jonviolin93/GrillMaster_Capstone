@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <header></header>
     <body>
       <div>
         <router-link id="create-cookout-link" to="/create-cookout">

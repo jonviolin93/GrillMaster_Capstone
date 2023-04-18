@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import CookoutService from '../services/CookoutService'
+import MenuService from '../services/MenuService'
 
 
 Vue.use(Vuex)
@@ -57,7 +58,15 @@ export default new Vuex.Store({
         attendeesList: [],
         menuId: ""
       }
-    ]
+    ],
+    menuItems:[
+      {
+      id: "",
+      name: "",
+      isFavorited: false,
+      foodList: [],
+    }
+    ],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -84,7 +93,10 @@ export default new Vuex.Store({
     },
     LIST_ATTENDEE_COOKOUTS(state, payload){
     state.attendCookouts = payload;
-    }
+    },
+    LIST_MENU_ITEMS(state, payload){
+    state.menuItems = payload;  
+    },
   },
   actions: {
     async listHost({ commit }) {
@@ -98,6 +110,10 @@ export default new Vuex.Store({
     async listGrillMaster({ commit }) {
       let data = await CookoutService.listCookoutsByGrillMaster();
       commit('LIST_GRILLMASTER_COOKOUTS', data.data)
+    },
+    async listMenu({ commit, id }) {
+      let data = await MenuService.getIndividualMenu(id);
+      commit('LIST_MENU_ITEMS', data.data)
     }
   }
 
