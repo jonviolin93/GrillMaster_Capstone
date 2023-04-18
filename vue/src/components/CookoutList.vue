@@ -1,6 +1,8 @@
 <template>
   <div>
-      <cookout-card v-for="cookout in cookoutTypeList" v-bind:key="cookout.id"  v-bind:cookout="cookout"/>
+      <router-link v-for="cookout in cookoutTypeList" v-bind:key="cookout.id" to="{name: host}">
+        <cookout-card v-bind:cookout="cookout"/>
+      </router-link>
   </div>
 </template>
 
@@ -18,11 +20,16 @@ props:[
 }
 </script>
 
-<style>
+<style scoped>
 .cookout-list{
   flex: 1;
   display: flex;
   overflow-x: auto;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
 }
 
 </style>

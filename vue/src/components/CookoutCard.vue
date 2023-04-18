@@ -21,7 +21,6 @@ export default {
     border-radius: 10px;
     background: rgb(231, 163, 15);
     min-width: 200px;
-    width: 500px;
     height: fit-content;
     margin: 10px;
     font-weight: 100;

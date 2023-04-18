@@ -85,6 +85,10 @@ export default {
   background-color: transparent;
 }
 
+#create-cookout-link:hover:before{
+  opacity: 0.5;
+}
+
 #create-cookout-link:before {
   content: "";
   background-size:cover;
@@ -127,6 +131,30 @@ footer {
   padding-bottom: 20px;
   border-left: 5px solid black;
   border-right: 5px solid black;
+}
+
+@media(min-width: 769px){
+  /* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(241, 32, 32); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
 }
 
 @media(max-width: 425px) {
