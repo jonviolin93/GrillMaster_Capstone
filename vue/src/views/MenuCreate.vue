@@ -62,7 +62,7 @@ export default {
             this.selectedFood.forEach(food => {
                 MenuService.addFoodToDatabase(food)
                 .then(response => {
-                    food.id = response.data;
+                    food.id = response.data.id;
                     foodsInMenu.push(food);
                 })    
             })

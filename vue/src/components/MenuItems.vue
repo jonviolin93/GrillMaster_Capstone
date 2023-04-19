@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="menu-details">
     <label for="menu-name" id="g1">Menu Name</label>
     <h2 class="menu-name" id="g4">{{ menu.name }}</h2>
@@ -8,9 +7,6 @@
     <label for="menu-foodList" id="g3">Menu Items</label>
     <p class="menu-foodList" id="g6">{{ menu.foodList }}</p>
   </div>
-=======
-  <div></div>
->>>>>>> c99fd993667cc23960f3742f782feca68db320eb
 </template>
 
 <script>
