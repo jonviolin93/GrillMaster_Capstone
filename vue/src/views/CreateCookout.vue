@@ -1,6 +1,7 @@
 <template>
   <div id="background">
     <div id="headline">Create A New Cookout</div>
+    <h1>New Cookout Form</h1>
     <form v-on:submit.prevent="submitCookout">
       <div class="transbox">
         <div class="form-input-cookout">
@@ -105,7 +106,7 @@ export default {
 <style scoped>
 form {
   display: flex;
-  background-image: url("../assets/Coals.png");
+  
   background-size: cover;
   align-items: left;
   justify-content: center;
@@ -126,12 +127,13 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 20px;
-
+border-radius: 10px;
   width: 60%;
 
   opacity: 0.65;
-  background-color: orangered;
+  background-color: #BB2B1B;
   border: 5px solid black;
+  font-weight: bold;
 }
 input#cookout-name,
 #cookout-chef,
@@ -139,7 +141,8 @@ input#cookout-name,
 #cookout-description,
 #cookout-date,
 #cookout-time {
-  background-color: orange;
+  background-color: rgb(231, 163, 15);
+  border-radius: 10px;
 }
 textarea {
   margin-top: 5px;
@@ -150,16 +153,26 @@ button {
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin-top: 5px;
+  border-radius: 10px;
 }
 div#headline {
+  height: 120px;
+  top: 0;
+  bottom: 0;
+  width:100%;
+ 
+  border-radius: 10px;
   display: flex;
-  background-color: black;
-  color: orange;
-  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  background-image: url("../assets/Coals.png");
+  background-size: cover;
+ 
+align-items: center;
+justify-content: center;
   font-weight: 600;
-  font-size: 40px;
-  align-items: center;
-  justify-content: center;
+ position: relative;  
+  font-size: calc(1rem + 1.8vh);
+  line-height: 0.9;
+  
 }
 
 label {
@@ -172,5 +185,17 @@ label {
 input#cookout-time,
 #cookout-date {
   margin-top: 5px;
+}
+h1{
+   display: flex;
+justify-content: center;
+align-items: center;
+  flex-direction: row;
+  background-color: #BB2B1B;
+  border-radius: 10px; 
+width: 100%;
+font-weight: bold;
+
+
 }
 </style>
