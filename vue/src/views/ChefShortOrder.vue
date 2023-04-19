@@ -99,6 +99,12 @@ button {
   border-block-color: black;
   width: 20%;
   height: 20%;
+ font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+
+  
+
 }
 div#order-boxes {
   background-color: rgb(231, 163, 15);
