@@ -13,7 +13,6 @@
             id="username"
             v-model="user.username"
             required
-           
             style="align-self: flexbox-start"
           />
         </div>
@@ -115,7 +114,7 @@ h1 {
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: wrap;
-align-items: center;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -126,11 +125,11 @@ align-items: center;
   border: 5px solid black;
 }
 
-input#username, #password, #confirmPassword {
+input#username,
+#password,
+#confirmPassword {
   background-color: orange;
-  
 }
-
 
 h2 {
   display: flex;
@@ -152,20 +151,19 @@ label {
   text-align: right;
   margin-right: 0.5rem;
 }
-@media (max-width: 425px){
-.transbox {
- flex-basis: 100%;
- width:80%;
+@media (max-width: 425px) {
+  .transbox {
+    flex-basis: 100%;
+    width: 80%;
+  }
+  form {
+    padding: 20px;
+  }
+  label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    margin-right: 0.5rem;
+  }
 }
-form{
-  padding: 20px;
-}
-label {
-  display: inline-block;
-  width: 150px;
-  text-align: left;
-  margin-right: 0.5rem;
-}
-}
-
 </style>

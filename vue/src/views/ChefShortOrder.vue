@@ -52,6 +52,7 @@ header{
   border-radius: 10px;
   display: flex;
   background-image: url("../assets/Coals.png");
+  background-size: cover;
   padding: 0 20px;
 align-items: center;
 justify-content: center;

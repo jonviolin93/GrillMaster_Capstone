@@ -63,7 +63,7 @@ export default {
 #host, #attendee, #grill-master {
   display: flex;
   justify-content: flex-start;
-  
+
   flex-direction: row;                  
   
   background-color: #BB2B1B;

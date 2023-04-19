@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import CookoutService from '../services/CookoutService'
-//import MenuService from '../services/MenuService'
+import MenuService from '../services/MenuService'
 
 
 Vue.use(Vuex)
@@ -116,9 +116,7 @@ export default new Vuex.Store({
       commit('LIST_GRILLMASTER_COOKOUTS', data.data)
     },
     async listMenu({ commit },  id ) {
-      console.log(id);
-      let data = await axios.get(`/menu/${id}`);
-      console.log(data.data);
+      let data = await MenuService.getIndividualMenu(`/menu/${id}`);
       commit('LIST_MENU_ITEMS', data.data)
     },
     async listOrders({ commit },  cookoutId ) {

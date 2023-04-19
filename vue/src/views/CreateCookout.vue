@@ -102,7 +102,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   display: flex;
   background-image: url("../assets/Coals.png");

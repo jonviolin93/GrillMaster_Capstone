@@ -1,54 +1,57 @@
 <template>
   <div>
+    <div class="header">
+      <p id="header-text">Attendee</p>
+    </div>
     <body>
-      <h1>What's happenin with the cookout</h1>
       <div id="cookout-details">
-        //TODO could include what they want to bring
-        <cookout-card />
+        <cookout-details-comp v-bind:cookout="getCookoutDetails" />
       </div>
-      <div class="row-2">
-        <section id="menu-order-form">
-          <form class="order-form">
-            <div class="form-input-group">
-              <label for="order-add">Search</label>
-              <div>
-                <select>
-                  <option v-for="item in $store.state.menuItems.foodList" v-bind:key="item.id">
-                    {{ item.name }}
-                  </option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </section>
-        <div id="attendee-list">
-          <attendees-list />
+      <section id="flexbox">
+        <div id="menu-details">
+          <menu-items v-bind:menu="getMenuDetails" />
         </div>
-        <div id="order-ready">//TODO order ready</div>
-      </div>
+        <div id="place-order">
+          <place-order />
+        </div>
+      </section>
     </body>
-
-    <place-order />
   </div>
 </template>
+
 <script>
-import CookoutCard from "../components/CookoutCard.vue";
-import AttendeesList from "../components/AttendeesList.vue";
+import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
 import PlaceOrder from "../components/PlaceOrder.vue";
+import MenuItems from "../components/MenuItems.vue";
 
 export default {
   name: "attendee",
 
   components: {
-    CookoutCard,
-    AttendeesList,
+    CookoutDetailsComp,
     PlaceOrder,
+    MenuItems,
+  },
+
+  computed: {
+    getCookoutDetails() {
+      let oneCookoutDetails = this.$store.state.attendCookouts.find((item) => {
+        return item.cookoutId == this.$route.params.cookoutId;
+      });
+      return oneCookoutDetails;
+    },
+    getMenuDetails() {
+      let oneMenuDetails = this.$store.state.menuItems.find((item) => {
+        return item.menuId == this.$route.params.menuId;
+      });
+      return oneMenuDetails;
+    },
   },
 
   created() {
     const cookoutId = this.$route.params.id;
     let menuId;
-    this.$store.state.hostedCookouts.forEach((cookout) => {
+    this.$store.state.attendCookouts.forEach((cookout) => {
       if (cookout.id == cookoutId) {
         menuId = cookout.menuId;
         console.log(menuId);
@@ -60,23 +63,62 @@ export default {
 };
 </script>
 <style scoped>
-body {
+.header {
+  position: relative;
+  width: 70%;
   display: flex;
-  direction: column;
-}
-
-#cookout-details,
-.row-2 {
-  display: flex;
-  direction: row;
-}
-
-/* form {
-  display: flex;
-  background-image: url("../assets/Coals.png");
-  background-size: cover;
   align-items: center;
   justify-content: center;
-  padding: 20vw;
-} */
+  left: 15%;
+  right: 15%;
+}
+
+.header:before {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.66;
+  border-radius: 10px;
+  display: inline-block;
+  background-image: url("../assets/Coals.png");
+  padding: 0 20px;
+}
+
+#header-text {
+  color: white;
+  opacity: 100%;
+  font-weight: 300;
+  position: relative;
+  font-size: calc(1rem + 1.8vh);
+  line-height: 0.9;
+}
+
+#cookout-details {
+  background-color: #bb2b1b;
+  border-radius: 10px;
+}
+
+#flexbox {
+  display: grid;
+  grid-template-columns:  2fr 1fr;
+}
+
+#menu-details {
+  background-color: #bb2b1b;
+  border-radius: 10px;
+  flex-grow: 60vw;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+#place-order {
+  background-color: #bb2b1b;
+  border-radius: 10px;
+  flex-grow: 40vw;
+  margin-top: 5px;
+  margin-left: 5px;
+}
 </style>

@@ -38,10 +38,11 @@ export default {
   border: 2px solid rgb(231, 163, 15);
   border-radius: 10px;
   background: rgb(231, 163, 15);
-  min-width: 200px;
+  width: 200px;
   height: fit-content;
   margin: 10px;
   font-weight: 100;
+  padding: .5rem;
 }
 
 .card .cookout-name {
@@ -54,5 +55,6 @@ export default {
 .cookout-location {
   font-size: 1rem;
   font-weight: 300;
+  line-height: .5rem;
 }
 </style>
