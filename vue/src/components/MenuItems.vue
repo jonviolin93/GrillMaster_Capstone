@@ -1,5 +1,12 @@
 <template>
-  <div></div>
+  <div class="menu-details">
+    <label for="menu-name" id="g1">Menu Name</label>
+    <h2 class="menu-name" id="g4">{{ menu.name }}</h2>
+    <label for="is-favorited" id="g2">A Favorite?</label>
+    <button class="is-favorited" id="g5">{{ menu.isFavorited }}</button>
+    <label for="menu-foodList" id="g3">Menu Items</label>
+    <p class="menu-foodList" id="g6" v-for="food in menu.foodItems" v-bind:key="food.index">{{ food.name }}</p>
+  </div>
 </template>
 
 <script>

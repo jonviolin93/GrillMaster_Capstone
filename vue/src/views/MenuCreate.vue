@@ -20,7 +20,7 @@
           </select>
           <input type="submit" value="Search"/>
       </form>
-      <form v-on:submit="submitFoodsToMenu">
+      <form v-on:submit.prevent="submitFoodsToMenu">
       <div v-for="(food, index) in this.foodReturn" v-bind:key="index">
           <input type="checkbox" :value=food v-model="selectedFoods"/>
           {{food.name}}
@@ -58,11 +58,13 @@ export default {
             })
         },
         submitFoodsToMenu() {
+            console.log("This was reached")
             const foodsInMenu = []
-            this.selectedFood.forEach(food => {
+            this.selectedFoods.forEach(food => {
                 MenuService.addFoodToDatabase(food)
                 .then(response => {
-                    food.id = response.data;
+                    console.log("This loop was reached")
+                    food.id = response.data.id;
                     foodsInMenu.push(food);
                 })    
             })
@@ -72,6 +74,7 @@ export default {
                 "foodItems": foodsInMenu
             }
             MenuService.updateMenu(this.$route.params.id, menu)
+            console.log("This was reached end")
         }
     }
 }
