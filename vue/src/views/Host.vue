@@ -34,12 +34,6 @@ export default {
       });
       return oneCookoutDetails;
     },
-    // getMenuDetails() {
-    //   let oneMenuDetails = this.$store.state.menuItems.find((item) => {
-    //     return item.menuId == this.$route.params.menuId;
-    //   });
-    //   return oneMenuDetails;
-    // },
   },
 
   created() {

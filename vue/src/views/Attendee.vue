@@ -9,7 +9,7 @@
       </div>
       <section id="flexbox">
         <div id="menu-details">
-          <menu-items v-bind:menu="getMenuDetails" />
+          <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
         <div id="place-order">
           <place-order />
@@ -39,12 +39,6 @@ export default {
         return item.cookoutId == this.$route.params.cookoutId;
       });
       return oneCookoutDetails;
-    },
-    getMenuDetails() {
-      let oneMenuDetails = this.$store.state.menuItems.find((item) => {
-        return item.menuId == this.$route.params.menuId;
-      });
-      return oneMenuDetails;
     },
   },
 

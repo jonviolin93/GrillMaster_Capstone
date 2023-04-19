@@ -1,11 +1,9 @@
 <template>
   <div class="menu-details">
     <label for="menu-name" id="g1">Menu Name</label>
-    <h2 class="menu-name" id="g4">{{ menu.name }}</h2>
-    <label for="is-favorited" id="g2">A Favorite?</label>
-    <button class="is-favorited" id="g5">{{ menu.isFavorited }}</button>
-    <label for="menu-foodList" id="g3">Menu Items</label>
-    <p class="menu-foodList" id="g6" v-for="food in menu.foodItems" v-bind:key="food.index">{{ food.name }}</p>
+    <h2 class="menu-name" id="g3">{{ menu.name }}</h2>
+    <label for="menu-foodList" id="g2">Menu Items</label>
+    <p class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">{{ food.name }}</p>
   </div>
 </template>
 
@@ -21,13 +19,10 @@ export default {
 <style scoped>
 .menu-details {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "g1 g1 g2"
-    "g4 g4 g5"
-    "g3 g3 g3"
-    "g6 g6 g6";
-  
+    "g1 g2"
+    "g3 p"; 
 }
 
 #g1 {
@@ -48,12 +43,14 @@ export default {
 }
 #g3 {
   grid-area: g3;
-  background-color: rgb(231, 163, 15);
-  border: 2px solid black;
-  border-radius: 5px;
+  
   margin: 5px;
 }
-#g4 {
+p {
+  margin: 5px;
+
+}
+/* #g4 {
   grid-area: g4;
   background-color: rgb(231, 163, 15);
 }
@@ -76,5 +73,5 @@ export default {
 }
 #g10 {
   grid-area: g10;
-}
+} */
 </style>
