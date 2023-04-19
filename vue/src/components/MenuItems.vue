@@ -5,7 +5,7 @@
     <label for="is-favorited" id="g2">A Favorite?</label>
     <button class="is-favorited" id="g5">{{ menu.isFavorited }}</button>
     <label for="menu-foodList" id="g3">Menu Items</label>
-    <p class="menu-foodList" id="g6">{{ menu.foodList }}</p>
+    <p class="menu-foodList" id="g6" v-for="food in menu.foodItems" v-bind:key="food.index">{{ food.name }}</p>
   </div>
 </template>
 

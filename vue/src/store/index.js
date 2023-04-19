@@ -116,7 +116,7 @@ export default new Vuex.Store({
       commit('LIST_GRILLMASTER_COOKOUTS', data.data)
     },
     async listMenu({ commit },  id ) {
-      let data = await MenuService.getIndividualMenu(`/menu/${id}`);
+      let data = await MenuService.getIndividualMenu(id);
       commit('LIST_MENU_ITEMS', data.data)
     },
     async listOrders({ commit },  cookoutId ) {

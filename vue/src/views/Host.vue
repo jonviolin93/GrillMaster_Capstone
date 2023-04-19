@@ -9,7 +9,7 @@
       </div>
       <section id="flexbox">
         <div id="menu-details">
-          <menu-items v-bind:menu="getMenuDetails" />
+          <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
         <div id="place-order">
           <place-order />
@@ -34,18 +34,19 @@ export default {
       });
       return oneCookoutDetails;
     },
-    getMenuDetails() {
-      let oneMenuDetails = this.$store.state.menuItems.find((item) => {
-        return item.menuId == this.$route.params.menuId;
-      });
-      return oneMenuDetails;
-    },
+    // getMenuDetails() {
+    //   let oneMenuDetails = this.$store.state.menuItems.find((item) => {
+    //     return item.menuId == this.$route.params.menuId;
+    //   });
+    //   return oneMenuDetails;
+    // },
   },
 
   created() {
     const cookoutId = this.$route.params.id;
+    console.log(cookoutId)
     let menuId;
-    this.$store.state.attendCookouts.forEach((cookout) => {
+    this.$store.state.hostedCookouts.forEach((cookout) => {
       if (cookout.id == cookoutId) {
         menuId = cookout.menuId;
         console.log(menuId);
