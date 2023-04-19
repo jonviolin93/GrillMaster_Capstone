@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateCookout from '../views/CreateCookout.vue'
+import MenuCreate from '../views/MenuCreate'
 
 import ChefShortOrder from '../views/ChefShortOrder.vue'
 import Host from '../views/Host.vue'
@@ -62,6 +63,13 @@ const router = new Router({
       name: "create-cookout",
       component: CreateCookout,
      meta:{ requiresAuth: true
+      }
+  },
+  {
+    path: "/:id/create-menu",
+    name: "create-menu",
+    component: MenuCreate,
+    meta:{ requiresAuth: true
       }
   },
    
