@@ -1,5 +1,5 @@
 <template>
-  <div>This will display the menu for the cookout you've selected</div>
+  <div></div>
 </template>
 
 <script>

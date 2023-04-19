@@ -1,5 +1,5 @@
 <template>
-  <div>A form to place an order that the chef will see
+  <div>
       <menu-items/>
   </div>
 

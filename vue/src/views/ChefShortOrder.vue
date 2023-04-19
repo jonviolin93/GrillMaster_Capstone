@@ -1,17 +1,25 @@
 <template>
   <div>
     <header>Grill Master</header>
+    
+    <div id="headline">
     <h1>ORDERS</h1>
-    <div id="order-boxes" class="flexbox" v-for="order in this.$store.state.orders" v-bind:key="order.id">
-      {{order.username}} Time:{{order.time}}
+    </div>
+<div id="align" class="flexbox">
+  
+    <div id="order-boxes" class="flexbox" v-for="order in this.$store.state.orders" v-bind:key="order.id" >
+      {{order.username}} | Time: {{order.time}}
+    
       <div id="order-food">
-      <div id="order-food" v-for="food in order.foodList" v-bind:key="food.id">{{food.name}} Quantity:{{food.quantity}}</div>
+      <div id="order-food" v-for="food in order.foodList" v-bind:key="food.id">{{food.name}} | Quantity: {{food.quantity}}</div>
       </div>
+      
+
       <button v-if="!order.complete" v-on:click="bumpOrder(order.id)">BUMP</button>
-      <p v-else>Order Up!</p>
+      <p v-else>ORDER UP!</p>
     
     </div>
-    
+</div>
   <short-order/>
   <place-order/>
 
@@ -31,6 +39,11 @@ created() {
     const cookoutId = this.$route.params.id;
     
     this.$store.dispatch("listOrders", cookoutId);
+  },
+  data(){
+    return {
+      isVisible: true
+    }
   },
 methods: {
   bumpOrder(id){
@@ -62,18 +75,24 @@ justify-content: center;
 }
 h1{
   display: flex;
- align-items: center;
- justify-content: center;
+justify-content: center;
+align-items: center;
   flex-direction: row;
   background-color: #BB2B1B;
   border-radius: 10px; 
-max-width:65%;
-padding-left: auto;
+width: 100%;
+
+
 }
 button{
   display: inline-block;
   background-color:#BB2B1B;
   border-radius: 10px;
+  margin: 8px;
+  border-block-color: black;
+  width: 20%;
+  height: 20%;
+  
 
 }
 div#order-boxes{
@@ -84,15 +103,47 @@ div#order-boxes{
   max-width: 100%;
 margin-top: 8px;
   justify-content: space-between;
+  padding: 10px;
+ background-color: black;
 
 
 }
+
 div#order-food{
   display: flex;
   flex-wrap: wrap;
-border: 10px, black;
-border-bottom: 10px;
+justify-content: center;
+align-items: center;
+padding: 15px;
+background-color:  rgb(231, 163, 15);
+border-radius: 15px;
+width: 90%;
 
+}
+div#align{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  
+}
+p{
+   display: inline-block;
+  background-color:#BB2B1B;
+  border-radius: 10px;
+  margin: 8px;
+  border: black;
+border-width: 10px;
+
+padding: 10px;
+font-weight: bold;
+font-size: 80%;
+}
+
+@media(max-width: 769px){
+ 
+ h1{
+ max-width: 100%;
+}
 }
 
 </style>
