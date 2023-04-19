@@ -1,6 +1,6 @@
 <template>
-  <div>
-        <cookout-card v-for="cookout in cookoutTypeList" v-bind:key="cookout.id" v-bind:cookout="cookout"/>
+  <div class="cookout-list">
+        <cookout-card id="cookout-card" v-for="cookout in cookoutTypeList" v-bind:key="cookout.id" v-bind:cookout="cookout"/>
   </div>
 </template>
 
@@ -24,6 +24,11 @@ props:[
   display: flex;
   overflow-x: auto;
 }
+
+/* #cookout-card{
+  flex-grow: 200px;
+  width: 200px;
+} */
 
 a {
   background-color: transparent;

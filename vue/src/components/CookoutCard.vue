@@ -35,6 +35,10 @@ export default {
 
 <style>
 .card {
+  display: flex;
+  direction: column;
+  flex-shrink: 0;
+  justify-content: center;
   border: 2px solid rgb(231, 163, 15);
   border-radius: 10px;
   background: rgb(231, 163, 15);
@@ -42,7 +46,7 @@ export default {
   height: fit-content;
   margin: 10px;
   font-weight: 100;
-  padding: .5rem;
+  padding: 5px;
 }
 
 .card .cookout-name {
