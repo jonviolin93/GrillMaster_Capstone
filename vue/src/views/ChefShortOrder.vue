@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>Grill Master</header>
+    <header><p id="header-text">Grill Master</p></header>
 
     <div id="headline">
       <h1>ORDERS</h1>
@@ -27,22 +27,22 @@
         <button v-if="!order.complete" v-on:click="bumpOrder(order.id)">
           BUMP
         </button>
-        <p v-else>ORDER UP!</p>
+        <p id="order-up" v-else>ORDER UP!</p>
       </div>
     </div>
     <short-order />
-    <place-order />
+    
   </div>
 </template>
 
 <script>
 import ShortOrder from "../components/ShortOrder.vue";
-import PlaceOrder from "../components/PlaceOrder.vue";
+
 import OrderService from "../services/OrderService";
 export default {
   components: {
     ShortOrder,
-    PlaceOrder,
+   
   },
   created() {
     const cookoutId = this.$route.params.id;
@@ -64,23 +64,39 @@ export default {
 </script>
 
 <style scoped>
-header {
-  height: 120px;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  opacity: 0.66;
-  border-radius: 10px;
+header{
+ 
+position: relative; 
+  width: 70%;
   display: flex;
-  background-image: url("../assets/Coals.png");
-  background-size: cover;
-  padding: 0 20px;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  position: relative;
+  
+  background-image: url("../assets/Coals.png");
+
+  
+ 
+  top: 0;
+  bottom: 0;
+  width:100%;
+  opacity: 0.66;
+  border-radius: 10px;
+ 
+}
+
+#header-text{
+ font-weight: 300;
+   position: relative;  
   font-size: calc(1rem + 1.8vh);
   line-height: 0.9;
+  opacity: 1;
+}
+
+#header:before {
+  
+  display: inline-block;
+  background-image: url("../assets/Coals.png");
+  padding: 0 20px;
 }
 h1 {
   display: flex;
@@ -133,7 +149,7 @@ div#align {
   justify-content: space-evenly;
   flex-direction: column;
 }
-p {
+#order-up{
   display: inline-block;
   background-color: #bb2b1b;
   border-radius: 10px;

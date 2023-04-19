@@ -6,7 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateCookout from '../views/CreateCookout.vue'
-import MenuCreate from '../views/MenuCreate'
+import MenuCreate from '../views/MenuCreate.vue'
+import AddAttendees from '../views/AddAttendees.vue'
 
 import ChefShortOrder from '../views/ChefShortOrder.vue'
 import Host from '../views/Host.vue'
@@ -92,6 +93,13 @@ const router = new Router({
     {path: "/cookouts/:id/attendee",
     name: "Attendee",
     component: Attendee,
+    meta: {
+      requiresAuth: true}
+    },
+
+    {path: "/:id/add-attendees",
+    name: "Add Attendees",
+    component: AddAttendees,
     meta: {
       requiresAuth: true}
     },
