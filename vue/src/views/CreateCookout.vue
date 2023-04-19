@@ -130,7 +130,7 @@ h1 {
 border-radius: 10px;
   width: 60%;
 
-  opacity: 0.65;
+
   background-color: #BB2B1B;
   border: 5px solid black;
   font-weight: bold;

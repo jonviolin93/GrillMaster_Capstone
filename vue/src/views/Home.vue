@@ -125,6 +125,7 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   height: 15vh;
+  
 
   padding-top: 20px;
   padding-bottom: 20px;
