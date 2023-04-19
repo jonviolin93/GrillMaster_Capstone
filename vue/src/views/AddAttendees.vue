@@ -8,7 +8,7 @@
       <ul>
           <li v-for="user in selectedUsers" v-bind:key="user.user_id">{{user.username}}, {{user.duty}}</li>
       </ul>
-      <form v-on:submit.prevent="s">
+      <form v-on:submit.prevent="addAttendeeList">
       <div v-for="user in this.returnedUsers" v-bind:key="user.id">
           <input type="checkbox" :value=user v-model="selectedUsers"/>
           {{user.username}}
@@ -40,7 +40,14 @@ export default {
             })
         },
         addAttendeeList() {
-            CookoutService.addAttendeesToCookout()
+            let cookout;
+            CookoutService.showCookoutDetails(this.$route.params.id).then(response =>{
+                cookout = response.data;
+                console.log(cookout)
+                cookout.attendees = this.selectedUsers;
+                console.log(cookout)
+                CookoutService.addAttendeesToCookout(this.$route.params.id, cookout);
+            })           
         }
     }
 }

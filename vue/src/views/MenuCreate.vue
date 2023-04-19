@@ -34,6 +34,11 @@
       <input type="submit" value="Add Selected to Menu"/>
       </form>
       
+      <div>
+          <p v-for="food in selectedFoods" :key="food.index">{{food.name}}, {{food.category}}</p>
+      </div>
+        
+      <router-link :to="{ name:'add-attendees', params:{id: this.$route.params.cookoutId}}">Invite users --></router-link>
 
   </div>
 </template>
@@ -51,6 +56,9 @@ export default {
             selectedFoods: []
         }
     },
+    created:{
+        
+    },
     methods: {
         findExternalFoods() {
             MenuService.searchFoods(this.ingredient, this.restriction, this.dishType)
@@ -61,21 +69,37 @@ export default {
         submitFoodsToMenu() {
             console.log("This was reached")
             const foodsInMenu = []
+            let count = 0;
+            let length = this.selectedFoods.length;
             this.selectedFoods.forEach(food => {
+                food.addedBy = this.$store.state.user.username
                 MenuService.addFoodToDatabase(food)
                 .then(response => {
                     console.log("This loop was reached")
-                    food.id = response.data.id;
+                    food.id = response.data;
                     foodsInMenu.push(food);
-                })    
-            })
-            const menu = {
+                    count++
+
+                    if(count == length){
+                const menu = {
                 "name": "",
                 "favorited": false,
                 "foodItems": foodsInMenu
             }
-            MenuService.updateMenu(this.$route.params.id, menu)
+            MenuService.updateMenu(this.$route.params.menuId, menu)
             console.log("This was reached end")
+            }
+
+                })    
+            })
+            
+            // const menu = {
+            //     "name": "",
+            //     "favorited": false,
+            //     "foodItems": foodsInMenu
+            // }
+            // MenuService.updateMenu(this.$route.params.id, menu)
+            // console.log("This was reached end")
         }
     }
 }

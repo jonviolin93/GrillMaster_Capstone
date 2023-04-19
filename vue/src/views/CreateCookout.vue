@@ -93,7 +93,7 @@ export default {
         CookoutService.createCookout(cookout).then(secondResponse => {
           if (secondResponse.status == 201)
           console.log('menu id: ' + cookout.menuId);
-            this.$router.push({name:'create-menu', params:{id:cookout.menuId}})
+            this.$router.push({name:'create-menu', params:{cookoutId:secondResponse.data, menuId:cookout.menuId}})
         }).catch(error => {
           if (error.response.status == 401) {
             ('Error submitting form. Log-in and try again.');
