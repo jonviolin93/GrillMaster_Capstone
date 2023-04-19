@@ -31,5 +31,8 @@ export default {
     },
     listCookoutsByGrillMaster(){
         return axios.get('/cookouts/duty/2')
+    },
+    listSearchedAttendees(searchTerm) {
+        return axios.get(`/cookouts/user-search?searchTerm=${searchTerm}`)
     }
 }

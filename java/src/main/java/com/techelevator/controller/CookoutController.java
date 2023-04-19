@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.CookoutDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Cookout;
+import com.techelevator.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -75,4 +76,13 @@ public class CookoutController {
         cookoutDao.deleteCookout(id);
     }
 
+    @RequestMapping(path="user-list", method = RequestMethod.GET)
+    public List<User> listInvitableUsers(){
+        return userDao.findAllForAddAttendees();
+    }
+
+    @RequestMapping(path="user-search", method = RequestMethod.GET)
+    public List<User> listSearchedUsers(@RequestParam String searchTerm){
+        return userDao.searchByUsername("%" + searchTerm + "%");
+    }
 }

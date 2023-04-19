@@ -82,6 +82,33 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
 
+    @Override
+    public List<User> findAllForAddAttendees() {
+        List<User> users = new ArrayList<>();
+        String sql = "select user_id, username FROM users WHERE user_id > 2;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            User user = new User();
+            user.setId(results.getInt("user_id"));
+            user.setUsername(results.getString("username"));
+            users.add(user);
+        }
+        return users;
+    }
+
+    public List<User> searchByUsername(String searchTerm) {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT user_id, username FROM users WHERE username LIKE ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, searchTerm);
+        while (results.next()) {
+            User user = new User();
+            user.setId(results.getInt("user_id"));
+            user.setUsername(results.getString("username"));
+            users.add(user);
+        }
+        return users;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
