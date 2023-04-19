@@ -1,7 +1,8 @@
 <template>
   <div>
+    <div id="header-div">
     <header><p id="header-text">Grill Master</p></header>
-
+</div>
     <div id="headline">
       <h1>ORDERS</h1>
     </div>
@@ -31,7 +32,7 @@
       </div>
     </div>
     <short-order />
-    
+   
   </div>
 </template>
 
@@ -64,23 +65,26 @@ export default {
 </script>
 
 <style scoped>
+#header-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 header{
  
-position: relative; 
+
   width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   background-image: url("../assets/Coals.png");
 
-  
- 
   top: 0;
   bottom: 0;
-  width:100%;
   opacity: 0.66;
   border-radius: 10px;
+  
  
 }
 
@@ -89,15 +93,10 @@ position: relative;
    position: relative;  
   font-size: calc(1rem + 1.8vh);
   line-height: 0.9;
-  opacity: 1;
+  color:white;
+ 
 }
 
-#header:before {
-  
-  display: inline-block;
-  background-image: url("../assets/Coals.png");
-  padding: 0 20px;
-}
 h1 {
   display: flex;
   justify-content: center;
@@ -161,6 +160,7 @@ div#align {
   font-weight: bold;
   font-size: 80%;
 }
+
 
 @media (max-width: 769px) {
   h1 {
