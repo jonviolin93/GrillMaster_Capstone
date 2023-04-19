@@ -108,15 +108,12 @@ export default {
   line-height: 0.9;
 }
 
-
 #host-h2, #attendee-h2, #grill-master-h2 {
   display: block;
   width: 100%; 
   align-self: center;
   flex: 0 0 150px;
 }
-
-
 
 footer {
   background-image: url("../assets/Coals.png");

@@ -22,7 +22,8 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "g1 g2"
-    "g3 p"; 
+    "g3 p"
+    "- p"; 
 }
 
 #g1 {

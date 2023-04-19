@@ -48,10 +48,8 @@ export default {
     this.$store.state.attendCookouts.forEach((cookout) => {
       if (cookout.id == cookoutId) {
         menuId = cookout.menuId;
-        console.log(menuId);
       }
     });
-    console.log(menuId);
     this.$store.dispatch("listMenu", menuId);
   },
 };
