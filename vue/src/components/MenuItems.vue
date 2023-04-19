@@ -3,16 +3,47 @@
     <label for="menu-name" id="g1">Menu Name</label>
     <h2 class="menu-name" id="g3">{{ menu.name }}</h2>
     <label for="menu-foodList" id="g2">Menu Items</label>
-    <p class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">{{ food.name }}</p>
+    <form v-on:submit.prevent="placeOrder">
+      <div class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
+        <input type="checkbox" :value=food v-model="selectedFoods"/>
+          {{ food.name }}
+        <select name="quantity" id="quantity" v-model="food.quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+        </select>
+      </div>
+      <input type="submit" value="Place Order"/>
+    </form>
+    
   </div>
 </template>
 
 <script>
+import OrderService from '../services/OrderService';
 export default {
   name: "menu-items",
+  data() {
+    return {
+      selectedFoods: []
+    }
+  },
   props: {
     menu: Object,
   },
+  methods: {
+    placeOrder() {
+      const order = {
+        foodList: this.selectedFoods
+      }
+      OrderService.placeOrder(this.$route.params.id, order)
+      .then(response => {
+        if (response.status == 201){
+          console.log("success")
+        }
+      })
+    }
+  }
 };
 </script>
 
