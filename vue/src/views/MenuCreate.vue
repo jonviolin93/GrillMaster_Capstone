@@ -41,6 +41,7 @@
 <script>
 import MenuService from '../services/MenuService'
 export default {
+    name: "CreateMenu",
     data() {
         return {
             ingredient: '',

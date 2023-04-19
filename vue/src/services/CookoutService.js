@@ -34,5 +34,8 @@ export default {
     },
     listSearchedAttendees(searchTerm) {
         return axios.get(`/cookouts/user-search?searchTerm=${searchTerm}`)
+    },
+    addAttendeesToCookout(id, cookout) {
+        return axios.put(`/cookouts/${id}`, cookout)
     }
 }
