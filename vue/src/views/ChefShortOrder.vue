@@ -55,7 +55,7 @@ methods: {
 }
 </script>
 
-<style>
+<style scoped>
 header{
  height: 120px;
   top: 0;
