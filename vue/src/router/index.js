@@ -67,7 +67,7 @@ const router = new Router({
       }
   },
   {
-    path: "/:id/create-menu",
+    path: "/:cookoutId/:menuId/create-menu",
     name: "create-menu",
     component: MenuCreate,
     meta:{ requiresAuth: true
@@ -98,7 +98,7 @@ const router = new Router({
     },
 
     {path: "/:id/add-attendees",
-    name: "Add Attendees",
+    name: "add-attendees",
     component: AddAttendees,
     meta: {
       requiresAuth: true}
