@@ -81,6 +81,7 @@ export default {
       let newMenuId;
       MenuService.addNewMenu().then(response => {
         newMenuId = response.data;
+        console.log(newMenuId)
         const cookout = {
           name: this.name,
           location: this.location,
@@ -91,7 +92,8 @@ export default {
         };
         CookoutService.createCookout(cookout).then(secondResponse => {
           if (secondResponse.status == 201)
-            this.$router.push({name:'create-menu', params:{id:this.menuId}})
+          console.log('menu id: ' + cookout.menuId);
+            this.$router.push({name:'create-menu', params:{id:cookout.menuId}})
         }).catch(error => {
           if (error.response.status == 401) {
             ('Error submitting form. Log-in and try again.');
