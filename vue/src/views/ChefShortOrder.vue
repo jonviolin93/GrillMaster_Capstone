@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div id="header-div">
-    <header><p id="header-text">Grill Master</p></header>
+    <div class="header">
+    <p id="header-text">Grill Master</p>
 </div>
-    <div id="headline">
+    <div>
       <h1>ORDERS</h1>
     </div>
     <div id="align" class="flexbox">
@@ -30,9 +30,10 @@
         </button>
         <p id="order-up" v-else>ORDER UP!</p>
       </div>
+      <div>
+        <short-order />
+      </div>
     </div>
-    <short-order />
-   
   </div>
 </template>
 
@@ -65,36 +66,37 @@ export default {
 </script>
 
 <style scoped>
-#header-div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-header{
- 
-
+.header {
+  position: relative;
   width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-image: url("../assets/Coals.png");
-
-  top: 0;
-  bottom: 0;
-  opacity: 0.66;
-  border-radius: 10px;
-  
- 
+  left: 15%;
+  right: 15%;
 }
 
-#header-text{
- font-weight: 300;
-   position: relative;  
+.header:before {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.66;
+  border-radius: 10px;
+  display: inline-block;
+  background-image: url("../assets/Coals.png");
+  padding: 0 20px;
+}
+
+#header-text {
+  color: white;
+  opacity: 100%;
+  font-weight: 300;
+  position: relative;
   font-size: calc(1rem + 1.8vh);
   line-height: 0.9;
-  color:white;
- 
 }
 
 h1 {
@@ -117,10 +119,12 @@ button {
  font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: white;
-
-  
-
 }
+
+short-order {
+  display: flex;
+}
+
 div#order-boxes {
   background-color: rgb(231, 163, 15);
   display: inline-flex;

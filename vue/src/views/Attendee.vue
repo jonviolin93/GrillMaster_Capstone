@@ -3,6 +3,7 @@
     <div class="header">
       <p id="header-text">Attendee</p>
     </div>
+    
     <body>
       <div id="cookout-details">
         <cookout-details-comp v-bind:cookout="getCookoutDetails" />
@@ -11,9 +12,9 @@
         <div id="menu-details">
           <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
-        <div id="place-order">
+        <!-- <div id="place-order">
           <place-order />
-        </div>
+        </div> -->
       </section>
     </body>
   </div>
@@ -21,7 +22,7 @@
 
 <script>
 import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
-import PlaceOrder from "../components/PlaceOrder.vue";
+// import PlaceOrder from "../components/PlaceOrder.vue";
 import MenuItems from "../components/MenuItems.vue";
 
 export default {
@@ -29,14 +30,13 @@ export default {
 
   components: {
     CookoutDetailsComp,
-    PlaceOrder,
     MenuItems,
   },
 
   computed: {
     getCookoutDetails() {
       let oneCookoutDetails = this.$store.state.attendCookouts.find((item) => {
-        return item.cookoutId == this.$route.params.cookoutId;
+        return item.id == this.$route.params.id;
       });
       return oneCookoutDetails;
     },
@@ -106,11 +106,14 @@ export default {
   margin-right: 5px;
 }
 
-#place-order {
+/* #place-order {
   background-color: #bb2b1b;
   border-radius: 10px;
   flex-grow: 40vw;
   margin-top: 5px;
   margin-left: 5px;
-}
+} */
+
+
+
 </style>

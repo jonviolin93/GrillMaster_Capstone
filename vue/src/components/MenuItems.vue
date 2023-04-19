@@ -13,7 +13,7 @@
               <option value="3">3</option>
         </select>
       </div>
-      <input type="submit" value="Place Order"/>
+      <input class="button" type="submit" value="Place Order"/>
     </form>
     
   </div>
@@ -79,30 +79,20 @@ export default {
 }
 p {
   margin: 5px;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgb(231, 163, 15);
 
 }
-/* #g4 {
-  grid-area: g4;
-  background-color: rgb(231, 163, 15);
+
+.button:hover{
+  background-color: #bb2b1b;
 }
-#g5 {
-  grid-area: g5;
-  margin: 5px;
-}
-#g6 {
-  grid-area: g6;
-  margin: 5px;
-}
-#g7 {
-  grid-area: g7;
-}
-#g8 {
-  grid-area: g8;
-}
-#g9 {
-  grid-area: g9;
-}
-#g10 {
-  grid-area: g10;
-} */
 </style>

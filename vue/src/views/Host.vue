@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="header">
-      <p id="header-text">Information regarding this most honorable cookout</p>
+      <p id="header-text">Host</p>
     </div>
+   
     <body>
       <div id="cookout-details">
         <cookout-details-comp v-bind:cookout="getCookoutDetails" />
@@ -11,8 +12,8 @@
         <div id="menu-details">
           <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
-        <div id="place-order">
-          <place-order />
+        <div id="attendees-list" v-bind:attendees="getAttendeeList">
+          <attendees-list />
         </div>
       </section>
     </body>
@@ -20,33 +21,38 @@
 </template>
 
 <script>
+import AttendeesList from "../components/AttendeesList.vue";
 import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
-import PlaceOrder from "../components/PlaceOrder.vue";
+// import PlaceOrder from "../components/PlaceOrder.vue";
 import MenuItems from "../components/MenuItems.vue";
 
 export default {
   name: "host",
-  components: { MenuItems, PlaceOrder, CookoutDetailsComp },
+  components: { MenuItems, CookoutDetailsComp, AttendeesList },
   computed: {
     getCookoutDetails() {
-      let oneCookoutDetails = this.$store.state.attendCookouts.find((item) => {
-        return item.cookoutId == this.$route.params.cookoutId;
+      let oneCookoutDetails = this.$store.state.hostedCookouts.find((item) => {
+        return item.id == this.$route.params.id;
       });
       return oneCookoutDetails;
+    },
+
+    getAttendeeList() {
+      let attendeeList = this.$store.state.hostedCookouts.find((item) => {
+        return item.id == this.$route.params.id;
+      });
+      return attendeeList.attendees;
     },
   },
 
   created() {
     const cookoutId = this.$route.params.id;
-    console.log(cookoutId)
     let menuId;
     this.$store.state.hostedCookouts.forEach((cookout) => {
       if (cookout.id == cookoutId) {
         menuId = cookout.menuId;
-        console.log(menuId);
       }
     });
-    console.log(menuId);
     this.$store.dispatch("listMenu", menuId);
   },
 };
@@ -94,7 +100,7 @@ export default {
 
 #flexbox {
   display: grid;
-  grid-template-columns:  2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 }
 
 #menu-details {

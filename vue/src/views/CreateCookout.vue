@@ -1,7 +1,11 @@
 <template>
-  <div id="background">
-    <div id="headline">Create A New Cookout</div>
-    <h1>New Cookout Form</h1>
+  <div>
+    <div class="header">
+      <p id="header-text">Create A New Cookout</p>
+    </div>
+    <div>
+      <h1>New Cookout Form</h1>
+    </div>
     <form v-on:submit.prevent="submitCookout">
       <div class="transbox">
         <div class="form-input-cookout">
@@ -34,7 +38,7 @@
           />
         </div>
         <div class="form-input-cookout">
-          <label for="cookout-description">Description</label>
+          <label id="label-desc" for="cookout-description">Description</label>
           <textarea
             id="cookout-description"
             rows="4"
@@ -65,21 +69,21 @@
 
 <script>
 import CookoutService from "../services/CookoutService";
-import MenuService from '../services/MenuService'
+import MenuService from "../services/MenuService";
 export default {
   data() {
     return {
-      name: '',
-      location: '',
-      description: '',
-      date: '',
-      time: ''
-    }
+      name: "",
+      location: "",
+      description: "",
+      date: "",
+      time: "",
+    };
   },
   methods: {
     submitCookout() {
       let newMenuId;
-      MenuService.addNewMenu().then(response => {
+      MenuService.addNewMenu().then((response) => {
         newMenuId = response.data;
         const cookout = {
           name: this.name,
@@ -87,35 +91,91 @@ export default {
           description: this.description,
           date: this.date,
           time: this.time,
-          menuId: newMenuId
+          menuId: newMenuId,
         };
-        CookoutService.createCookout(cookout).then(secondResponse => {
-          if (secondResponse.status == 201)
-            this.$router.push({name:'create-menu', params:{id:this.menuId}})
-        }).catch(error => {
-          if (error.response.status == 401) {
-            ('Error submitting form. Log-in and try again.');
-          }})
-        }
-      )
-    }
-  }
+        CookoutService.createCookout(cookout)
+          .then((secondResponse) => {
+            if (secondResponse.status == 201)
+              this.$router.push({
+                name: "create-menu",
+                params: { id: this.menuId },
+              });
+          })
+          .catch((error) => {
+            if (error.response.status == 401) {
+              ("Error submitting form. Log-in and try again.");
+            }
+          });
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
-form {
+.header {
+  position: relative;
+  width: 70%;
   display: flex;
-  
-  background-size: cover;
-  align-items: left;
+  align-items: center;
   justify-content: center;
+  left: 15%;
+  right: 15%;
+}
 
-  padding: 20vw;
+.header:before {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.66;
+  border-radius: 10px;
+  display: inline-block;
+  background-image: url("../assets/Coals.png");
+  padding: 0 20px;
+}
+
+#header-text {
+  color: white;
+  opacity: 100%;
+  font-weight: 300;
+  position: relative;
+  font-size: calc(1rem + 1.8vh);
+  line-height: 0.9;
 }
 
 h1 {
-  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #bb2b1b;
+  border-radius: 10px;
+  width: 100%;
+}
+
+form {
+  display: flex;
+
+  background-size: cover;
+  align-items: left;
+  justify-content: center;
+  padding: 5px;
+}
+
+label {
+  vertical-align: middle;
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  margin-right: 0.5rem;
+  font-weight: 200;
+}
+
+#label-desc{
+  vertical-align: top;
 }
 
 .transbox {
@@ -127,11 +187,10 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 20px;
-border-radius: 10px;
+  border-radius: 10px;
   width: 60%;
 
-
-  background-color: #BB2B1B;
+  background-color: #bb2b1b;
   border: 5px solid black;
   font-weight: bold;
 }
@@ -151,51 +210,19 @@ button {
   background-color: black;
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-weight: 300;
   margin-top: 5px;
   border-radius: 10px;
-}
-div#headline {
-  height: 120px;
-  top: 0;
-  bottom: 0;
-  width:100%;
- 
-  border-radius: 10px;
-  display: flex;
-  background-image: url("../assets/Coals.png");
-  background-size: cover;
- 
-align-items: center;
-justify-content: center;
-  font-weight: 600;
- position: relative;  
-  font-size: calc(1rem + 1.8vh);
-  line-height: 0.9;
-  
-}
+  background-color: rgb(231, 163, 15);
 
-label {
-  display: inline-block;
-  width: 150px;
-  text-align: right;
-  margin-right: 0.5rem;
+}
+button:hover{
+  background-color: #bb2b1b;
 }
 
 input#cookout-time,
 #cookout-date {
   margin-top: 5px;
 }
-h1{
-   display: flex;
-justify-content: center;
-align-items: center;
-  flex-direction: row;
-  background-color: #BB2B1B;
-  border-radius: 10px; 
-width: 100%;
-font-weight: bold;
 
-
-}
 </style>
