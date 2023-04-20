@@ -4,54 +4,64 @@
       <p id="header-text">Add Items to Menu</p>
     </div>
     <div id="form-div">
-    <form id="dropdown" v-on:submit.prevent="findExternalFoods">
-      <div class="transbox">
-        <label for="ingredient">Ingredient:</label>
-        <input
-          type="text"
-          name="ingredient"
-          id="ingredient"
-          v-model="ingredient"
-        />
-      </div>
-      <div>
-        <label for="restriction">Dietary Restriction:</label>
-        <select name="restriction" id="restriction" v-model="restriction">
-          <option value="">&nbsp;</option>
-          <option value="gluten-free">Gluten-free</option>
-          <option value="tree-nut-free">Tree nut-free</option>
-          <option value="vegan">Vegan</option>
-          <option value="vegetarian">Vegetarian</option>
-        </select>
-      </div>
-      <div>
-        <label for="dishType">Dish Type:</label>
-        <select name="dishType" id="dishType" v-model="dishType">
-          <option value="">&nbsp;</option>
-          <option value="generic-meals">Homemade Plates</option>
-          <option value="fast-foods">Fast Food Grabs</option>
-          <option value="packaged-foods">Pre-made Options</option>
-        </select>
-      </div>
-      <div>
-        <input type="submit" value="Search" />
-      </div>
-    </form>
-    <form id="add-form" v-on:submit.prevent="submitFoodsToMenu">
-      <div id="add-div" v-for="(food, index) in this.foodReturn" v-bind:key="index">
-        <input id="add-label" type="checkbox" :value="food" v-model="selectedFoods" v-on:click="menuCreated = false"/>
-        {{ food.name }}
-        <select name="category" id="category" v-model="food.category">
-          <option value="Main">Main</option>
-          <option value="Side">Side</option>
-          <option value="Dessert">Dessert</option>
-          <option value="Drink">Drink</option>
-        </select>
-      </div>
-      <div>
-        <input type="submit" value="Add Selected to Menu" />
-      </div>
-    </form>
+      <form id="dropdown" v-on:submit.prevent="findExternalFoods">
+        <div class="transbox">
+          <label for="ingredient">Ingredient:</label>
+          <input
+            type="text"
+            name="ingredient"
+            id="ingredient"
+            v-model="ingredient"
+          />
+        </div>
+        <div>
+          <label for="restriction">Dietary Restriction:</label>
+          <select name="restriction" id="restriction" v-model="restriction">
+            <option value="">&nbsp;</option>
+            <option value="gluten-free">Gluten-free</option>
+            <option value="tree-nut-free">Tree nut-free</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </div>
+        <div>
+          <label for="dishType">Dish Type:</label>
+          <select name="dishType" id="dishType" v-model="dishType">
+            <option value="">&nbsp;</option>
+            <option value="generic-meals">Homemade Plates</option>
+            <option value="fast-foods">Fast Food Grabs</option>
+            <option value="packaged-foods">Pre-made Options</option>
+          </select>
+        </div>
+        <div>
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <form id="add-form" v-on:submit.prevent="submitFoodsToMenu">
+        <div
+          id="add-div"
+          v-for="(food, index) in this.foodReturn"
+          v-bind:key="index"
+        >
+          <input
+            id="add-label"
+            type="checkbox"
+            :value="food"
+            v-model="selectedFoods"
+            v-on:click="menuCreated = false"
+          />
+          {{ food.name }}
+          <select name="category" id="category" v-model="food.category">
+            <option value="Main">Main</option>
+            <option value="Side">Side</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Drink">Drink</option>
+          </select>
+        </div>
+        <div>
+          <input type="submit" value="Add Selected to Menu" />
+        </div>
+      </form>
     </div>
     <div id="food-div">
       <p id="food-selected" v-for="food in selectedFoods" :key="food.index">
@@ -59,7 +69,8 @@
       </p>
     </div>
     <p v-if="menuCreated">Menu successfully created!</p>
-    <router-link v-if="menuCreated"
+    <router-link
+      v-if="menuCreated"
       :to="{
         name: 'add-attendees',
         params: { id: this.$route.params.cookoutId },
@@ -80,7 +91,7 @@ export default {
       dishType: "",
       foodReturn: {},
       selectedFoods: [],
-      menuCreated: false
+      menuCreated: false,
     };
   },
   created: {},
@@ -92,7 +103,11 @@ export default {
         this.dishType
       ).then((response) => {
         const unfilteredReturn = response.data;
-        this.foodReturn = [...new Map(unfilteredReturn.map(food => [food.name, food])).values()];
+        this.foodReturn = [
+          ...new Map(
+            unfilteredReturn.map((food) => [food.name, food])
+          ).values(),
+        ];
       });
     },
     submitFoodsToMenu() {
@@ -107,30 +122,22 @@ export default {
           food.id = response.data;
           foodsInMenu.push(food);
           count++;
-
           if (count == length) {
             const menu = {
               name: "",
               favorited: false,
               foodItems: foodsInMenu,
             };
-            MenuService.updateMenu(this.$route.params.menuId, menu)
-            .then(response => {
-              if (response.status == 201){
-                this.menuCreated = true;
+            MenuService.updateMenu(this.$route.params.menuId, menu).then(
+              (response) => {
+                if (response.status == 201) {
+                  this.menuCreated = true;
+                }
               }
-            })
+            );
           }
         });
       });
-
-      // const menu = {
-      //     "name": "",
-      //     "favorited": false,
-      //     "foodItems": foodsInMenu
-      // }
-      // MenuService.updateMenu(this.$route.params.id, menu)
-      // console.log("This was reached end")
     },
   },
 };
@@ -204,16 +211,8 @@ div {
   background-color: #bb2b1b;
 }
 
-#form-div{
+#dropdown {
   display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-#dropdown{
-   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
@@ -221,11 +220,10 @@ div {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 20px;
-}  
+}
 
 #ingredient {
-margin-right: 6rem;
-
+  margin-right: 6rem;
 }
 
 #restriction {
@@ -257,46 +255,48 @@ margin-right: 6rem;
   background-color: #bb2b1b;
 }
 
-option{
+option {
   font-weight: 300;
 }
 
-input{
-  background-color:  rgb(231, 163, 15);
+input {
+  background-color: rgb(231, 163, 15);
   border-radius: 10px;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   color: white;
   font-weight: 300;
 }
-select{
-  background-color:  rgb(231, 163, 15);
+
+select {
+  background-color: rgb(231, 163, 15);
   border-radius: 10px;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: white;
 }
 
-#food-selected{
+#food-selected {
   display: inline block;
   background-color: #bb2b1b;
-align-items: center;
+  align-items: center;
   justify-content: center;
- 
- border-radius: 10px;
- max-width: 60%;
+
+  border-radius: 10px;
+  max-width: 60%;
 }
-#food-div{
+
+#food-div {
   width: 60%;
   align-items: center;
   justify-content: space-evenly;
   padding-left: 33%;
 }
 
-@media(max-width: 850px){
-  label{
+@media (max-width: 850px) {
+  label {
     text-align: top;
   }
-  form{
+  form {
     justify-content: center;
     align-items: center;
   }

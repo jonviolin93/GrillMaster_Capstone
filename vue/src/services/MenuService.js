@@ -3,36 +3,36 @@ import axios from "axios";
 
 
 export default {
-    getIndividualMenu(id){
+    getIndividualMenu(id) {
         return axios.get(`/menu/${id}`)
     },
 
-    getFavoritedMenu(){
+    getFavoritedMenu() {
         return axios.get('/menu/favorited')
     },
 
-    addNewMenu(){
-        return axios.post('/menu/', {name: ''})
+    addNewMenu() {
+        return axios.post('/menu/', { name: '' })
     },
 
-    searchFoods(ingredient, restriction, category){
-        if(ingredient != '') {
+    searchFoods(ingredient, restriction, category) {
+        if (ingredient != '') {
             ingredient = "ingr=" + ingredient + "&";
         }
-        if(restriction != ''){
+        if (restriction != '') {
             restriction = "health=" + restriction + "&";
         }
-        if(category != ''){
+        if (category != '') {
             category = "category=" + category;
         }
         return axios.get(`/food?${ingredient}${restriction}${category}`)
     },
 
-    addFoodToDatabase(food){
+    addFoodToDatabase(food) {
         return axios.post('/food', food)
     },
 
-    updateMenu(id, menu){
+    updateMenu(id, menu) {
         return axios.put(`/menu/${id}`, menu)
     }
 }

@@ -1,9 +1,8 @@
 <template>
   <div class="grill-master-app">
     <div id="app">
-      <div id="nav"  v-if="$store.state.token != ''">
-        <router-link  
-          v-bind:to="{ name: 'home' }">Home</router-link
+      <div id="nav" v-if="$store.state.token != ''">
+        <router-link v-bind:to="{ name: 'home' }">Home</router-link
         >&nbsp;|&nbsp;
         <router-link
           v-bind:to="{ name: 'create-cookout' }"
@@ -16,11 +15,8 @@
           >Logout</router-link
         >
       </div>
-
       <router-view />
-
-      <footer class="footer"
-          v-if="$store.state.token != ''">
+      <footer class="footer" v-if="$store.state.token != ''">
         <h4 class="footer-text">
           Cookout App created by The GrillMasterz: Meli, Red, Cameron, Ellis,
           and Jonathan
@@ -29,6 +25,7 @@
     </div>
   </div>
 </template>
+
 <style>
 html {
   background-color: black;

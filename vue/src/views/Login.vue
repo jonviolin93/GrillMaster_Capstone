@@ -24,9 +24,9 @@
         </div>
         <button type="submit" style="align-self: center">Sign in</button>
         <p>
-          <router-link :to="{ name: 'register' }"
-            >Need an account? Sign up.</router-link
-          >
+          <router-link :to="{ name: 'register' }">
+            Need an account? Sign up.
+          </router-link>
         </p>
       </div>
     </form>
@@ -46,7 +46,6 @@ export default {
         username: "",
         password: "",
       },
-
       invalidCredentials: false,
     };
   },
@@ -63,7 +62,6 @@ export default {
         })
         .catch((error) => {
           const response = error.response;
-
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
@@ -92,24 +90,22 @@ h1 {
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: wrap;
-border-radius: 10px;
+  border-radius: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
-
   width: 60%;
-
   opacity: 0.65;
   background-color: orangered;
   border: 5px solid black;
- 
 }
 
-input#username,
+#username,
 #password {
   background-color: orange;
   border-radius: 10px;
   margin-right: 1%;
 }
+
 h2 {
   display: flex;
   flex-direction: row;
@@ -130,6 +126,7 @@ label {
   text-align: right;
   margin-right: 0.5rem;
 }
+
 button {
   background-color: black;
   color: white;
@@ -138,19 +135,18 @@ button {
   margin-top: 5px;
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
-
-
 }
-
 
 @media (max-width: 425px) {
   .transbox {
     flex-basis: 100%;
     width: 80%;
   }
+
   form {
     padding: 20px;
   }
+  
   label {
     display: inline-block;
     width: 150px;

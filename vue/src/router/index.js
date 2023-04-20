@@ -59,62 +59,62 @@ const router = new Router({
         requiresAuth: false
       }
     },
-  {
+    {
       path: "/create-cookout",
       name: "create-cookout",
       component: CreateCookout,
-     meta:{ requiresAuth: true
+      meta: {
+        requiresAuth: true
       }
-  },
-  {
-    path: "/:cookoutId/:menuId/create-menu",
-    name: "create-menu",
-    component: MenuCreate,
-    meta:{ requiresAuth: true
+    },
+    {
+      path: "/:cookoutId/:menuId/create-menu",
+      name: "create-menu",
+      component: MenuCreate,
+      meta: {
+        requiresAuth: true
       }
-  },
-   
-  {
-    path: "/cookouts/:id/short-order",
-    name: "Grill Master",
-    component: ChefShortOrder,
-    meta: {
-      requiresAuth: true
-    }
-  },
-
-  {path: "/cookouts/:id/host",
-    name: "Host",
-    component: Host,
-    meta: {
-      requiresAuth: true}
     },
-
-    {path: "/cookouts/:id/attendee",
-    name: "Attendee",
-    component: Attendee,
-    meta: {
-      requiresAuth: true}
+    {
+      path: "/cookouts/:id/short-order",
+      name: "Grill Master",
+      component: ChefShortOrder,
+      meta: {
+        requiresAuth: true
+      }
     },
-
-    {path: "/:id/add-attendees",
-    name: "add-attendees",
-    component: AddAttendees,
-    meta: {
-      requiresAuth: true}
+    {
+      path: "/cookouts/:id/host",
+      name: "Host",
+      component: Host,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/cookouts/:id/attendee",
+      name: "Attendee",
+      component: Attendee,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/:id/add-attendees",
+      name: "add-attendees",
+      component: AddAttendees,
+      meta: {
+        requiresAuth: true
+      }
     },
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
-
-  // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
     next("/login");
   } else {
-    // Else let them go to their next destination
     next();
   }
 });

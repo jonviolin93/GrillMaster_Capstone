@@ -21,7 +21,6 @@
         </section>
       </div>
     </body>
-    
   </div>
 </template>
 
@@ -40,11 +39,13 @@ export default {
     },
   };
 </script>
+
 <style scoped>
 .home {
   display: flex;
   flex-direction: column;
 }
+
 .lists {
   display: flex;
   flex-direction: column;
@@ -61,9 +62,7 @@ export default {
 #host, #attendee, #grill-master {
   display: flex;
   justify-content: flex-start;
-
   flex-direction: row;                  
-  
   background-color: #bb2b1b;
   border: 5px solid black;
 }
@@ -114,24 +113,20 @@ export default {
 }
 
 @media(min-width: 769px){
-  /* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgb(241, 32, 32); 
   border-radius: 10px;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: red; 
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
 }

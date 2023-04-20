@@ -2,32 +2,35 @@
   <div class="menu-details">
     <label id="header"><h2>Menu Items</h2></label>
     <form v-on:submit.prevent="placeOrder">
-      <div class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
-        <input type="checkbox" :value=food v-model="selectedFoods"/>
-          {{ food.name }}
+      <div
+        class="menu-foodList"
+        v-for="food in menu.foodItems"
+        v-bind:key="food.index"
+      >
+        <input type="checkbox" :value="food" v-model="selectedFoods" />
+        {{ food.name }}
         <select name="quantity" id="quantity" v-model="food.quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
       </div>
       <div class="break"></div>
-      <input class="button" type="submit" value="Place Order"/>
+      <input class="button" type="submit" value="Place Order" />
       <p v-if="orderPlaced">Order successfully placed!</p>
     </form>
-    
   </div>
 </template>
 
 <script>
-import OrderService from '../services/OrderService';
+import OrderService from "../services/OrderService";
 export default {
   name: "menu-items",
   data() {
     return {
       selectedFoods: [],
-      orderPlaced: false
-    }
+      orderPlaced: false,
+    };
   },
   props: {
     menu: Object,
@@ -35,16 +38,15 @@ export default {
   methods: {
     placeOrder() {
       const order = {
-        foodList: this.selectedFoods
-      }
-      OrderService.placeOrder(this.$route.params.id, order)
-      .then(response => {
-        if (response.status == 201){
+        foodList: this.selectedFoods,
+      };
+      OrderService.placeOrder(this.$route.params.id, order).then((response) => {
+        if (response.status == 201) {
           this.orderPlaced = true;
         }
-      })
-    }
-  }
+      });
+    },
+  },
 };
 </script>
 
@@ -91,7 +93,7 @@ p {
 }
 
 .button {
-align-content: center;
+  align-content: center;
   background-color: black;
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
@@ -100,10 +102,9 @@ align-content: center;
   margin-bottom: 5px;
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
-
 }
 
-.button:hover{
+.button:hover {
   background-color: #bb2b1b;
 }
 </style>

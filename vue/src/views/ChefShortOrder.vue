@@ -1,21 +1,19 @@
 <template>
   <div>
     <div class="header">
-    <p id="header-text">Grill Master</p>
-</div>
+      <p id="header-text">Grill Master</p>
+    </div>
     <div>
       <h1>ORDERS</h1>
     </div>
     <div id="align" class="flexbox">
       <div
         id="order-boxes"
-        class="flexbox"
         v-for="order in this.$store.state.orders"
         v-bind:key="order.id"
         v-show="!order.complete"
       >
         {{ order.username }} | Time: {{ order.time }}
-
         <div id="order-food">
           <div
             id="order-food"
@@ -25,31 +23,21 @@
             {{ food.name }} | Quantity: {{ food.quantity }}
           </div>
         </div>
-
         <button v-if="!order.complete" v-on:click="bumpOrder(order.id)">
           BUMP
         </button>
         <p id="order-up" v-else>ORDER UP!</p>
-      </div>
-      <div>
-        <short-order />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ShortOrder from "../components/ShortOrder.vue";
-
 import OrderService from "../services/OrderService";
+
 export default {
-  components: {
-    ShortOrder,
-   
-  },
   created() {
     const cookoutId = this.$route.params.id;
-
     this.$store.dispatch("listOrders", cookoutId);
   },
   data() {
@@ -109,24 +97,25 @@ h1 {
   border-radius: 10px;
   width: 100%;
 }
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   display: inline-block;
   background-color: #bb2b1b;
   border-radius: 10px;
   margin: 8px;
-  border-block-color: black;
   width: 20%;
   height: 20%;
- font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: white;
 }
 
-short-order {
-  display: flex;
-}
-
-div#order-boxes {
+#order-boxes {
   background-color: rgb(231, 163, 15);
   display: inline-flex;
   border: black;
@@ -136,6 +125,7 @@ div#order-boxes {
   justify-content: space-between;
   padding: 10px;
   background-color: black;
+  flex-basis: 0 0 1;
 }
 
 div#order-food {
@@ -144,38 +134,40 @@ div#order-food {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color:  rgb(231, 163, 15);
+  background-color: rgb(231, 163, 15);
   border-radius: 15px;
   width: 90%;
 }
+
 div#align {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
 }
-#order-up{
+
+#order-up {
   display: inline-block;
   background-color: #bb2b1b;
   border-radius: 10px;
   margin: 8px;
   border: black;
   border-width: 10px;
-
   padding: 10px;
   font-weight: bold;
   font-size: 80%;
 }
 
-
 @media (max-width: 769px) {
   h1 {
     max-width: 100%;
   }
+
   #flexbox {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
 }
+
 @media (max-width: 35em) {
   #flexbox {
     grid-auto-flow: column;

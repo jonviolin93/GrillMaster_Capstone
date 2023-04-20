@@ -47,6 +47,7 @@ export default {
   border-radius: 5px;
   margin: 5px;
 }
+
 #g2 {
   grid-area: g2;
   background-color: rgb(231, 163, 15);
@@ -54,6 +55,7 @@ export default {
   border-radius: 5px;
   margin: 5px;
 }
+
 #g3 {
   grid-area: g3;
   background-color: rgb(231, 163, 15);
@@ -61,6 +63,7 @@ export default {
   border-radius: 5px;
   margin: 5px;
 }
+
 #g4 {
   grid-area: g4;
   background-color: rgb(231, 163, 15);
@@ -68,6 +71,7 @@ export default {
   border-radius: 5px;
   margin: 5px;
 }
+
 #g5 {
   grid-area: g5;
   background-color: rgb(231, 163, 15);
@@ -75,19 +79,24 @@ export default {
   border-radius: 5px;
   margin: 5px;
 }
+
 #g6 {
   grid-area: g6;
   margin: 5px;
 }
+
 #g7 {
   grid-area: g7;
 }
+
 #g8 {
   grid-area: g8;
 }
+
 #g9 {
   grid-area: g9;
 }
+
 #g10 {
   grid-area: g10;
 }

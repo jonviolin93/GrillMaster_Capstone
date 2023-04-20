@@ -38,6 +38,7 @@
 
 <script>
 import CookoutService from "../services/CookoutService";
+
 export default {
   data() {
     return {
@@ -61,15 +62,6 @@ export default {
         this.returnedUsers = response.data;
       });
     },
-    // compareUsers(user){
-    //     let userInList = false;
-    //     this.cookout.attendees.forEach(attendee => {
-    //         if (attendee.username == user.username){
-    //             userInList = true;
-    //         }
-    //     })
-    //     return userInList
-    // },
     addAttendeeList() {
       this.cookout.attendees.forEach((attendee) => delete attendee.authorities);
       CookoutService.addAttendeesToCookout(
@@ -92,7 +84,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
- 
 }
 
 .header:before {
@@ -119,8 +110,8 @@ export default {
 }
 
 #column {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #form-box {
@@ -135,13 +126,12 @@ export default {
 }
 
 form {
-    display: flex;
-   
+  display: flex;
 }
 
-#user-select{
-    display: flex;
-    flex-direction: column;
+#user-select {
+  display: flex;
+  flex-direction: column;
 }
 
 #users {
@@ -156,13 +146,12 @@ form {
   background-color: #bb2b1b;
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
-font-weight: 300;
+  font-weight: 300;
 }
 
-#column {   
+#column {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 

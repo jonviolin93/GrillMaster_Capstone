@@ -15,7 +15,7 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
@@ -23,7 +23,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    hostedCookouts:[
+    hostedCookouts: [
       {
         id: "",
         name: "",
@@ -35,7 +35,7 @@ export default new Vuex.Store({
         menuId: ""
       }
     ],
-    grillmasterCookouts:[
+    grillmasterCookouts: [
       {
         id: "",
         name: "",
@@ -47,7 +47,7 @@ export default new Vuex.Store({
         menuId: ""
       }
     ],
-    attendCookouts:[
+    attendCookouts: [
       {
         id: "",
         name: "",
@@ -59,15 +59,15 @@ export default new Vuex.Store({
         menuId: ""
       }
     ],
-    menuItems:[
+    menuItems: [
       {
-      id: "",
-      name: "",
-      isFavorited: false,
-      foodList: [],
-    }
+        id: "",
+        name: "",
+        isFavorited: false,
+        foodList: [],
+      }
     ],
-    orders:[],
+    orders: [],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -77,7 +77,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -86,19 +86,19 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    LIST_HOST_COOKOUTS(state, payload){
-    state.hostedCookouts = payload;
+    LIST_HOST_COOKOUTS(state, payload) {
+      state.hostedCookouts = payload;
     },
-    LIST_GRILLMASTER_COOKOUTS(state, payload){
-    state.grillmasterCookouts = payload;
+    LIST_GRILLMASTER_COOKOUTS(state, payload) {
+      state.grillmasterCookouts = payload;
     },
-    LIST_ATTENDEE_COOKOUTS(state, payload){
-    state.attendCookouts = payload;
+    LIST_ATTENDEE_COOKOUTS(state, payload) {
+      state.attendCookouts = payload;
     },
-    LIST_MENU_ITEMS(state, payload){
-    state.menuItems = payload;  
+    LIST_MENU_ITEMS(state, payload) {
+      state.menuItems = payload;
     },
-    LIST_ORDERS(state, payload){
+    LIST_ORDERS(state, payload) {
       state.orders = payload;
     }
   },
@@ -115,19 +115,14 @@ export default new Vuex.Store({
       let data = await CookoutService.listCookoutsByGrillMaster();
       commit('LIST_GRILLMASTER_COOKOUTS', data.data)
     },
-    async listMenu({ commit },  id ) {
+    async listMenu({ commit }, id) {
       let data = await MenuService.getIndividualMenu(id);
       commit('LIST_MENU_ITEMS', data.data)
     },
-    async listOrders({ commit },  cookoutId ) {
-    
+    async listOrders({ commit }, cookoutId) {
       let data = await axios.get(`/cookouts/${cookoutId}/order/`);
-  
       commit('LIST_ORDERS', data.data)
     },
-
-
-}
-
   }
-)
+})
+

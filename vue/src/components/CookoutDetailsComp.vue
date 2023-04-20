@@ -22,7 +22,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .cookout-details {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -31,13 +30,20 @@ export default {
     "g6 g7 g8 g9"
     "g6 g5 g5 g5"
     "g6 g10 g10 g10";
-    
-
 }
 
-#g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #g9, #g10 {
-overflow-wrap: break-word;
-line-height: 1.5;
+#g1,
+#g2,
+#g3,
+#g4,
+#g5,
+#g6,
+#g7,
+#g8,
+#g9,
+#g10 {
+  overflow-wrap: break-word;
+  line-height: 1.5;
 }
 
 #g1 {
@@ -47,6 +53,7 @@ line-height: 1.5;
   border-radius: 5px;
   margin: 5px;
 }
+
 #g2 {
   grid-area: g2;
   background-color: rgb(231, 163, 15);
@@ -54,6 +61,7 @@ line-height: 1.5;
   border-radius: 5px;
   margin: 5px;
 }
+
 #g3 {
   grid-area: g3;
   background-color: rgb(231, 163, 15);
@@ -61,6 +69,7 @@ line-height: 1.5;
   border-radius: 5px;
   margin: 5px;
 }
+
 #g4 {
   grid-area: g4;
   background-color: rgb(231, 163, 15);
@@ -68,6 +77,7 @@ line-height: 1.5;
   border-radius: 5px;
   margin: 5px;
 }
+
 #g5 {
   grid-area: g5;
   background-color: rgb(231, 163, 15);
@@ -75,22 +85,27 @@ line-height: 1.5;
   border-radius: 5px;
   margin: 5px;
 }
+
 #g6 {
   grid-area: g6;
   margin: 5px;
   font-weight: 400;
 }
+
 #g7 {
   grid-area: g7;
 }
+
 #g8 {
   grid-area: g8;
 }
+
 #g9 {
   grid-area: g9;
   overflow-wrap: break-word;
-line-height: 1.5;
+  line-height: 1.5;
 }
+
 #g10 {
   grid-area: g10;
 }

@@ -3,14 +3,13 @@
     <div class="header">
       <p id="header-text">Attendee</p>
     </div>
-    
     <body>
       <div id="cookout-details">
         <cookout-details-comp v-bind:cookout="getCookoutDetails" />
       </div>
       <section id="flexbox">
         <div id="menu-details">
-          <menu-items v-bind:menu=this.$store.state.menuItems />
+          <menu-items v-bind:menu="this.$store.state.menuItems" />
         </div>
         <div id="attendees-list">
           <attendees-list v-bind:attendees="getAttendeeList" />
@@ -22,12 +21,12 @@
 
 <script>
 import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
-import AttendeesList from "../components/AttendeesList.vue"
+import AttendeesList from "../components/AttendeesList.vue";
 import MenuItems from "../components/MenuItems.vue";
 
 export default {
   name: "attendee",
-  components: { CookoutDetailsComp, MenuItems, AttendeesList},
+  components: { CookoutDetailsComp, MenuItems, AttendeesList },
   computed: {
     getCookoutDetails() {
       let oneCookoutDetails = this.$store.state.attendCookouts.find((item) => {
@@ -35,7 +34,6 @@ export default {
       });
       return oneCookoutDetails;
     },
-
     getAttendeeList() {
       let attendeeList = this.$store.state.attendCookouts.find((item) => {
         return item.id == this.$route.params.id;
@@ -43,7 +41,6 @@ export default {
       return attendeeList.attendees;
     },
   },
-
   created() {
     const cookoutId = this.$route.params.id;
     let menuId;
@@ -56,6 +53,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .header {
   position: relative;
@@ -99,7 +97,7 @@ export default {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
-  gap: .5em
+  gap: 0.5em;
 }
 
 #menu-details {
@@ -118,14 +116,13 @@ export default {
 
 @media (max-width: 769px) {
   /* width */
-   #flexbox {
+  #flexbox {
     grid-template-columns: 1;
     grid-template-rows: 3;
-   grid-template-areas: 
-   "cookout-details"
-   "menu-details"
-   "attendees-list";
+    grid-template-areas:
+      "cookout-details"
+      "menu-details"
+      "attendees-list";
   }
 }
-
 </style>

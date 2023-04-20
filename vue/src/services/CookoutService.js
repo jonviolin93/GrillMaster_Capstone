@@ -3,33 +3,33 @@ import axios from "axios";
 
 
 export default {
-    listCookouts(){
+    listCookouts() {
         return axios.get('/cookouts')
     },
 
-    showCookoutDetails(id){
+    showCookoutDetails(id) {
         return axios.get(`/cookouts/${id}`)
     },
 
-    createCookout(cookout){
+    createCookout(cookout) {
         return axios.post('/cookouts/', cookout)
     },
 
-    updateCookout(id, cookout){
+    updateCookout(id, cookout) {
         return axios.put(`/cookouts/${id}`, cookout)
     },
 
-    deleteCookout(id){
+    deleteCookout(id) {
         return axios.delete(`/cookouts/${id}`)
     },
-    listCookoutsByAttending(){
+    listCookoutsByAttending() {
         return axios.get('/cookouts/duty/3')
 
     },
-    listCookoutsByHosting(){
+    listCookoutsByHosting() {
         return axios.get('/cookouts/duty/1')
     },
-    listCookoutsByGrillMaster(){
+    listCookoutsByGrillMaster() {
         return axios.get('/cookouts/duty/2')
     },
     listSearchedAttendees(searchTerm) {

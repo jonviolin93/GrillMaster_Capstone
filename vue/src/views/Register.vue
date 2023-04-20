@@ -118,15 +118,13 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
-
   width: 60%;
-
   opacity: 0.65;
   background-color: orangered;
   border: 5px solid black;
 }
 
-input#username,
+#username,
 #password,
 #confirmPassword {
   background-color: orange;
@@ -154,6 +152,7 @@ label {
   text-align: right;
   margin-right: 0.5rem;
 }
+
 button {
   background-color: black;
   color: white;
@@ -162,7 +161,6 @@ button {
   margin-top: 5px;
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
- 
 }
 
 @media (max-width: 425px) {

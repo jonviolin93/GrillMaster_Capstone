@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       currentUser: this.$store.state.user.username,
-      attendees: this.cookout.attendees
+      attendees: this.cookout.attendees,
     };
   },
   computed: {
@@ -26,7 +26,7 @@ export default {
         if (attendee.username == this.currentUser) {
           type = attendee.duty;
         }
-      })
+      });
       return type;
     },
   },
@@ -59,6 +59,6 @@ export default {
 .cookout-location {
   font-size: 1rem;
   font-weight: 300;
-  line-height: .5rem;
+  line-height: 0.5rem;
 }
 </style>

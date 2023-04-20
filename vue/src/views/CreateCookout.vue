@@ -19,15 +19,6 @@
             style="align-self: flexbox-start"
           />
         </div>
-        <!-- <div class="form-input-cookout">
-    <label for="cookout-chef">Grill Master</label>
-      <input
-        type="text"
-        id="cookout-chef"
-        v-model = "cookout.attendees"
-        required
-      />
-  </div> -->
         <div class="form-input-cookout">
           <label for="cookout-location">Location</label>
           <input
@@ -185,12 +176,12 @@ label {
   padding-right: 20px;
   border-radius: 10px;
   width: 60%;
-
   background-color: #bb2b1b;
   border: 5px solid black;
   font-weight: bold;
 }
-input#cookout-name,
+
+#cookout-name,
 #cookout-chef,
 #cookout-location,
 #cookout-description,
@@ -199,9 +190,11 @@ input#cookout-name,
   background-color: rgb(231, 163, 15);
   border-radius: 10px;
 }
+
 textarea {
   margin-top: 5px;
 }
+
 button {
   background-color: black;
   color: white;
@@ -211,15 +204,14 @@ button {
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
   margin-left: 10rem;
-
 }
+
 button:hover{
   background-color: #bb2b1b;
 }
 
-input#cookout-time,
+#cookout-time,
 #cookout-date {
   margin-top: 5px;
 }
-
 </style>
