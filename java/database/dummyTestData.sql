@@ -4,7 +4,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('Cameron','$2a$10$wGG/k3
 INSERT INTO users (username,password_hash,role) VALUES ('Ellis','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Yehudis','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Meli','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('Reading','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Redding','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Joshua','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Jonathan','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('David','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
@@ -306,7 +306,7 @@ INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 10, 3);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 11, 1);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 11, 2);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 11, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 10, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 11, 3);
 
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 12, 1);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 12, 2);

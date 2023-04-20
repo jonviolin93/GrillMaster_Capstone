@@ -6,7 +6,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('Cameron','$2a$10$wGG/k3
 INSERT INTO users (username,password_hash,role) VALUES ('Ellis','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Yehudis','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Meli','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('Reading','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Redding','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Joshua','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('Jonathan','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('David','$2a$10$wGG/k36ZXjp63HjNxFf1a.UPrcVK0ApqSDJtlY1FVqFmIej1UsT/G','ROLE_USER');
@@ -65,10 +65,10 @@ INSERT INTO food (name, image, category_id) VALUES ('Coke', 'cokeUrl', 4);
 INSERT INTO food (name, image, category_id) VALUES ('Diet Coke', 'dietCokeUrl', 4);
 INSERT INTO food (name, image, category_id) VALUES ('Diet Dr Pepper', 'dietdrpUrl', 4);
 INSERT INTO food (name, image, category_id) VALUES ('hi-c', 'hi-cUrl', 4);
-INSERT INTO food (name, image, category_id) VALUES ('lemonade', 'lemonadeUrl', 4);
-INSERT INTO food (name, image, category_id) VALUES ('beer', 'beerUrl', 4);
-INSERT INTO food (name, image, category_id) VALUES ('sweet tea', 'sweetTeaUrl', 4);
-INSERT INTO food (name, image, category_id) VALUES ('kool-aid', 'koolaidUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Lemonade', 'lemonadeUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Beer', 'beerUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Sweet tea', 'sweetTeaUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Kool-aid', 'koolaidUrl', 4);
 
 
 
@@ -308,7 +308,7 @@ INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 10, 3);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 11, 1);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 11, 2);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 11, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 10, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 11, 3);
 
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 12, 1);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 12, 2);
@@ -402,18 +402,22 @@ INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (12, 2, '12:0
 INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (12, 1, '12:06:00');
 
 
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(1, 21, 3);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(2, 23, 2);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(3, 24, 1);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(4, 25, 1);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(5, 27, 2);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(6, 28, 1);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(7, 29, 3);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(8, 30, 2);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(9, 32, 1);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(10, 34, 1);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(11, 35, 2);
-INSERT INTO order_food (order_id, food_id, quantity) VALUES(12, 38, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(52, 21, 3);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(52, 24, 3);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(52, 30, 3);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(53, 23, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(54, 24, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(55, 25, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(56, 27, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(57, 28, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(57, 35, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(58, 29, 3);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(59, 30, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(60, 32, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(61, 34, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(62, 35, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(62, 21, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(63, 38, 1);
 	
-
 COMMIT TRANSACTION;
+
