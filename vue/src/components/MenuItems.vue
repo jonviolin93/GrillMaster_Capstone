@@ -2,7 +2,7 @@
   <div class="menu-details">
     <label id="header"><h2>Menu Items</h2></label>
     <form v-on:submit.prevent="placeOrder">
-      <div id="g1" class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
+      <div class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
         <input type="checkbox" :value=food v-model="selectedFoods"/>
           {{ food.name }}
         <select name="quantity" id="quantity" v-model="food.quantity">
@@ -49,8 +49,7 @@ export default {
 <style scoped>
 .menu-details {
   display: grid;
- 
-  grid-auto-columns: 1fr;
+  grid-column: 1;
 }
 
 #header {
@@ -60,21 +59,24 @@ export default {
   margin: 5px;
   padding-left: 5rem;
   padding-right: 5rem;
-  grid-column: span 2;
 }
 
 h2 {
   font-weight: 300;
 }
-#g1 {
+
+form {
+  justify-items: center;
+  width: 60%;
+  padding-left: 20%;
+}
+
+.menu-foodList {
   background-color: rgb(231, 163, 15);
   border: 2px solid black;
   border-radius: 5px;
   margin: 5px;
-  padding-left: 5rem;
-  padding-right: 5rem;
   font-weight: 200;
- justify-items: center;
 }
 
 p {

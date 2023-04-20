@@ -1,13 +1,14 @@
 <template>
   <div class="attendees">
     <label id="header"><h2>Attendees</h2></label>
-    
-   
-    <div v-for="attendee in attendees" v-bind:key="attendee.id" id="list-of-attendees">
+    <div
+      v-for="attendee in attendees"
+      v-bind:key="attendee.id"
+      id="list-of-attendees"
+    >
       <h3 id="g3">{{ attendee.duty }}</h3>
       <h3 id="g4">{{ attendee.username }}</h3>
-     </div>
-    
+    </div>
   </div>
 </template>
 
@@ -23,7 +24,6 @@ export default {
 <style scoped>
 .attendees {
   display: grid;
- 
   grid-auto-columns: 1fr;
 }
 
@@ -41,21 +41,16 @@ h2 {
   font-weight: 300;
 }
 
- #g4 {
- 
-  border-radius: 5px;
-
-font-weight: 200;
- 
-}
 #g3 {
   border: 2px solid black;
   border-radius: 5px;
- 
   font-weight: 200;
 }
 
-
-  
-
+#g4 {
+  border-radius: 5px;
+  font-weight: 200;
+  background-color: transparent;
+  border-color: transparent;
+}
 </style>

@@ -239,6 +239,16 @@ margin-right: 6rem;
 #add-div {
   justify-items: center;
   align-items: center;
+  background-color: rgb(231, 163, 15);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+#category {
+  background-color: #bb2b1b;
 }
 
 option{
