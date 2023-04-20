@@ -231,7 +231,14 @@ margin-right: 6rem;
 }
 
 #add-form {
-  align-items: right;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+}
+
+#add-div {
+  justify-items: center;
+  align-items: center;
 }
 
 option{
