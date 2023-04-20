@@ -204,29 +204,29 @@ INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (38, 10, 1);
 
 
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Jonathans B-Day!', '2028-04-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 1);
+    VALUES ('Jonathan''s B-Day!', '2028-04-12', '12:00:00', 'Jonathan''s Backyard', 'It''s a birthday in a backyard', 1);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis B-Day!', '2028-05-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 2);
+    VALUES ('Meli''s B-Day!', '2028-05-13', '12:00:00', 'DisneyWorld', 'It''s a Small World After All', 2);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss B-Day!', '2028-06-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 3);
+    VALUES ('Ellis''s B-Day!', '2028-06-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 3);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons B-Day!', '2028-10-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 4);
+    VALUES ('Cameron''s B-Day!', '2028-10-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 4);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Jonathans Anniversary!', '2026-05-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 5);
+    VALUES ('Jonathan''s Anniversary!', '2026-05-12', '12:00:00', 'Jonathan''s Backyard', 'It''s a birthday in a backyard', 5);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis Anniversary!', '2026-09-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 6);
+    VALUES ('Meli''s Anniversary!', '2026-09-13', '12:00:00', 'DisneyWorld', 'It''s a Small World After All', 6);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss Anniversary!', '2026-11-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 7);
+    VALUES ('Ellis''s Anniversary!', '2026-11-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 7);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons Anniversary!', '2026-02-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 8);
+    VALUES ('Cameron''s Anniversary!', '2026-02-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 8);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Jonathans Graduation!', '2027-02-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 9);
+    VALUES ('Jonathan''s Graduation!', '2027-02-12', '12:00:00', 'Jonathan''s Backyard', 'It''s a birthday in a backyard', 9);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis Graduation!', '2023-04-21', '4:00:00', 'DisneyWorld', 'Its a Small World After All', 10);
+    VALUES ('Meli''s Graduation!', '2023-04-21', '4:00:00', 'DisneyWorld', 'It''s a Small World After All', 10);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss Graduation!', '2027-07-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 5);
+    VALUES ('Ellis''s Graduation!', '2027-07-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 5);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons Graduation!', '2027-12-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 7);
+    VALUES ('Cameron''s Graduation!', '2027-12-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 7);
 
 
 
