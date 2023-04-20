@@ -10,231 +10,287 @@ INSERT INTO users (username,password_hash,role) VALUES ('Yehudis','password','RO
 INSERT INTO users (username,password_hash,role) VALUES ('David','password','ROLE_USER');
 
 
+
 INSERT INTO menu (name) VALUES ('Backyard Menu');
-INSERT INTO menu (name) VALUES ('NASA Menu');
-INSERT INTO menu (name, is_favorited) VALUES ('Hobbit Menu', true);
-
-INSERT INTO food (name, image, category_id)
-VALUES ('Hot Dog', 'hotdogUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Burger', 'burgerUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Brat', 'bratUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Brisket', 'brisketUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Ribs', 'ribsUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('BBQ Chicken', 'bbqchickenUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Steak', 'steakUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Sausage', 'sausageUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Pulled Pork', 'pulledPorkUrl', 1);
-INSERT INTO food (name, image, category_id)
-VALUES ('Catfish', 'catfishUrl', 1);
-
-INSERT INTO food (name, image, category_id)
-VALUES ('Macaroni Salad', 'macaroniUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Potato Salad', 'potatoSaladUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Baked Beans', 'beansUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Coleslaw', 'coleslawUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Corn on the Cob', 'cornUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Stuffed Peppers', 'stuffedPeppersUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Jalapeno Poppers', 'jalaPoppersUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Salad', 'saladUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Watermelon', 'watermelonUrl', 2);
-INSERT INTO food (name, image, category_id)
-VALUES ('Little Smokies', 'littleSmokiesUrl', 2);
-
-INSERT INTO food (name, image, category_id)
-VALUES ('Brownie', 'brownieUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Pistachio Salad', 'pistachioSaladUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Popsicle', 'popsicleUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Ice Cream', 'iceCreamUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Rice Krispie Treat', 'riceKrispieUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Strawberry Shortcake', 'riceKrispieUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Flan', 'flanUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Tres Leche Cake', 'tresLecheUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Apple Pie', 'applePieUrl', 3);
-INSERT INTO food (name, image, category_id)
-VALUES ('Mochi', 'mochiUrl', 3);
-
-INSERT INTO food (name, image, category_id)
-VALUES ('Dr Pepper', 'drpUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('Water', 'waterUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('Coke', 'cokeUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('Diet Coke', 'dietCokeUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('Diet Dr Pepper', 'dietdrpUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('hi-c', 'hi-cUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('lemonade', 'lemonadeUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('beer', 'beerUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('sweet tea', 'sweetTeaUrl', 4);
-INSERT INTO food (name, image, category_id)
-VALUES ('kool-aid', 'koolaidUrl', 4);
+INSERT INTO menu (name) VALUES ('NASA Party Menu');
+INSERT INTO menu (name, is_favorited) VALUES ('Hobbit Party Menu', true);
+INSERT INTO menu (name) VALUES ('Pool Party Menu');
+INSERT INTO menu (name) VALUES ('Birthday Party Menu');
+INSERT INTO menu (name) VALUES ('Graduation Party Menu');
+INSERT INTO menu (name) VALUES ('Block Party Menu');
+INSERT INTO menu (name) VALUES ('Camping Party Menu');
+INSERT INTO menu (name) VALUES ('Tailgate Party Menu');
+INSERT INTO menu (name) VALUES ('Office Party Menu');
 
 
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (1, 1, 1);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (2, 1, 2);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (3, 1, 3);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (4, 1, 1);
 
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (1, 2, 1);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (2, 2, 2);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (3, 2, 3);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (4, 2, 1);
+INSERT INTO food (name, image, category_id) VALUES ('Hot Dog', 'hotdogUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Burger', 'burgerUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Brat', 'bratUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Brisket', 'brisketUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Ribs', 'ribsUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('BBQ Chicken', 'bbqchickenUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Steak', 'steakUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Sausage', 'sausageUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Pulled Pork', 'pulledPorkUrl', 1);
+INSERT INTO food (name, image, category_id) VALUES ('Catfish', 'catfishUrl', 1);
 
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (1, 3, 1);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (2, 3, 2);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (3, 3, 3);
-INSERT INTO food_menu (food_id, menu_id, added_by_id)
-VALUES (4, 3, 1);
+INSERT INTO food (name, image, category_id) VALUES ('Macaroni Salad', 'macaroniUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Potato Salad', 'potatoSaladUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Baked Beans', 'beansUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Coleslaw', 'coleslawUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Corn on the Cob', 'cornUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Stuffed Peppers', 'stuffedPeppersUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Jalapeno Poppers', 'jalaPoppersUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Salad', 'saladUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Watermelon', 'watermelonUrl', 2);
+INSERT INTO food (name, image, category_id) VALUES ('Little Smokies', 'littleSmokiesUrl', 2);
+
+INSERT INTO food (name, image, category_id) VALUES ('Brownie', 'brownieUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Pistachio Salad', 'pistachioSaladUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Popsicle', 'popsicleUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Ice Cream', 'iceCreamUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Rice Krispie Treat', 'riceKrispieUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Strawberry Shortcake', 'riceKrispieUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Flan', 'flanUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Tres Leche Cake', 'tresLecheUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Apple Pie', 'applePieUrl', 3);
+INSERT INTO food (name, image, category_id) VALUES ('Mochi', 'mochiUrl', 3);
+
+INSERT INTO food (name, image, category_id) VALUES ('Dr Pepper', 'drpUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Water', 'waterUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Coke', 'cokeUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Diet Coke', 'dietCokeUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('Diet Dr Pepper', 'dietdrpUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('hi-c', 'hi-cUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('lemonade', 'lemonadeUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('beer', 'beerUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('sweet tea', 'sweetTeaUrl', 4);
+INSERT INTO food (name, image, category_id) VALUES ('kool-aid', 'koolaidUrl', 4);
+
+
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (1, 1, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (2, 1, 4);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (3, 1, 5);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (4, 1, 4);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (11, 1, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (12, 1, 4);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (13, 1, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (21, 1, 5);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (31, 1, 5);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (33, 1, 3);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (1, 2, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (2, 2, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (7, 2, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (8, 2, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 2, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (14, 2, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (16, 2, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (21, 2, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (22, 2, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (26, 2, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (35, 2, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (37, 2, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (6, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (7, 3, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (8, 3, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (12, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (15, 3, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (17, 3, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (18, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (23, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (24, 3, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (27, 3, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (29, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (30, 3, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (32, 3, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (33, 3, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (34, 3, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 4, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (10, 4, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (11, 4, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (12, 4, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (21, 4, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (22, 4, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (33, 4, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (36, 4, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (6, 5, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (7, 5, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 5, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (10, 5, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (11, 5, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (14, 5, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (15, 5, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (24, 5, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (27, 5, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (28, 5, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (31, 5, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (38, 5, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (5, 6, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (8, 6, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 6, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (10, 6, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (13, 6, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (16, 6, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (23, 6, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (34, 6, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (40, 6, 2);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (7, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (8, 7, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 7, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (10, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (17, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (18, 7, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (19, 7, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (20, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (27, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (28, 7, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (29, 7, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (30, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (37, 7, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (38, 7, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (39, 7, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (40, 7, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (1, 8, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (6, 8, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (9, 8, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (14, 8, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (18, 8, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (20, 8, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (22, 8, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (24, 8, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (30, 8, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (32, 8, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (33, 8, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (35, 8, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (1, 9, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (2, 9, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (6, 9, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (12, 9, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (13, 9, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (20, 9, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (23, 9, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (26, 9, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (31, 9, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (32, 9, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (36, 9, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (38, 9, 1);
+
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (21, 10, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (23, 10, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (24, 10, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (25, 10, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (27, 10, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (28, 10, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (29, 10, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (30, 10, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (32, 10, 1);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (34, 10, 2);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (35, 10, 3);
+INSERT INTO food_menu (food_id, menu_id, added_by_id) VALUES (38, 10, 1);
+
+
 
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
     VALUES ('Jonathans B-Day!', '2028-04-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 1);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis B-Day!', '2028-05-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 1);
+    VALUES ('Melis B-Day!', '2028-05-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 2);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss B-Day!', '2028-06-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 2);
+    VALUES ('Elliss B-Day!', '2028-06-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 3);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons B-Day!', '2028-10-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 3);
+    VALUES ('Camerons B-Day!', '2028-10-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 4);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Jonathans Anniversary!', '2026-05-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 1);
+    VALUES ('Jonathans Anniversary!', '2026-05-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 5);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis Anniversary!', '2026-09-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 1);
+    VALUES ('Melis Anniversary!', '2026-09-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 6);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss Anniversary!', '2026-11-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 2);
+    VALUES ('Elliss Anniversary!', '2026-11-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 7);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons Anniversary!', '2026-02-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 3);
+    VALUES ('Camerons Anniversary!', '2026-02-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 8);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Jonathans Graduation!', '2027-02-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 1);
+    VALUES ('Jonathans Graduation!', '2027-02-12', '12:00:00', 'Jonathans Backyard', 'Its a birthday in a backyard', 9);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Melis Graduation!', '2027-03-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 1);
+    VALUES ('Melis Graduation!', '2027-03-13', '12:00:00', 'DisneyWorld', 'Its a Small World After All', 10);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Elliss Graduation!', '2027-07-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 2);
+    VALUES ('Elliss Graduation!', '2027-07-17', '12:00:00', 'NASA Space Station', 'To Infinity and Beyond', 5);
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
-    VALUES ('Camerons Graduation!', '2027-12-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 3);
+    VALUES ('Camerons Graduation!', '2027-12-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 7);
 
+SELECT * FROM duty;
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 1, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 1, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 1, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 1, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 1, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 1, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 1, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 1, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 1, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 1, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 1, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 2, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 2, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 2, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 2, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 2, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 2, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 2, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 2, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 3, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 3, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 3, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 3, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 3, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 3, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 3, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 3, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 3, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 4, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 4, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 4, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 1);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 5, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 5, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 5, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 5, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 5, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 5, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 6, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 6, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 6, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 6, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 6, 1);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 7, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 7, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 7, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 7, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 7, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 7, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 8, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 8, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 8, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 8, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 8, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 8, 1);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 9, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 9, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 9, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 9, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 9, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 9, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 10, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 10, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 10, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 10, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 10, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 10, 2);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 11, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 11, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 11, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 11, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 11, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 11, 1);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (1, 12, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (2, 12, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id)
-    VALUES (3, 12, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 12, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 12, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 12, 1);
+
+SELECT * FROM user_cookout;
 
 INSERT INTO cookout_order (cookout_id, user_id, order_time)
     VALUES (1, 1, '12:00:00');
