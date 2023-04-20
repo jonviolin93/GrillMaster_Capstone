@@ -13,6 +13,7 @@
       </div>
       <div class="break"></div>
       <input class="button" type="submit" value="Place Order"/>
+      <p v-if="orderPlaced">Order successfully placed!</p>
     </form>
     
   </div>
@@ -24,7 +25,8 @@ export default {
   name: "menu-items",
   data() {
     return {
-      selectedFoods: []
+      selectedFoods: [],
+      orderPlaced: false
     }
   },
   props: {
@@ -38,7 +40,7 @@ export default {
       OrderService.placeOrder(this.$route.params.id, order)
       .then(response => {
         if (response.status == 201){
-          console.log("success")
+          this.orderPlaced = true;
         }
       })
     }

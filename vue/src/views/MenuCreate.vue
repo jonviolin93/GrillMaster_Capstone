@@ -39,7 +39,7 @@
     </form>
     <form id="add-form" v-on:submit.prevent="submitFoodsToMenu">
       <div id="add-div" v-for="(food, index) in this.foodReturn" v-bind:key="index">
-        <input id="add-label" type="checkbox" :value="food" v-model="selectedFoods" />
+        <input id="add-label" type="checkbox" :value="food" v-model="selectedFoods" v-on:click="menuCreated = false"/>
         {{ food.name }}
         <select name="category" id="category" v-model="food.category">
           <option value="Main">Main</option>
@@ -58,8 +58,8 @@
         {{ food.name }}, {{ food.category }}
       </p>
     </div>
-
-    <router-link
+    <p v-if="menuCreated">Menu successfully created!</p>
+    <router-link v-if="menuCreated"
       :to="{
         name: 'add-attendees',
         params: { id: this.$route.params.cookoutId },
@@ -80,6 +80,7 @@ export default {
       dishType: "",
       foodReturn: {},
       selectedFoods: [],
+      menuCreated: false
     };
   },
   created: {},
@@ -90,7 +91,8 @@ export default {
         this.restriction,
         this.dishType
       ).then((response) => {
-        this.foodReturn = response.data;
+        const unfilteredReturn = response.data;
+        this.foodReturn = [...new Map(unfilteredReturn.map(food => [food.name, food])).values()];
       });
     },
     submitFoodsToMenu() {
@@ -112,8 +114,12 @@ export default {
               favorited: false,
               foodItems: foodsInMenu,
             };
-            MenuService.updateMenu(this.$route.params.menuId, menu);
-            console.log("This was reached end");
+            MenuService.updateMenu(this.$route.params.menuId, menu)
+            .then(response => {
+              if (response.status == 201){
+                this.menuCreated = true;
+              }
+            })
           }
         });
       });

@@ -33,7 +33,7 @@ public class JdbcOrderDao implements OrderDao {
 
     private void insertFoodIntoOrder(int orderId, Food food){
         String sql = "INSERT INTO order_food (order_id, food_id, quantity) " +
-                "VALUES (?, (SELECT food_id FROM food WHERE name = ?), ?);";
+                "VALUES (?, (SELECT food_id FROM food WHERE name = ? LIMIT 1), ?);";
 
         jdbcTemplate.update(sql, orderId, food.getName(), food.getQuantity());
     }
