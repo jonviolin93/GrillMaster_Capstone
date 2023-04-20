@@ -12,8 +12,8 @@
         <div id="menu-details">
           <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
-        <div id="attendees-list" v-bind:attendees="getAttendeeList">
-          <attendees-list />
+        <div id="attendees-list">
+          <attendees-list v-bind:attendees="getAttendeeList" />
         </div>
       </section>
     </body>
@@ -23,7 +23,6 @@
 <script>
 import AttendeesList from "../components/AttendeesList.vue";
 import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
-// import PlaceOrder from "../components/PlaceOrder.vue";
 import MenuItems from "../components/MenuItems.vue";
 
 export default {
@@ -57,8 +56,6 @@ export default {
   },
 };
 </script>
-
-
 <style scoped>
 .header {
   position: relative;
@@ -100,21 +97,19 @@ export default {
 
 #flexbox {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 #menu-details {
   background-color: #bb2b1b;
   border-radius: 10px;
-  flex-grow: 60vw;
   margin-top: 5px;
   margin-right: 5px;
 }
 
-#place-order {
+#attendees-list {
   background-color: #bb2b1b;
   border-radius: 10px;
-  flex-grow: 40vw;
   margin-top: 5px;
   margin-left: 5px;
 }

@@ -12,9 +12,9 @@
         <div id="menu-details">
           <menu-items v-bind:menu=this.$store.state.menuItems />
         </div>
-        <!-- <div id="place-order">
-          <place-order />
-        </div> -->
+        <div id="attendees-list">
+          <attendees-list v-bind:attendees="getAttendeeList" />
+        </div>
       </section>
     </body>
   </div>
@@ -22,23 +22,25 @@
 
 <script>
 import CookoutDetailsComp from "../components/CookoutDetailsComp.vue";
-// import PlaceOrder from "../components/PlaceOrder.vue";
+import AttendeesList from "../components/AttendeesList.vue"
 import MenuItems from "../components/MenuItems.vue";
 
 export default {
   name: "attendee",
-
-  components: {
-    CookoutDetailsComp,
-    MenuItems,
-  },
-
+  components: { CookoutDetailsComp, MenuItems, AttendeesList},
   computed: {
     getCookoutDetails() {
       let oneCookoutDetails = this.$store.state.attendCookouts.find((item) => {
         return item.id == this.$route.params.id;
       });
       return oneCookoutDetails;
+    },
+
+    getAttendeeList() {
+      let attendeeList = this.$store.state.attendCookouts.find((item) => {
+        return item.id == this.$route.params.id;
+      });
+      return attendeeList.attendees;
     },
   },
 
@@ -95,25 +97,22 @@ export default {
 
 #flexbox {
   display: grid;
-  grid-template-columns:  2fr 1fr;
+  grid-template-columns:  1fr 1fr;
 }
 
 #menu-details {
   background-color: #bb2b1b;
   border-radius: 10px;
-  flex-grow: 60vw;
   margin-top: 5px;
   margin-right: 5px;
+  width: 1fr;
 }
 
-/* #place-order {
+#attendees-list {
   background-color: #bb2b1b;
   border-radius: 10px;
-  flex-grow: 40vw;
   margin-top: 5px;
   margin-left: 5px;
-} */
-
-
-
+  width: 1fr;
+}
 </style>

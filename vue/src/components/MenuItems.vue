@@ -1,10 +1,8 @@
 <template>
   <div class="menu-details">
-    <label for="menu-name" id="g1">Menu Name</label>
-    <h2 class="menu-name" id="g3">{{ menu.name }}</h2>
-    <label for="menu-foodList" id="g2">Menu Items</label>
+    <label id="header"><h2>Menu Items</h2></label>
     <form v-on:submit.prevent="placeOrder">
-      <div class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
+      <div id="g1" class="menu-foodList" v-for="food in menu.foodItems" v-bind:key="food.index">
         <input type="checkbox" :value=food v-model="selectedFoods"/>
           {{ food.name }}
         <select name="quantity" id="quantity" v-model="food.quantity">
@@ -13,6 +11,7 @@
               <option value="3">3</option>
         </select>
       </div>
+      <div class="break"></div>
       <input class="button" type="submit" value="Place Order"/>
     </form>
     
@@ -50,43 +49,51 @@ export default {
 <style scoped>
 .menu-details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "g1 g2"
-    "g3 p"; 
+ 
+  grid-auto-columns: 1fr;
 }
 
-#g1 {
-  grid-area: g1;
-  background-color: rgb(231, 163, 15);
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 5px;
-}
-#g2 {
-  grid-area: g2;
+#header {
   background-color: rgb(231, 163, 15);
   border: 2px solid black;
   border-radius: 5px;
   margin: 5px;
   padding-left: 5rem;
   padding-right: 5rem;
+  grid-column: span 2;
 }
-#g3 {
-  grid-area: g3;
-  
+
+h2 {
+  font-weight: 300;
+}
+#g1 {
+  background-color: rgb(231, 163, 15);
+  border: 2px solid black;
+  border-radius: 5px;
   margin: 5px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-weight: 200;
+ justify-items: center;
 }
+
 p {
   margin: 5px;
 }
 
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
 .button {
+align-content: center;
   background-color: black;
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: 300;
   margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
 
