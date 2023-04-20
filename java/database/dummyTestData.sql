@@ -1,8 +1,14 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role) VALUES ('user1','user1','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('user2','user2','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('user3','user3','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Cameron','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Ellis','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Jonathan','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Meli','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Reading','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Joshua','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('Yehudis','password','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('David','password','ROLE_USER');
+
 
 INSERT INTO menu (name) VALUES ('Backyard Menu');
 INSERT INTO menu (name) VALUES ('NASA Menu');
@@ -11,13 +17,87 @@ INSERT INTO menu (name, is_favorited) VALUES ('Hobbit Menu', true);
 INSERT INTO food (name, image, category_id)
 VALUES ('Hot Dog', 'hotdogUrl', 1);
 INSERT INTO food (name, image, category_id)
+VALUES ('Burger', 'burgerUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Brat', 'bratUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Brisket', 'brisketUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Ribs', 'ribsUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('BBQ Chicken', 'bbqchickenUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Steak', 'steakUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Sausage', 'sausageUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Pulled Pork', 'pulledPorkUrl', 1);
+INSERT INTO food (name, image, category_id)
+VALUES ('Catfish', 'catfishUrl', 1);
+
+INSERT INTO food (name, image, category_id)
 VALUES ('Macaroni Salad', 'macaroniUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Potato Salad', 'potatoSaladUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Baked Beans', 'beansUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Coleslaw', 'coleslawUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Corn on the Cob', 'cornUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Stuffed Peppers', 'stuffedPeppersUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Jalapeno Poppers', 'jalaPoppersUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Salad', 'saladUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Watermelon', 'watermelonUrl', 2);
+INSERT INTO food (name, image, category_id)
+VALUES ('Little Smokies', 'littleSmokiesUrl', 2);
+
 INSERT INTO food (name, image, category_id)
 VALUES ('Brownie', 'brownieUrl', 3);
 INSERT INTO food (name, image, category_id)
-VALUES ('Soda', 'sodaUrl', 4);
+VALUES ('Pistachio Salad', 'pistachioSaladUrl', 3);
 INSERT INTO food (name, image, category_id)
-VALUES ('Burgers', 'burgerUrl', 1);
+VALUES ('Popsicle', 'popsicleUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Ice Cream', 'iceCreamUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Rice Krispie Treat', 'riceKrispieUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Strawberry Shortcake', 'riceKrispieUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Flan', 'flanUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Tres Leche Cake', 'tresLecheUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Apple Pie', 'applePieUrl', 3);
+INSERT INTO food (name, image, category_id)
+VALUES ('Mochi', 'mochiUrl', 3);
+
+INSERT INTO food (name, image, category_id)
+VALUES ('Dr Pepper', 'drpUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('Water', 'waterUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('Coke', 'cokeUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('Diet Coke', 'dietCokeUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('Diet Dr Pepper', 'dietdrpUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('hi-c', 'hi-cUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('lemonade', 'lemonadeUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('beer', 'beerUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('sweet tea', 'sweetTeaUrl', 4);
+INSERT INTO food (name, image, category_id)
+VALUES ('kool-aid', 'koolaidUrl', 4);
+
 
 INSERT INTO food_menu (food_id, menu_id, added_by_id)
 VALUES (1, 1, 1);
