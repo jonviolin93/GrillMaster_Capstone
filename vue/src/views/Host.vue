@@ -127,10 +127,5 @@ export default {
    "attendees-list";
   }
 }
-@media (max-width: 35em) {
-  #flexbox {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-}
+
 </style>

@@ -107,7 +107,6 @@ export default {
   border-radius: 10px;
   margin-top: 5px;
   margin-right: 5px;
-  width: 1fr;
 }
 
 #attendees-list {
@@ -115,19 +114,11 @@ export default {
   border-radius: 10px;
   margin-top: 5px;
   margin-left: 5px;
-  width: 1fr;
 }
 
-@media (min-width: 769px) {
-  /* width */
-  #flexbox {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-}
 @media (max-width: 769px) {
   /* width */
-  #flexbox {
+   #flexbox {
     grid-template-columns: 1;
     grid-template-rows: 3;
    grid-template-areas: 
@@ -136,4 +127,5 @@ export default {
    "attendees-list";
   }
 }
+
 </style>
