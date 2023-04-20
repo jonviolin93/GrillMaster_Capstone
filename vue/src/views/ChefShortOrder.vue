@@ -143,7 +143,7 @@ div#order-food {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: rgb(231, 163, 15);
+  background-color:  rgb(231, 163, 15);
   border-radius: 15px;
   width: 90%;
 }

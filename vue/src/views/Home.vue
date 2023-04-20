@@ -66,7 +66,7 @@ export default {
 
   flex-direction: row;                  
   
-  background-color: #BB2B1B;
+  background-color: #bb2b1b;
   border: 5px solid black;
 }
 

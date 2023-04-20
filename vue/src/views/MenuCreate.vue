@@ -3,6 +3,7 @@
     <div class="header">
       <p id="header-text">Add Items to Menu</p>
     </div>
+    <div id="form-div">
     <form v-on:submit.prevent="findExternalFoods">
       <div>
         <label for="ingredient">Ingredient:</label>
@@ -36,7 +37,7 @@
         <input type="submit" value="Search" />
       </div>
     </form>
-    <form v-on:submit.prevent="submitFoodsToMenu">
+    <form id="add" v-on:submit.prevent="submitFoodsToMenu">
       <div v-for="(food, index) in this.foodReturn" v-bind:key="index">
         <input type="checkbox" :value="food" v-model="selectedFoods" />
         {{ food.name }}
@@ -51,9 +52,9 @@
         <input type="submit" value="Add Selected to Menu" />
       </div>
     </form>
-
-    <div>
-      <p v-for="food in selectedFoods" :key="food.index">
+    </div>
+    <div id="food-div">
+      <p id="food-selected" v-for="food in selectedFoods" :key="food.index">
         {{ food.name }}, {{ food.category }}
       </p>
     </div>
@@ -167,17 +168,13 @@ label {
   display: inline-block;
   width: 150px;
   text-align: right;
+ 
 }
 
 div {
   margin-bottom: 10px;
 }
 
-.attendees {
-  display: grid;
-
-  grid-auto-columns: 1fr;
-}
 
 #header {
   background-color: rgb(231, 163, 15);
@@ -193,21 +190,7 @@ h2 {
   font-weight: 300;
 }
 
-#g1,
-#g2,
-#g4 {
-  background-color: rgb(231, 163, 15);
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 5px;
-  font-weight: 200;
-}
-#g3 {
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 5px;
-  font-weight: 200;
-}
+
 
 #cookout-details {
   background-color: #bb2b1b;
@@ -227,11 +210,66 @@ h2 {
   width: 1fr;
 }
 
-#attendees-list {
-  background-color: #bb2b1b;
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:  #bb2b1b;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 2%;
+ border-radius: 10px;
+}
+input{
+  background-color:  rgb(231, 163, 15);
   border-radius: 10px;
-  margin-top: 5px;
-  margin-left: 5px;
-  width: 1fr;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+ 
+  color: white;
+}
+select{
+  background-color:  rgb(231, 163, 15);
+  border-radius: 10px;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+}
+#form-div{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+#add{
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+#food-selected{
+  display: inline block;
+  background-color: #bb2b1b;
+align-items: center;
+  justify-content: center;
+ 
+ border-radius: 10px;
+ max-width: 60%;
+}
+#food-div{
+  width: 60%;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 33%;
+}
+
+@media(max-width: 850px){
+  label{
+    text-align: top;
+  }
+  form{
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
