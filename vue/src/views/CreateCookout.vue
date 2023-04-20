@@ -155,7 +155,6 @@ h1 {
 
 form {
   display: flex;
-
   background-size: cover;
   align-items: left;
   justify-content: center;
