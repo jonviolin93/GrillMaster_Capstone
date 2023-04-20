@@ -17,15 +17,15 @@ export default {
 
     searchFoods(ingredient, restriction, category){
         if(ingredient != '') {
-            ingredient = "?ingr=" + ingredient + "&";
+            ingredient = "ingr=" + ingredient + "&";
         }
         if(restriction != ''){
-            restriction = "?health=" + restriction + "&";
+            restriction = "health=" + restriction + "&";
         }
         if(category != ''){
-            category = "?category=" + category;
+            category = "category=" + category;
         }
-        return axios.get(`/food${ingredient}${restriction}${category}`)
+        return axios.get(`/food?${ingredient}${restriction}${category}`)
     },
 
     addFoodToDatabase(food){

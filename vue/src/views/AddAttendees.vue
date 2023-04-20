@@ -14,7 +14,7 @@
       </ul>
       <form v-on:submit.prevent="addAttendeeList">
       <div id="users" v-for="user in this.returnedUsers" v-bind:key="user.id">
-          <input type="checkbox" :value=user v-model="cookout.attendees"/>
+          <input type="checkbox" :value=user v-model="cookout.attendees" v-on:click="usersAdded = false"/>
           <p>{{user.username}}</p>
           <select name="duty" id="duty" v-model="user.duty">
               <option value="Grill Master">Grill Master</option>
@@ -25,6 +25,8 @@
       
       </form>
     </div>
+    <p v-if="usersAdded">Users successfully invited</p>
+    <router-link :to="{name: 'home'}" v-if="usersAdded">Home</router-link>
   </div>
 </template>
 
@@ -36,7 +38,8 @@ export default {
             search: '',
             returnedUsers: [],
             selectedUsers: [],
-            cookout: {}
+            cookout: {},
+            usersAdded: false
         }
     },
     created() {
@@ -64,7 +67,12 @@ export default {
         // },
         addAttendeeList() {
             this.cookout.attendees.forEach(attendee => delete attendee.authorities)
-            CookoutService.addAttendeesToCookout(this.$route.params.id, this.cookout);
+            CookoutService.addAttendeesToCookout(this.$route.params.id, this.cookout)
+            .then(response => {
+                if (response.status == 200){
+                    this.usersAdded = true;
+                }
+            });
         }           
     }
 }
