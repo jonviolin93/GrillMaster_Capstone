@@ -92,7 +92,7 @@ h1 {
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: wrap;
-
+border-radius: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -101,11 +101,14 @@ h1 {
   opacity: 0.65;
   background-color: orangered;
   border: 5px solid black;
+ 
 }
 
 input#username,
 #password {
   background-color: orange;
+  border-radius: 10px;
+  margin-right: 1%;
 }
 h2 {
   display: flex;
@@ -127,6 +130,19 @@ label {
   text-align: right;
   margin-right: 0.5rem;
 }
+button {
+  background-color: black;
+  color: white;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgb(231, 163, 15);
+
+
+}
+
+
 @media (max-width: 425px) {
   .transbox {
     flex-basis: 100%;

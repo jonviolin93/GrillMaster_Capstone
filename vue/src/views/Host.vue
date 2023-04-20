@@ -116,11 +116,15 @@ export default {
   margin-left: 5px;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 769px) {
   /* width */
   #flexbox {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-template-columns: 1;
+    grid-template-rows: 3;
+   grid-template-areas: 
+   "cookout-details"
+   "menu-details"
+   "attendees-list";
   }
 }
 @media (max-width: 35em) {
