@@ -6,12 +6,12 @@
           <input type="submit" value="Search" />
       </form>
       <ul>
-          <li v-for="user in selectedUsers" v-bind:key="user.user_id">{{user.username}}, {{user.duty}}</li>
+          <li v-for="user in cookout.attendees" v-bind:key="user.user_id">{{user.username}}, {{user.duty}}</li>
       </ul>
       <form v-on:submit.prevent="addAttendeeList">
       <div v-for="user in this.returnedUsers" v-bind:key="user.id">
-          <input type="checkbox" :value=user v-model="selectedUsers"/>
-          {{user.username}}
+          <input type="checkbox" :value=user v-model="cookout.attendees"/>
+          <p>{{user.username}}</p>
           <select name="duty" id="duty" v-model="user.duty">
               <option value="Grill Master">Grill Master</option>
               <option value="Attendee">Attendee</option>
@@ -29,8 +29,16 @@ export default {
         return {
             search: '',
             returnedUsers: [],
-            selectedUsers: []
+            selectedUsers: [],
+            cookout: {}
         }
+    },
+    created() {
+        CookoutService.showCookoutDetails(this.$route.params.id)
+        .then(response => {
+            this.cookout = response.data;
+        })
+
     },
     methods: {
         findUsersBySearch() {
@@ -39,16 +47,19 @@ export default {
                 this.returnedUsers = response.data;
             })
         },
+        // compareUsers(user){
+        //     let userInList = false;
+        //     this.cookout.attendees.forEach(attendee => {
+        //         if (attendee.username == user.username){
+        //             userInList = true;
+        //         }
+        //     })
+        //     return userInList
+        // },
         addAttendeeList() {
-            let cookout;
-            CookoutService.showCookoutDetails(this.$route.params.id).then(response =>{
-                cookout = response.data;
-                console.log(cookout)
-                cookout.attendees = this.selectedUsers;
-                console.log(cookout)
-                CookoutService.addAttendeesToCookout(this.$route.params.id, cookout);
-            })           
-        }
+            this.cookout.attendees.forEach(attendee => delete attendee.authorities)
+            CookoutService.addAttendeesToCookout(this.$route.params.id, this.cookout);
+        }           
     }
 }
 </script>
