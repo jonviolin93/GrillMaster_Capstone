@@ -21,9 +21,7 @@
         </section>
       </div>
     </body>
-    <footer>
-      <h4>Cookout App created by The GrillMasterz: Meli, Red, Cameron, Ellis, and Jonathan</h4>
-    </footer>
+    
   </div>
 </template>
 
@@ -113,21 +111,6 @@ export default {
   width: 100%; 
   align-self: center;
   flex: 0 0 150px;
-}
-
-footer {
-  background-image: url("../assets/Coals.png");
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 15vh;
-  
-
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-left: 5px solid black;
-  border-right: 5px solid black;
 }
 
 @media(min-width: 769px){

@@ -3,14 +3,14 @@
     <div class="header">
       <p id="header-text">Host</p>
     </div>
-   
+
     <body>
       <div id="cookout-details">
         <cookout-details-comp v-bind:cookout="getCookoutDetails" />
       </div>
       <section id="flexbox">
         <div id="menu-details">
-          <menu-items v-bind:menu=this.$store.state.menuItems />
+          <menu-items v-bind:menu="this.$store.state.menuItems" />
         </div>
         <div id="attendees-list">
           <attendees-list v-bind:attendees="getAttendeeList" />
@@ -97,7 +97,9 @@ export default {
 
 #flexbox {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: .5em
 }
 
 #menu-details {
@@ -112,5 +114,19 @@ export default {
   border-radius: 10px;
   margin-top: 5px;
   margin-left: 5px;
+}
+
+@media (min-width: 769px) {
+  /* width */
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+@media (max-width: 35em) {
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
 </style>

@@ -97,7 +97,9 @@ export default {
 
 #flexbox {
   display: grid;
-  grid-template-columns:  1fr 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: .5em
 }
 
 #menu-details {
@@ -114,5 +116,19 @@ export default {
   margin-top: 5px;
   margin-left: 5px;
   width: 1fr;
+}
+
+@media (min-width: 769px) {
+  /* width */
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+@media (max-width: 35em) {
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
 </style>

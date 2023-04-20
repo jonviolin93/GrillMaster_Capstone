@@ -170,5 +170,15 @@ div#align {
   h1 {
     max-width: 100%;
   }
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+@media (max-width: 35em) {
+  #flexbox {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
 </style>
