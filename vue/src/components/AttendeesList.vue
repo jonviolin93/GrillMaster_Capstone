@@ -2,13 +2,10 @@
   <div class="attendees">
     <label id="header"><h2>Attendees</h2></label>
     
-    <div><h3 id="g1">Name</h3></div> 
-    <div><h3 id="g2">Role</h3></div>
-    <div v-for="attendee in attendees" v-bind:key="attendee.id">
-      <h3 id="g3">{{ attendee.name }}</h3>
-    </div>
-    <div v-for="attendee in attendees" v-bind:key="attendee.id">
-      <h3 id="g4">{{ attendee.duty }}</h3>
+   
+    <div v-for="attendee in attendees" v-bind:key="attendee.id" id="list-of-attendees">
+      <h3 id="g3">{{ attendee.duty }}</h3>
+      <h3 id="g4">{{ attendee.username }}</h3>
      </div>
     
   </div>
@@ -44,17 +41,21 @@ h2 {
   font-weight: 300;
 }
 
-#g1, #g2, #g4 {
-  background-color: rgb(231, 163, 15);
-  border: 2px solid black;
+ #g4 {
+ 
   border-radius: 5px;
-  margin: 5px;
-  font-weight: 200;
+
+font-weight: 200;
+ 
 }
 #g3 {
   border: 2px solid black;
   border-radius: 5px;
-  margin: 5px;
+ 
   font-weight: 200;
 }
+
+
+  
+
 </style>
