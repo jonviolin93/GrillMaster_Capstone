@@ -226,7 +226,7 @@ INSERT INTO cookout (name, cookout_date, cookout_time, location, description, me
 INSERT INTO cookout (name, cookout_date, cookout_time, location, description, menu_id)
     VALUES ('Camerons Graduation!', '2027-12-5', '12:00:00', 'Pentagon', 'Everyone bring five items', 7);
 
-SELECT * FROM duty;
+
 
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 1, 1);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 1, 2);
@@ -251,64 +251,121 @@ INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 3, 2);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 3, 3);
 
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 4, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 4, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 4, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 4, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 4, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 4, 1);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 5, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 5, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 5, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 5, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 5, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 5, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 5, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 5, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 5, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 6, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 6, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 6, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 6, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 6, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 6, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 6, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 7, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 7, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 7, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 7, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 7, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 7, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 7, 3);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 7, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 8, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 8, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 8, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 8, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 8, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 8, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 8, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 8, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 8, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 8, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 9, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 9, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 9, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 9, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 9, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 9, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 9, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 9, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 10, 3);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 10, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 10, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (4, 10, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 10, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 10, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 10, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 11, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 11, 2);
 INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 11, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 11, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 11, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 10, 3);
 
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (1, 12, 1);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (2, 12, 2);
-INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 12, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (8, 12, 1);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (6, 12, 2);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (7, 12, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (5, 12, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (3, 12, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (10, 12, 3);
+INSERT INTO user_cookout (user_id, cookout_id, duty_id) VALUES (9, 12, 3);
 
-SELECT * FROM user_cookout;
 
-INSERT INTO cookout_order (cookout_id, user_id, order_time)
-    VALUES (1, 1, '12:00:00');
 
-INSERT INTO cookout_order (cookout_id, user_id, order_time)
-    VALUES (1, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (1, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (1, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (1, 1, '12:06:00');
 
-INSERT INTO cookout_order (cookout_id, user_id, order_time)
-    VALUES (1, 1, '12:06:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (2, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (2, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (2, 1, '12:06:00');
 
-INSERT INTO order_food (order_id, food_id, quantity)
-    VALUES(1, 1, 1);
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (3, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (3, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (3, 1, '12:06:00');
 
-INSERT INTO order_food (order_id, food_id, quantity)
-    VALUES(2, 2, 2);
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (4, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (4, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (4, 1, '12:06:00');
 
-INSERT INTO order_food (order_id, food_id, quantity)
-    VALUES(3, 3, 1);
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (5, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (5, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (5, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (6, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (6, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (6, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (7, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (7, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (7, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (8, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (8, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (8, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (9, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (9, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (9, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (10, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (10, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (10, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (11, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (11, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (11, 1, '12:06:00');
+
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (12, 1, '12:00:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (12, 2, '12:05:00');
+INSERT INTO cookout_order (cookout_id, user_id, order_time) VALUES (12, 1, '12:06:00');
+
+
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(1, 1, 1);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(2, 2, 2);
+INSERT INTO order_food (order_id, food_id, quantity) VALUES(3, 3, 1);
 	
 
 COMMIT TRANSACTION;
