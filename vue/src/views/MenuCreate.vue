@@ -4,8 +4,8 @@
       <p id="header-text">Add Items to Menu</p>
     </div>
     <div id="form-div">
-    <form v-on:submit.prevent="findExternalFoods">
-      <div>
+    <form id="dropdown" v-on:submit.prevent="findExternalFoods">
+      <div class="transbox">
         <label for="ingredient">Ingredient:</label>
         <input
           type="text"
@@ -37,9 +37,9 @@
         <input type="submit" value="Search" />
       </div>
     </form>
-    <form id="add" v-on:submit.prevent="submitFoodsToMenu">
-      <div v-for="(food, index) in this.foodReturn" v-bind:key="index">
-        <input type="checkbox" :value="food" v-model="selectedFoods" />
+    <form id="add-form" v-on:submit.prevent="submitFoodsToMenu">
+      <div id="add-div" v-for="(food, index) in this.foodReturn" v-bind:key="index">
+        <input id="add-label" type="checkbox" :value="food" v-model="selectedFoods" />
         {{ food.name }}
         <select name="category" id="category" v-model="food.category">
           <option value="Main">Main</option>
@@ -165,41 +165,16 @@ export default {
 }
 
 label {
+  vertical-align: middle;
   display: inline-block;
   width: 150px;
   text-align: right;
- 
+  margin-right: 0.5rem;
+  font-weight: 200;
 }
 
 div {
   margin-bottom: 10px;
-}
-
-
-#header {
-  background-color: rgb(231, 163, 15);
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 5px;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  grid-column: span 2;
-}
-
-h2 {
-  font-weight: 300;
-}
-
-
-
-#cookout-details {
-  background-color: #bb2b1b;
-  border-radius: 10px;
-}
-
-#flexbox {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 #menu-details {
@@ -210,32 +185,19 @@ h2 {
   width: 1fr;
 }
 
-
-form{
+#form-div {
   display: flex;
   flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-size: cover;
+  align-items: left;
   justify-content: center;
-  align-items: center;
-  background-color:  #bb2b1b;
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 2%;
- border-radius: 10px;
-}
-input{
-  background-color:  rgb(231, 163, 15);
+  padding: 5px;
   border-radius: 10px;
-  font-family: "Kanit", Arial, Helvetica, sans-serif;
- 
-  color: white;
+  background-color: #bb2b1b;
 }
-select{
-  background-color:  rgb(231, 163, 15);
-  border-radius: 10px;
-  font-family: "Kanit", Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: white;
-}
+
 #form-div{
   display: flex;
   flex-direction: column;
@@ -243,10 +205,54 @@ select{
   justify-content: center;
   align-items: center;
 }
-#add{
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
+
+#dropdown{
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}  
+
+#ingredient {
+margin-right: 6rem;
+
 }
+
+#restriction {
+  margin-right: 10rem;
+}
+
+#dishType {
+  margin-right: 8rem;
+}
+
+#add-form {
+  align-items: right;
+}
+
+option{
+  font-weight: 300;
+}
+
+input{
+  background-color:  rgb(231, 163, 15);
+  border-radius: 10px;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: 300;
+}
+select{
+  background-color:  rgb(231, 163, 15);
+  border-radius: 10px;
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
 #food-selected{
   display: inline block;
   background-color: #bb2b1b;

@@ -211,6 +211,7 @@ button {
   margin-top: 5px;
   border-radius: 10px;
   background-color: rgb(231, 163, 15);
+  margin-left: 10rem;
 
 }
 button:hover{
