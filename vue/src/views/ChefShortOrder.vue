@@ -12,6 +12,7 @@
         class="flexbox"
         v-for="order in this.$store.state.orders"
         v-bind:key="order.id"
+        v-show="!order.complete"
       >
         {{ order.username }} | Time: {{ order.time }}
 
