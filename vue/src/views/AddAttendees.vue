@@ -84,6 +84,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  left: 15%;
+  right: 15%;
 }
 
 .header:before {
@@ -109,50 +111,70 @@ export default {
   line-height: 0.9;
 }
 
-#column {
-  display: flex;
-  align-items: center;
-}
-
 #form-box {
-  display: flex;
   background-color: rgb(231, 163, 15);
-  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 5px;
   border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  padding: 5%;
-  width: 60%;
 }
 
 form {
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  row-gap: .25em;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 #user-select {
   display: flex;
   flex-direction: column;
+ 
 }
 
 #users {
   display: flex;
-  height: 2.2rem;
-  align-items: center;
-  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #bb2b1b;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-top: .25em;
+  width: 40%;
+}
+
+#users > p {
+  padding: 0;
+  margin: 0;
 }
 
 #duty {
   border-radius: 10px;
-  background-color: #bb2b1b;
+  background-color: rgb(231, 163, 15);
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   font-weight: 300;
 }
 
-#column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#duty > option {
+  font-weight: 300;
 }
 
 #search {
@@ -172,7 +194,7 @@ form {
   color: white;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
   border-radius: 10px;
-  margin-top: 10%;
+  margin-top: .5em;
   font-weight: 300;
 }
 </style>

@@ -45,6 +45,7 @@ h2 {
   border: 2px solid black;
   border-radius: 5px;
   font-weight: 200;
+  background-color: rgb(231, 163, 15);
 }
 
 #g4 {

@@ -4,37 +4,39 @@
       <p id="header-text">Add Items to Menu</p>
     </div>
     <div id="form-div">
-      <form id="dropdown" v-on:submit.prevent="findExternalFoods">
+      <form class="form" v-on:submit.prevent="findExternalFoods">
         <div class="transbox">
-          <label for="ingredient">Ingredient:</label>
+          <label class="label" for="ingredient">Ingredient:</label>
           <input
             type="text"
             name="ingredient"
             id="ingredient"
             v-model="ingredient"
           />
+
+          <div>
+            <label class="label" for="restriction">Dietary Restriction:</label>
+            <select name="restriction" id="restriction" v-model="restriction">
+              <option value="">&nbsp;</option>
+              <option value="gluten-free">Gluten-free</option>
+              <option value="tree-nut-free">Tree nut-free</option>
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label" for="dishType">Dish Type:</label>
+            <select name="dishType" id="dishType" v-model="dishType">
+              <option value="">&nbsp;</option>
+              <option value="generic-meals">Homemade Plates</option>
+              <option value="fast-foods">Fast Food Grabs</option>
+              <option value="packaged-foods">Pre-made Options</option>
+            </select>
+          </div>
         </div>
         <div>
-          <label for="restriction">Dietary Restriction:</label>
-          <select name="restriction" id="restriction" v-model="restriction">
-            <option value="">&nbsp;</option>
-            <option value="gluten-free">Gluten-free</option>
-            <option value="tree-nut-free">Tree nut-free</option>
-            <option value="vegan">Vegan</option>
-            <option value="vegetarian">Vegetarian</option>
-          </select>
-        </div>
-        <div>
-          <label for="dishType">Dish Type:</label>
-          <select name="dishType" id="dishType" v-model="dishType">
-            <option value="">&nbsp;</option>
-            <option value="generic-meals">Homemade Plates</option>
-            <option value="fast-foods">Fast Food Grabs</option>
-            <option value="packaged-foods">Pre-made Options</option>
-          </select>
-        </div>
-        <div>
-          <input type="submit" value="Search" />
+          <p><input type="submit" value="Search" /></p>
         </div>
       </form>
       <form id="add-form" v-on:submit.prevent="submitFoodsToMenu">
@@ -50,7 +52,7 @@
             v-model="selectedFoods"
             v-on:click="menuCreated = false"
           />
-          {{ food.name }}
+          <div>{{ food.name }}</div>
           <select name="category" id="category" v-model="food.category">
             <option value="Main">Main</option>
             <option value="Side">Side</option>
@@ -58,7 +60,7 @@
             <option value="Drink">Drink</option>
           </select>
         </div>
-        <div>
+        <div class="addSelected">
           <input type="submit" value="Add Selected to Menu" />
         </div>
       </form>
@@ -177,78 +179,61 @@ export default {
   line-height: 0.9;
 }
 
-label {
-  vertical-align: middle;
-  display: inline-block;
-  width: 150px;
-  text-align: right;
-  margin-right: 0.5rem;
-  font-weight: 200;
-}
-
-div {
-  margin-bottom: 10px;
-}
-
-#menu-details {
-  background-color: #bb2b1b;
-  border-radius: 10px;
-  margin-top: 5px;
-  margin-right: 5px;
-  width: 1fr;
-}
-
 #form-div {
-  display: flex;
-  flex-direction: column;
   margin-left: 20%;
   margin-right: 20%;
-  background-size: cover;
-  align-items: left;
-  justify-content: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   padding: 5px;
   border-radius: 10px;
   background-color: #bb2b1b;
 }
 
-#dropdown {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
+.form {
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 20px;
 }
 
-#ingredient {
-  margin-right: 6rem;
+.transbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-#restriction {
-  margin-right: 10rem;
+.label {
+  font-family: "Kanit", Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 1.2em;
 }
 
+#ingredient,
+#restriction,
 #dishType {
-  margin-right: 8rem;
+  display: flex;
+  width: 20em;
 }
 
 #add-form {
-  flex-direction: row;
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 #add-div {
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   background-color: rgb(231, 163, 15);
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: 5px;
   padding-left: 5px;
   border-radius: 10px;
+  border: 2px solid black;
+  margin-top: .25em;
+  width: 40%;
 }
 
 #category {
@@ -267,6 +252,17 @@ input {
   font-weight: 300;
 }
 
+.addSelected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: .5em;
+}
+.addSelected > input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 select {
   background-color: rgb(231, 163, 15);
   border-radius: 10px;

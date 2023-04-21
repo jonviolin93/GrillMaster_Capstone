@@ -6,14 +6,17 @@
     <div>
       <h1>ORDERS</h1>
     </div>
-    <div id="align" class="flexbox">
+    <div class="flexbox">
       <div
         id="order-boxes"
         v-for="order in this.$store.state.orders"
         v-bind:key="order.id"
         v-show="!order.complete"
       >
-        {{ order.username }} | Time: {{ order.time }}
+        <div class="nameandtime">
+          <p>{{ order.username }}</p>
+          <p>Time: {{ order.time }}</p>
+        </div>
         <div id="order-food">
           <div
             id="order-food"
@@ -26,7 +29,6 @@
         <button v-if="!order.complete" v-on:click="bumpOrder(order.id)">
           BUMP
         </button>
-        <p id="order-up" v-else>ORDER UP!</p>
       </div>
     </div>
   </div>
@@ -103,58 +105,44 @@ h1 {
   flex-direction: column;
 }
 
+#order-boxes {
+  display: flex;
+  margin-top: 8px;
+  padding: 10px;
+  gap: 1em;
+}
+
+.nameandtime {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  white-space: nowrap;
+  width: 15%;
+}
+
+.nameandtime > p {
+  margin: 0;
+}
+
+#order-food {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  background-color: rgb(231, 163, 15);
+  border-radius: 15px;
+  flex: 1 1 0%;
+}
+
 button {
   display: inline-block;
   background-color: #bb2b1b;
   border-radius: 10px;
-  margin: 8px;
-  width: 20%;
-  height: 20%;
   font-family: "Kanit", Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-weight: 300;
   color: white;
-}
-
-#order-boxes {
-  background-color: rgb(231, 163, 15);
-  display: inline-flex;
-  border: black;
-  border-radius: 15px 15px 15px 15px;
-  max-width: 100%;
-  margin-top: 8px;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: black;
-  flex-basis: 0 0 1;
-}
-
-div#order-food {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-color: rgb(231, 163, 15);
-  border-radius: 15px;
-  width: 90%;
-}
-
-div#align {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-
-#order-up {
-  display: inline-block;
-  background-color: #bb2b1b;
-  border-radius: 10px;
-  margin: 8px;
-  border: black;
-  border-width: 10px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 80%;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 @media (max-width: 769px) {
@@ -162,16 +150,8 @@ div#align {
     max-width: 100%;
   }
 
-  #flexbox {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-}
-
-@media (max-width: 35em) {
-  #flexbox {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+  #order-boxes {
+    flex-direction: column;
   }
 }
 </style>
